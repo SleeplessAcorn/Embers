@@ -10,26 +10,26 @@ import teamroots.embers.model.ModelManager;
 
 public class RenderAncientGolem extends RenderLiving<EntityAncientGolem> {
 
-	public RenderAncientGolem(RenderManager renderManager, ModelBase modelBase, float shadowSize) {
-		super(renderManager, modelBase, shadowSize);
-	}
-	
-	@Override
-	public boolean canRenderName(EntityAncientGolem entity){
-		return false;
-	}
+    public RenderAncientGolem(RenderManager renderManager, ModelBase modelBase, float shadowSize) {
+        super(renderManager, modelBase, shadowSize);
+    }
 
-	@Override
-	protected ResourceLocation getEntityTexture(EntityAncientGolem entity) {
-		return new ResourceLocation("embers:textures/entity/golem.png");
-	}
-	
-	public static class Factory implements IRenderFactory<EntityAncientGolem> {
+    @Override
+    public boolean canRenderName(EntityAncientGolem entity) {
+        return false;
+    }
 
-		@Override
-		public Render<? super EntityAncientGolem> createRenderFor(RenderManager manager) {
-			return new RenderAncientGolem(manager, ModelManager.models.get("ancientGolem"), 0.5f);
-		}
-		
-	}
+    @Override
+    protected ResourceLocation getEntityTexture(EntityAncientGolem entity) {
+        return new ResourceLocation("embers:textures/entity/golem.png");
+    }
+
+    public static class Factory implements IRenderFactory<EntityAncientGolem> {
+
+        @Override
+        public Render<? super EntityAncientGolem> createRenderFor(RenderManager manager) {
+            return new RenderAncientGolem(manager, ModelManager.models.get("ancientGolem"), 0.5f);
+        }
+
+    }
 }

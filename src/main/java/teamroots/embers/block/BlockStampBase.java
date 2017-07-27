@@ -13,39 +13,39 @@ import net.minecraft.world.World;
 import teamroots.embers.tileentity.TileEntityStampBase;
 
 public class BlockStampBase extends BlockTEBase {
-	public static final PropertyDirection facing = PropertyDirection.create("facing");
-	
-	public BlockStampBase(Material material, String name, boolean addToTab) {
-		super(material, name, addToTab);
-	}
-	
-	@Override
-	public BlockStateContainer createBlockState(){
-		return new BlockStateContainer(this, facing);
-	}
-	
-	@Override
-	public int getMetaFromState(IBlockState state){
-		return state.getValue(facing).getIndex();
-	}
-	
-	@Override
-	public IBlockState getStateFromMeta(int meta){
-		return getDefaultState().withProperty(facing,EnumFacing.getFront(meta));
-	}
-	
-	@Override
-	public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing face, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer){
-		return getDefaultState().withProperty(facing, EnumFacing.DOWN);
-	}
-	
-	@Override
-	public boolean isSideSolid(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing side){
-		return side != state.getValue(facing);
-	}
+    public static final PropertyDirection facing = PropertyDirection.create("facing");
 
-	@Override
-	public TileEntity createNewTileEntity(World worldIn, int meta) {
-		return new TileEntityStampBase();
-	}
+    public BlockStampBase(Material material, String name, boolean addToTab) {
+        super(material, name, addToTab);
+    }
+
+    @Override
+    public BlockStateContainer createBlockState() {
+        return new BlockStateContainer(this, facing);
+    }
+
+    @Override
+    public int getMetaFromState(IBlockState state) {
+        return state.getValue(facing).getIndex();
+    }
+
+    @Override
+    public IBlockState getStateFromMeta(int meta) {
+        return getDefaultState().withProperty(facing, EnumFacing.getFront(meta));
+    }
+
+    @Override
+    public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing face, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
+        return getDefaultState().withProperty(facing, EnumFacing.DOWN);
+    }
+
+    @Override
+    public boolean isSideSolid(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing side) {
+        return side != state.getValue(facing);
+    }
+
+    @Override
+    public TileEntity createNewTileEntity(World worldIn, int meta) {
+        return new TileEntityStampBase();
+    }
 }

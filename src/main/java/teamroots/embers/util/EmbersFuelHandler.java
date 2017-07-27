@@ -6,11 +6,11 @@ import teamroots.embers.RegistryManager;
 
 public class EmbersFuelHandler implements IFuelHandler {
 
-	@Override
-	public int getBurnTime(ItemStack fuel) {
-		if (fuel.getItem() == RegistryManager.dust_ash){
-			return 200;
-		}
-		return 0;
-	}
+    @Override
+    public int getBurnTime(ItemStack fuel) {
+        if (fuel.getItem() == RegistryManager.dust_ash) {
+            return 200;
+        }
+        return 0;
+    }
 }

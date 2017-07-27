@@ -8,14 +8,14 @@ import net.minecraft.world.World;
 import teamroots.embers.tileentity.TileEntityMechCore;
 
 public class BlockMechCore extends BlockTEBase implements ITileEntityProvider {
-	public static final PropertyDirection facing = PropertyDirection.create("facing");
-	
-	public BlockMechCore(Material material, String name, boolean addToTab) {
-		super(material, name, addToTab);
-	}
+    public static final PropertyDirection facing = PropertyDirection.create("facing");
 
-	@Override
-	public TileEntity createNewTileEntity(World worldIn, int meta) {
-		return new TileEntityMechCore();
-	}
+    public BlockMechCore(Material material, String name, boolean addToTab) {
+        super(material, name, addToTab);
+    }
+
+    @Override
+    public TileEntity createNewTileEntity(World worldIn, int meta) {
+        return new TileEntityMechCore();
+    }
 }

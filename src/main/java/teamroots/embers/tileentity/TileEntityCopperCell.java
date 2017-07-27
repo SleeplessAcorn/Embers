@@ -1,10 +1,7 @@
 package teamroots.embers.tileentity;
 
-import javax.annotation.Nullable;
-
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.play.server.SPacketUpdateTileEntity;
@@ -19,82 +16,83 @@ import teamroots.embers.power.DefaultEmberCapability;
 import teamroots.embers.power.EmberCapabilityProvider;
 import teamroots.embers.power.IEmberCapability;
 
+import javax.annotation.Nullable;
+
 public class TileEntityCopperCell extends TileEntity implements ITileEntityBase {
-	public IEmberCapability capability = new DefaultEmberCapability();
-	
-	public TileEntityCopperCell(){
-		super();
-		capability.setEmberCapacity(24000);
-		capability.setEmber(0);
-	}
-	
-	@Override
-	public NBTTagCompound writeToNBT(NBTTagCompound tag){
-		super.writeToNBT(tag);
-		capability.writeToNBT(tag);
-		return tag;
-	}
-	
-	@Override
-	public void readFromNBT(NBTTagCompound tag){
-		super.readFromNBT(tag);
-		capability.readFromNBT(tag);
-	}
+    public IEmberCapability capability = new DefaultEmberCapability();
+    public boolean dirty = false;
 
-	@Override
-	public NBTTagCompound getUpdateTag() {
-		return writeToNBT(new NBTTagCompound());
-	}
+    public TileEntityCopperCell() {
+        super();
+        capability.setEmberCapacity(24000);
+        capability.setEmber(0);
+    }
 
-	@Nullable
-	@Override
-	public SPacketUpdateTileEntity getUpdatePacket() {
-		return new SPacketUpdateTileEntity(getPos(), 0, getUpdateTag());
-	}
+    @Override
+    public NBTTagCompound writeToNBT(NBTTagCompound tag) {
+        super.writeToNBT(tag);
+        capability.writeToNBT(tag);
+        return tag;
+    }
 
-	@Override
-	public void onDataPacket(NetworkManager net, SPacketUpdateTileEntity pkt) {
-		readFromNBT(pkt.getNbtCompound());
-	}
+    @Override
+    public void readFromNBT(NBTTagCompound tag) {
+        super.readFromNBT(tag);
+        capability.readFromNBT(tag);
+    }
 
-	@Override
-	public boolean activate(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand,
-			EnumFacing side, float hitX, float hitY, float hitZ) {
-		return false;
-	}
-	
-	public boolean dirty = false;
-	
-	@Override
-	public void markForUpdate(){
-		EventManager.markTEForUpdate(getPos(), this);
-	}
-	
-	@Override
-	public void markDirty(){
-		markForUpdate();
-		super.markDirty();
-	}
+    @Override
+    public NBTTagCompound getUpdateTag() {
+        return writeToNBT(new NBTTagCompound());
+    }
 
-	@Override
-	public void breakBlock(World world, BlockPos pos, IBlockState state, EntityPlayer player) {
-		this.invalidate();
-		world.setTileEntity(pos, null);
-	}
-	
-	@Override
-	public boolean hasCapability(Capability<?> capability, EnumFacing facing){
-		if (capability == EmberCapabilityProvider.emberCapability){
-			return true;
-		}
-		return super.hasCapability(capability, facing);
-	}
-	
-	@Override
-	public <T> T getCapability(Capability<T> capability, EnumFacing facing){
-		if (capability == EmberCapabilityProvider.emberCapability){
-			return (T)this.capability;
-		}
-		return super.getCapability(capability, facing);
-	}
+    @Nullable
+    @Override
+    public SPacketUpdateTileEntity getUpdatePacket() {
+        return new SPacketUpdateTileEntity(getPos(), 0, getUpdateTag());
+    }
+
+    @Override
+    public void onDataPacket(NetworkManager net, SPacketUpdateTileEntity pkt) {
+        readFromNBT(pkt.getNbtCompound());
+    }
+
+    @Override
+    public boolean activate(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand,
+                            EnumFacing side, float hitX, float hitY, float hitZ) {
+        return false;
+    }
+
+    @Override
+    public void markForUpdate() {
+        EventManager.markTEForUpdate(getPos(), this);
+    }
+
+    @Override
+    public void markDirty() {
+        markForUpdate();
+        super.markDirty();
+    }
+
+    @Override
+    public void breakBlock(World world, BlockPos pos, IBlockState state, EntityPlayer player) {
+        this.invalidate();
+        world.setTileEntity(pos, null);
+    }
+
+    @Override
+    public boolean hasCapability(Capability<?> capability, EnumFacing facing) {
+        if (capability == EmberCapabilityProvider.emberCapability) {
+            return true;
+        }
+        return super.hasCapability(capability, facing);
+    }
+
+    @Override
+    public <T> T getCapability(Capability<T> capability, EnumFacing facing) {
+        if (capability == EmberCapabilityProvider.emberCapability) {
+            return (T) this.capability;
+        }
+        return super.getCapability(capability, facing);
+    }
 }

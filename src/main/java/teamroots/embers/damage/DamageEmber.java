@@ -4,8 +4,8 @@ import net.minecraft.util.DamageSource;
 
 public class DamageEmber extends DamageSource {
 
-	public DamageEmber() {
-		super("ember");
-		this.setMagicDamage();
-	}
+    public DamageEmber() {
+        super("ember");
+        this.setMagicDamage();
+    }
 }

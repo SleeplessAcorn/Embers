@@ -6,13 +6,13 @@ import net.minecraft.world.World;
 import teamroots.embers.tileentity.TileEntityCinderPlinth;
 
 public class BlockCinderPlinth extends BlockTEBase {
-	
-	public BlockCinderPlinth(Material material, String name, boolean addToTab) {
-		super(material, name, addToTab);
-	}
 
-	@Override
-	public TileEntity createNewTileEntity(World worldIn, int meta) {
-		return new TileEntityCinderPlinth();
-	}
+    public BlockCinderPlinth(Material material, String name, boolean addToTab) {
+        super(material, name, addToTab);
+    }
+
+    @Override
+    public TileEntity createNewTileEntity(World worldIn, int meta) {
+        return new TileEntityCinderPlinth();
+    }
 }

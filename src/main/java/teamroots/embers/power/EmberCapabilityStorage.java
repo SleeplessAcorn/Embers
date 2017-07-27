@@ -7,15 +7,15 @@ import net.minecraftforge.common.capabilities.Capability.IStorage;
 
 public class EmberCapabilityStorage implements IStorage<IEmberCapability> {
 
-	@Override
-	public NBTBase writeNBT(Capability<IEmberCapability> capability, IEmberCapability instance, EnumFacing side) {
-		return null;
-	}
+    @Override
+    public NBTBase writeNBT(Capability<IEmberCapability> capability, IEmberCapability instance, EnumFacing side) {
+        return null;
+    }
 
-	@Override
-	public void readNBT(Capability<IEmberCapability> capability, IEmberCapability instance, EnumFacing side,
-			NBTBase nbt) {
-		
-	}
+    @Override
+    public void readNBT(Capability<IEmberCapability> capability, IEmberCapability instance, EnumFacing side,
+                        NBTBase nbt) {
+
+    }
 
 }

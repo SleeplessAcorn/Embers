@@ -15,21 +15,21 @@ import teamroots.embers.util.EmberGenUtil;
 import teamroots.embers.util.ItemModUtil;
 
 public class CommonProxy {
-	
-	public void preInit(FMLPreInitializationEvent event){
-		Fields.init();
-		PacketHandler.registerMessages();
-		RegistryManager.registerAll();
-		EmberGenUtil.init();
-		ItemModUtil.init();
-		ResearchManager.initResearches();
-	}
-	
-	public void init(FMLInitializationEvent event){
-		RecipeRegistry.initOreDict();
-	}
-	
-	public void postInit(FMLPostInitializationEvent event){
-		NetworkRegistry.INSTANCE.registerGuiHandler(Embers.instance, new GuiHandler());
-	}
+
+    public void preInit(FMLPreInitializationEvent event) {
+        Fields.init();
+        PacketHandler.registerMessages();
+        RegistryManager.registerAll();
+        EmberGenUtil.init();
+        ItemModUtil.init();
+        ResearchManager.initResearches();
+    }
+
+    public void init(FMLInitializationEvent event) {
+        RecipeRegistry.initOreDict();
+    }
+
+    public void postInit(FMLPostInitializationEvent event) {
+        NetworkRegistry.INSTANCE.registerGuiHandler(Embers.instance, new GuiHandler());
+    }
 }

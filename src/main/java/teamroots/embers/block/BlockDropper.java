@@ -10,19 +10,19 @@ import net.minecraft.world.World;
 import teamroots.embers.tileentity.TileEntityDropper;
 
 public class BlockDropper extends BlockTEBase {
-	public static AxisAlignedBB AABB_BASE = new AxisAlignedBB(0.25,0.625,0.25,0.75,1.0,0.75);
-	
-	public BlockDropper(Material material, String name, boolean addToTab) {
-		super(material, name, addToTab);
-	}
-	
-	@Override
-	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos){
-		return AABB_BASE;
-	}
+    public static AxisAlignedBB AABB_BASE = new AxisAlignedBB(0.25, 0.625, 0.25, 0.75, 1.0, 0.75);
 
-	@Override
-	public TileEntity createNewTileEntity(World worldIn, int meta) {
-		return new TileEntityDropper();
-	}
+    public BlockDropper(Material material, String name, boolean addToTab) {
+        super(material, name, addToTab);
+    }
+
+    @Override
+    public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
+        return AABB_BASE;
+    }
+
+    @Override
+    public TileEntity createNewTileEntity(World worldIn, int meta) {
+        return new TileEntityDropper();
+    }
 }

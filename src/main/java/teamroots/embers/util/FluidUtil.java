@@ -11,21 +11,21 @@ import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.IFluidBlock;
 
 public class FluidUtil {
-	public static FluidStack getFluid(World world, BlockPos pos, IBlockState state){
-		if (state.getBlock() instanceof IFluidBlock && ((IFluidBlock)state.getBlock()).canDrain(world, pos)){
-			return new FluidStack(((BlockFluidBase)state.getBlock()).getFluid(),1000);
-		}
-		if (state.getBlock() instanceof BlockStaticLiquid){
-			if (state.getValue(BlockStaticLiquid.LEVEL) == 0){
-				if (state.getBlock() == Blocks.WATER){
-					return new FluidStack(FluidRegistry.WATER,1000);
-				}
-				if (state.getBlock() == Blocks.LAVA){
-					return new FluidStack(FluidRegistry.LAVA,1000);
-				}
-			}
-		}
-		
-		return null;
-	}
+    public static FluidStack getFluid(World world, BlockPos pos, IBlockState state) {
+        if (state.getBlock() instanceof IFluidBlock && ((IFluidBlock) state.getBlock()).canDrain(world, pos)) {
+            return new FluidStack(((BlockFluidBase) state.getBlock()).getFluid(), 1000);
+        }
+        if (state.getBlock() instanceof BlockStaticLiquid) {
+            if (state.getValue(BlockStaticLiquid.LEVEL) == 0) {
+                if (state.getBlock() == Blocks.WATER) {
+                    return new FluidStack(FluidRegistry.WATER, 1000);
+                }
+                if (state.getBlock() == Blocks.LAVA) {
+                    return new FluidStack(FluidRegistry.LAVA, 1000);
+                }
+            }
+        }
+
+        return null;
+    }
 }
