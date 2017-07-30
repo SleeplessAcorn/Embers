@@ -10,7 +10,7 @@ import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
-import teamroots.embers.ConfigManager;
+import teamroots.embers.ConfigHandler;
 import teamroots.embers.Embers;
 import teamroots.embers.block.*;
 import teamroots.embers.fluid.FluidMoltenIron;
@@ -276,25 +276,25 @@ public class RegistrarEmbersBlocks {
         //blocks.add((new BlockSteamEngine(Material.ROCK,"steam_engine",true)).setIsFullCube(false).setIsOpaqueCube(false).setHarvestProperties("pickaxe", 0).setHardness(1.0f));
         //blocks.add((new BlockPump(Material.ROCK,"mechanical_pump",true)).setIsFullCube(false).setIsOpaqueCube(false).setHarvestProperties("pickaxe", 0).setHardness(1.0f));
 
-        if (ConfigManager.enableAluminum) {
+        if (ConfigHandler.compat.enableAluminum) {
             blocks.add((new BlockBase(Material.ROCK, "block_aluminum", true)).setBeaconBase(true).setHarvestProperties("pickaxe", 1).setHardness(1.6f).setLightOpacity(16).setCreativeTab(Embers.TAB_RESOURCE));
             blocks.add((new BlockBase(Material.ROCK, "ore_aluminum", true)).setIsFullCube(true).setIsOpaqueCube(true).setHarvestProperties("pickaxe", 1).setHardness(1.6f).setLightOpacity(16).setCreativeTab(Embers.TAB_RESOURCE));
         }
 
-        if (ConfigManager.enableBronze) {
+        if (ConfigHandler.compat.enableBronze) {
             blocks.add((new BlockBase(Material.ROCK, "block_bronze", true)).setBeaconBase(true).setHarvestProperties("pickaxe", 1).setHardness(2.3f).setLightOpacity(16).setCreativeTab(Embers.TAB_RESOURCE));
         }
 
-        if (ConfigManager.enableElectrum) {
+        if (ConfigHandler.compat.enableElectrum) {
             blocks.add((new BlockBase(Material.ROCK, "block_electrum", true)).setBeaconBase(true).setHarvestProperties("pickaxe", 1).setHardness(1.6f).setLightOpacity(16).setCreativeTab(Embers.TAB_RESOURCE));
         }
 
-        if (ConfigManager.enableNickel) {
+        if (ConfigHandler.compat.enableNickel) {
             blocks.add((new BlockBase(Material.ROCK, "block_nickel", true)).setBeaconBase(true).setHarvestProperties("pickaxe", 1).setHardness(2.2f).setLightOpacity(16).setCreativeTab(Embers.TAB_RESOURCE));
             blocks.add((new BlockBase(Material.ROCK, "ore_nickel", true)).setIsFullCube(true).setIsOpaqueCube(true).setHarvestProperties("pickaxe", 1).setHardness(2.2f).setLightOpacity(16).setCreativeTab(Embers.TAB_RESOURCE));
         }
 
-        if (ConfigManager.enableTin) {
+        if (ConfigHandler.compat.enableTin) {
             blocks.add((new BlockBase(Material.ROCK, "block_tin", true)).setBeaconBase(true).setHarvestProperties("pickaxe", 1).setHardness(1.3f).setLightOpacity(16).setCreativeTab(Embers.TAB_RESOURCE));
             blocks.add((new BlockBase(Material.ROCK, "ore_tin", true)).setIsFullCube(true).setIsOpaqueCube(true).setHarvestProperties("pickaxe", 1).setHardness(1.3f).setLightOpacity(16).setCreativeTab(Embers.TAB_RESOURCE));
         }

@@ -15,7 +15,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import teamroots.embers.ConfigManager;
+import teamroots.embers.ConfigHandler;
 import teamroots.embers.Embers;
 import teamroots.embers.block.IBlock;
 import teamroots.embers.block.IModeledBlock;
@@ -310,7 +310,7 @@ public class RegistrarEmbersItems {
         items.add(new ItemBase("intelligent_apparatus", true));
         items.add(new ItemBase("archaic_circuit", true));
 
-        if (ConfigManager.enableAluminum) {
+        if (ConfigHandler.compat.enableAluminum) {
             toolMaterialAluminum = EnumHelper.addToolMaterial(Embers.MODID + ":aluminum", 2, 220, 5.2f, 1.5f, 14);
             items.add(new ItemBase("ingot_aluminum", true).setCreativeTab(Embers.TAB_RESOURCE));
             items.add(new ItemBase("plate_aluminum", true).setCreativeTab(Embers.TAB_RESOURCE));
@@ -323,7 +323,7 @@ public class RegistrarEmbersItems {
             toolMaterialAluminum.setRepairItem(new ItemStack(INGOT_ALUMINUM));
         }
 
-        if (ConfigManager.enableBronze) {
+        if (ConfigHandler.compat.enableBronze) {
             toolMaterialBronze = EnumHelper.addToolMaterial(Embers.MODID + ":bronze", 2, 510, 6.5f, 2.0f, 20);
             items.add(new ItemBase("ingot_bronze", true).setCreativeTab(Embers.TAB_RESOURCE));
             items.add(new ItemBase("plate_bronze", true).setCreativeTab(Embers.TAB_RESOURCE));
@@ -336,7 +336,7 @@ public class RegistrarEmbersItems {
             toolMaterialBronze.setRepairItem(new ItemStack(INGOT_BRONZE));
         }
 
-        if (ConfigManager.enableElectrum) {
+        if (ConfigHandler.compat.enableElectrum) {
             toolMaterialElectrum = EnumHelper.addToolMaterial(Embers.MODID + ":electrum", 2, 71, 10.8f, 1.0f, 30);
             items.add(new ItemBase("ingot_electrum", true).setCreativeTab(Embers.TAB_RESOURCE));
             items.add(new ItemBase("plate_electrum", true).setCreativeTab(Embers.TAB_RESOURCE));
@@ -349,7 +349,7 @@ public class RegistrarEmbersItems {
             toolMaterialElectrum.setRepairItem(new ItemStack(INGOT_ELECTRUM));
         }
 
-        if (ConfigManager.enableNickel) {
+        if (ConfigHandler.compat.enableNickel) {
             toolMaterialNickel = EnumHelper.addToolMaterial(Embers.MODID + ":nickel", 2, 331, 6.4f, 2.0f, 18);
             items.add(new ItemBase("ingot_nickel", true).setCreativeTab(Embers.TAB_RESOURCE));
             items.add(new ItemBase("plate_nickel", true).setCreativeTab(Embers.TAB_RESOURCE));
@@ -362,7 +362,7 @@ public class RegistrarEmbersItems {
             toolMaterialNickel.setRepairItem(new ItemStack(INGOT_NICKEL));
         }
 
-        if (ConfigManager.enableTin) {
+        if (ConfigHandler.compat.enableTin) {
             toolMaterialTin = EnumHelper.addToolMaterial(Embers.MODID + ":tin", 1, 145, 4.9f, 1.0f, 12);
             items.add(new ItemBase("ingot_tin", true).setCreativeTab(Embers.TAB_RESOURCE));
             items.add(new ItemBase("plate_tin", true).setCreativeTab(Embers.TAB_RESOURCE));

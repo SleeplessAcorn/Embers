@@ -14,7 +14,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
-import teamroots.embers.ConfigManager;
+import teamroots.embers.ConfigHandler;
 import teamroots.embers.Embers;
 import teamroots.embers.item.EnumStampType;
 import teamroots.embers.registry.RegistrarEmbersBlocks;
@@ -97,7 +97,7 @@ public class RecipeRegistry {
                 RegistrarEmbersItems.HOE_DAWNSTONE,
                 RegistrarEmbersItems.SWORD_DAWNSTONE);
 
-        if (ConfigManager.enableAluminum) {
+        if (ConfigHandler.compat.enableAluminum) {
             RecipeRegistry.registerMaterialSet(event, "ingotAluminum", "nuggetAluminum", "blockAluminum",
                     RegistrarEmbersItems.INGOT_ALUMINUM,
                     RegistrarEmbersItems.NUGGET_ALUMINUM,
@@ -110,7 +110,7 @@ public class RecipeRegistry {
                     RegistrarEmbersItems.SWORD_ALUMINUM);
         }
 
-        if (ConfigManager.enableBronze) {
+        if (ConfigHandler.compat.enableBronze) {
             RecipeRegistry.registerMaterialSet(event, "ingotBronze", "nuggetBronze", "blockBronze",
                     RegistrarEmbersItems.INGOT_BRONZE,
                     RegistrarEmbersItems.NUGGET_BRONZE,
@@ -123,7 +123,7 @@ public class RecipeRegistry {
                     RegistrarEmbersItems.SWORD_BRONZE);
         }
 
-        if (ConfigManager.enableElectrum) {
+        if (ConfigHandler.compat.enableElectrum) {
             RecipeRegistry.registerMaterialSet(event, "ingotElectrum", "nuggetElectrum", "blockElectrum",
                     RegistrarEmbersItems.INGOT_ELECTRUM,
                     RegistrarEmbersItems.NUGGET_ELECTRUM,
@@ -136,7 +136,7 @@ public class RecipeRegistry {
                     RegistrarEmbersItems.SWORD_ELECTRUM);
         }
 
-        if (ConfigManager.enableNickel) {
+        if (ConfigHandler.compat.enableNickel) {
             RecipeRegistry.registerMaterialSet(event, "ingotNickel", "nuggetNickel", "blockNickel",
                     RegistrarEmbersItems.INGOT_NICKEL,
                     RegistrarEmbersItems.NUGGET_NICKEL,
@@ -149,7 +149,7 @@ public class RecipeRegistry {
                     RegistrarEmbersItems.SWORD_NICKEL);
         }
 
-        if (ConfigManager.enableTin) {
+        if (ConfigHandler.compat.enableTin) {
             RecipeRegistry.registerMaterialSet(event, "ingotTin", "nuggetTin", "blockTin",
                     RegistrarEmbersItems.INGOT_TIN,
                     RegistrarEmbersItems.NUGGET_TIN,
@@ -787,13 +787,13 @@ public class RecipeRegistry {
         GameRegistry.addSmelting(new ItemStack(RegistrarEmbersBlocks.ORE_COPPER), new ItemStack(RegistrarEmbersItems.INGOT_COPPER), 0.65f);
         GameRegistry.addSmelting(new ItemStack(RegistrarEmbersBlocks.ORE_SILVER), new ItemStack(RegistrarEmbersItems.INGOT_SILVER), 0.35f);
         GameRegistry.addSmelting(new ItemStack(RegistrarEmbersBlocks.ORE_LEAD), new ItemStack(RegistrarEmbersItems.INGOT_LEAD), 0.35f);
-        if (ConfigManager.enableAluminum) {
+        if (ConfigHandler.compat.enableAluminum) {
             GameRegistry.addSmelting(new ItemStack(RegistrarEmbersBlocks.ORE_ALUMINUM), new ItemStack(RegistrarEmbersItems.INGOT_ALUMINUM), 0.55f);
         }
-        if (ConfigManager.enableTin) {
+        if (ConfigHandler.compat.enableTin) {
             GameRegistry.addSmelting(new ItemStack(RegistrarEmbersBlocks.ORE_TIN), new ItemStack(RegistrarEmbersItems.INGOT_TIN), 0.55f);
         }
-        if (ConfigManager.enableNickel) {
+        if (ConfigHandler.compat.enableNickel) {
             GameRegistry.addSmelting(new ItemStack(RegistrarEmbersBlocks.ORE_NICKEL), new ItemStack(RegistrarEmbersItems.INGOT_NICKEL), 0.55f);
         }
         GameRegistry.addSmelting(new ItemStack(RegistrarEmbersBlocks.ORE_QUARTZ), new ItemStack(Items.QUARTZ), 0.35f);
@@ -829,21 +829,21 @@ public class RecipeRegistry {
         meltingOreRecipes.add(new ItemMeltingOreRecipe("nuggetLead", new FluidStack(RegistrarEmbersBlocks.FLUID_MOLTEN_LEAD, 16)));
         meltingOreRecipes.add(new ItemMeltingOreRecipe("plateLead", new FluidStack(RegistrarEmbersBlocks.FLUID_MOLTEN_LEAD, 144)));
 
-        if (ConfigManager.enableAluminum) {
+        if (ConfigHandler.compat.enableAluminum) {
             meltingOreRecipes.add(new ItemMeltingOreRecipe("oreAluminum", new FluidStack(RegistrarEmbersBlocks.FLUID_MOLTEN_ALUMINUM, 288)));
             meltingOreRecipes.add(new ItemMeltingOreRecipe("ingotAluminum", new FluidStack(RegistrarEmbersBlocks.FLUID_MOLTEN_ALUMINUM, 144)));
             meltingOreRecipes.add(new ItemMeltingOreRecipe("nuggetAluminum", new FluidStack(RegistrarEmbersBlocks.FLUID_MOLTEN_ALUMINUM, 16)));
             meltingOreRecipes.add(new ItemMeltingOreRecipe("plateAluminum", new FluidStack(RegistrarEmbersBlocks.FLUID_MOLTEN_ALUMINUM, 144)));
         }
 
-        if (ConfigManager.enableNickel) {
+        if (ConfigHandler.compat.enableNickel) {
             meltingOreRecipes.add(new ItemMeltingOreRecipe("oreNickel", new FluidStack(RegistrarEmbersBlocks.FLUID_MOLTEN_NICKEL, 288)));
             meltingOreRecipes.add(new ItemMeltingOreRecipe("ingotNickel", new FluidStack(RegistrarEmbersBlocks.FLUID_MOLTEN_NICKEL, 144)));
             meltingOreRecipes.add(new ItemMeltingOreRecipe("nuggetNickel", new FluidStack(RegistrarEmbersBlocks.FLUID_MOLTEN_NICKEL, 16)));
             meltingOreRecipes.add(new ItemMeltingOreRecipe("plateNickel", new FluidStack(RegistrarEmbersBlocks.FLUID_MOLTEN_NICKEL, 144)));
         }
 
-        if (ConfigManager.enableTin) {
+        if (ConfigHandler.compat.enableTin) {
             meltingOreRecipes.add(new ItemMeltingOreRecipe("oreTin", new FluidStack(RegistrarEmbersBlocks.FLUID_MOLTEN_TIN, 288)));
             meltingOreRecipes.add(new ItemMeltingOreRecipe("ingotTin", new FluidStack(RegistrarEmbersBlocks.FLUID_MOLTEN_TIN, 144)));
             meltingOreRecipes.add(new ItemMeltingOreRecipe("nuggetTin", new FluidStack(RegistrarEmbersBlocks.FLUID_MOLTEN_TIN, 16)));
@@ -854,13 +854,13 @@ public class RecipeRegistry {
         meltingOreRecipes.add(new ItemMeltingOreRecipe("nuggetDawnstone", new FluidStack(RegistrarEmbersBlocks.FLUID_MOLTEN_DAWNSTONE, 16)));
         meltingOreRecipes.add(new ItemMeltingOreRecipe("plateDawnstone", new FluidStack(RegistrarEmbersBlocks.FLUID_MOLTEN_DAWNSTONE, 144)));
 
-        if (ConfigManager.enableBronze) {
+        if (ConfigHandler.compat.enableBronze) {
             meltingOreRecipes.add(new ItemMeltingOreRecipe("ingotBronze", new FluidStack(RegistrarEmbersBlocks.FLUID_MOLTEN_BRONZE, 144)));
             meltingOreRecipes.add(new ItemMeltingOreRecipe("nuggetBronze", new FluidStack(RegistrarEmbersBlocks.FLUID_MOLTEN_BRONZE, 16)));
             meltingOreRecipes.add(new ItemMeltingOreRecipe("plateBronze", new FluidStack(RegistrarEmbersBlocks.FLUID_MOLTEN_BRONZE, 144)));
         }
 
-        if (ConfigManager.enableElectrum) {
+        if (ConfigHandler.compat.enableElectrum) {
             meltingOreRecipes.add(new ItemMeltingOreRecipe("ingotElectrum", new FluidStack(RegistrarEmbersBlocks.FLUID_MOLTEN_ELECTRUM, 144)));
             meltingOreRecipes.add(new ItemMeltingOreRecipe("nuggetElectrum", new FluidStack(RegistrarEmbersBlocks.FLUID_MOLTEN_ELECTRUM, 16)));
             meltingOreRecipes.add(new ItemMeltingOreRecipe("plateElectrum", new FluidStack(RegistrarEmbersBlocks.FLUID_MOLTEN_ELECTRUM, 144)));
@@ -872,19 +872,19 @@ public class RecipeRegistry {
         stampingRecipes.add(new ItemStampingRecipe(ItemStack.EMPTY, new FluidStack(RegistrarEmbersBlocks.FLUID_MOLTEN_SILVER, 144), EnumStampType.TYPE_BAR, new ItemStack(RegistrarEmbersItems.INGOT_SILVER, 1), false, false));
         stampingRecipes.add(new ItemStampingRecipe(ItemStack.EMPTY, new FluidStack(RegistrarEmbersBlocks.FLUID_MOLTEN_COPPER, 144), EnumStampType.TYPE_BAR, new ItemStack(RegistrarEmbersItems.INGOT_COPPER, 1), false, false));
         stampingRecipes.add(new ItemStampingRecipe(ItemStack.EMPTY, new FluidStack(RegistrarEmbersBlocks.FLUID_MOLTEN_DAWNSTONE, 144), EnumStampType.TYPE_BAR, new ItemStack(RegistrarEmbersItems.INGOT_DAWNSTONE, 1), false, false));
-        if (ConfigManager.enableAluminum) {
+        if (ConfigHandler.compat.enableAluminum) {
             stampingRecipes.add(new ItemStampingRecipe(ItemStack.EMPTY, new FluidStack(RegistrarEmbersBlocks.FLUID_MOLTEN_ALUMINUM, 144), EnumStampType.TYPE_BAR, new ItemStack(RegistrarEmbersItems.INGOT_ALUMINUM, 1), false, false));
         }
-        if (ConfigManager.enableBronze) {
+        if (ConfigHandler.compat.enableBronze) {
             stampingRecipes.add(new ItemStampingRecipe(ItemStack.EMPTY, new FluidStack(RegistrarEmbersBlocks.FLUID_MOLTEN_BRONZE, 144), EnumStampType.TYPE_BAR, new ItemStack(RegistrarEmbersItems.INGOT_BRONZE, 1), false, false));
         }
-        if (ConfigManager.enableElectrum) {
+        if (ConfigHandler.compat.enableElectrum) {
             stampingRecipes.add(new ItemStampingRecipe(ItemStack.EMPTY, new FluidStack(RegistrarEmbersBlocks.FLUID_MOLTEN_ELECTRUM, 144), EnumStampType.TYPE_BAR, new ItemStack(RegistrarEmbersItems.INGOT_ELECTRUM, 1), false, false));
         }
-        if (ConfigManager.enableNickel) {
+        if (ConfigHandler.compat.enableNickel) {
             stampingRecipes.add(new ItemStampingRecipe(ItemStack.EMPTY, new FluidStack(RegistrarEmbersBlocks.FLUID_MOLTEN_NICKEL, 144), EnumStampType.TYPE_BAR, new ItemStack(RegistrarEmbersItems.INGOT_NICKEL, 1), false, false));
         }
-        if (ConfigManager.enableTin) {
+        if (ConfigHandler.compat.enableTin) {
             stampingRecipes.add(new ItemStampingRecipe(ItemStack.EMPTY, new FluidStack(RegistrarEmbersBlocks.FLUID_MOLTEN_TIN, 144), EnumStampType.TYPE_BAR, new ItemStack(RegistrarEmbersItems.INGOT_TIN, 1), false, false));
         }
 
@@ -894,19 +894,19 @@ public class RecipeRegistry {
         stampingRecipes.add(new ItemStampingRecipe(ItemStack.EMPTY, new FluidStack(RegistrarEmbersBlocks.FLUID_MOLTEN_SILVER, 144), EnumStampType.TYPE_PLATE, new ItemStack(RegistrarEmbersItems.PLATE_SILVER, 1), false, false));
         stampingRecipes.add(new ItemStampingRecipe(ItemStack.EMPTY, new FluidStack(RegistrarEmbersBlocks.FLUID_MOLTEN_COPPER, 144), EnumStampType.TYPE_PLATE, new ItemStack(RegistrarEmbersItems.PLATE_COPPER, 1), false, false));
         stampingRecipes.add(new ItemStampingRecipe(ItemStack.EMPTY, new FluidStack(RegistrarEmbersBlocks.FLUID_MOLTEN_DAWNSTONE, 144), EnumStampType.TYPE_PLATE, new ItemStack(RegistrarEmbersItems.PLATE_DAWNSTONE, 1), false, false));
-        if (ConfigManager.enableAluminum) {
+        if (ConfigHandler.compat.enableAluminum) {
             stampingRecipes.add(new ItemStampingRecipe(ItemStack.EMPTY, new FluidStack(RegistrarEmbersBlocks.FLUID_MOLTEN_ALUMINUM, 144), EnumStampType.TYPE_PLATE, new ItemStack(RegistrarEmbersItems.PLATE_ALUMINUM, 1), false, false));
         }
-        if (ConfigManager.enableBronze) {
+        if (ConfigHandler.compat.enableBronze) {
             stampingRecipes.add(new ItemStampingRecipe(ItemStack.EMPTY, new FluidStack(RegistrarEmbersBlocks.FLUID_MOLTEN_BRONZE, 144), EnumStampType.TYPE_PLATE, new ItemStack(RegistrarEmbersItems.PLATE_BRONZE, 1), false, false));
         }
-        if (ConfigManager.enableElectrum) {
+        if (ConfigHandler.compat.enableElectrum) {
             stampingRecipes.add(new ItemStampingRecipe(ItemStack.EMPTY, new FluidStack(RegistrarEmbersBlocks.FLUID_MOLTEN_ELECTRUM, 144), EnumStampType.TYPE_PLATE, new ItemStack(RegistrarEmbersItems.PLATE_ELECTRUM, 1), false, false));
         }
-        if (ConfigManager.enableNickel) {
+        if (ConfigHandler.compat.enableNickel) {
             stampingRecipes.add(new ItemStampingRecipe(ItemStack.EMPTY, new FluidStack(RegistrarEmbersBlocks.FLUID_MOLTEN_NICKEL, 144), EnumStampType.TYPE_PLATE, new ItemStack(RegistrarEmbersItems.PLATE_NICKEL, 1), false, false));
         }
-        if (ConfigManager.enableTin) {
+        if (ConfigHandler.compat.enableTin) {
             stampingRecipes.add(new ItemStampingRecipe(ItemStack.EMPTY, new FluidStack(RegistrarEmbersBlocks.FLUID_MOLTEN_TIN, 144), EnumStampType.TYPE_PLATE, new ItemStack(RegistrarEmbersItems.PLATE_TIN, 1), false, false));
         }
         stampingRecipes.add(new ItemWasteStampingRecipe());
@@ -918,10 +918,10 @@ public class RecipeRegistry {
         stampingRecipes.add(new ItemStampingRecipe(new ItemStack(RegistrarEmbersItems.SHARD_EMBER, 1), new FluidStack(RegistrarEmbersBlocks.FLUID_MOLTEN_DAWNSTONE, 144), EnumStampType.TYPE_PLATE, new ItemStack(RegistrarEmbersItems.ASPECTUS_DAWNSTONE, 1), false, false));
 
         mixingRecipes.add(new FluidMixingRecipe(new FluidStack[]{new FluidStack(RegistrarEmbersBlocks.FLUID_MOLTEN_COPPER, 4), new FluidStack(RegistrarEmbersBlocks.FLUID_MOLTEN_GOLD, 4)}, new FluidStack(RegistrarEmbersBlocks.FLUID_MOLTEN_DAWNSTONE, 8)));
-        if (ConfigManager.enableElectrum) {
+        if (ConfigHandler.compat.enableElectrum) {
             mixingRecipes.add(new FluidMixingRecipe(new FluidStack[]{new FluidStack(RegistrarEmbersBlocks.FLUID_MOLTEN_SILVER, 4), new FluidStack(RegistrarEmbersBlocks.FLUID_MOLTEN_GOLD, 4)}, new FluidStack(RegistrarEmbersBlocks.FLUID_MOLTEN_ELECTRUM, 8)));
         }
-        if (ConfigManager.enableTin && ConfigManager.enableBronze) {
+        if (ConfigHandler.compat.enableTin && ConfigHandler.compat.enableBronze) {
             mixingRecipes.add(new FluidMixingRecipe(new FluidStack[]{new FluidStack(RegistrarEmbersBlocks.FLUID_MOLTEN_COPPER, 6), new FluidStack(RegistrarEmbersBlocks.FLUID_MOLTEN_TIN, 2)}, new FluidStack(RegistrarEmbersBlocks.FLUID_MOLTEN_BRONZE, 8)));
         }
 
@@ -1056,7 +1056,7 @@ public class RecipeRegistry {
         OreDictionary.registerOre("dustAsh", RegistrarEmbersItems.DUST_ASH);
         OreDictionary.registerOre("dustAshes", RegistrarEmbersItems.DUST_ASH);
 
-        if (ConfigManager.enableAluminum) {
+        if (ConfigHandler.compat.enableAluminum) {
             OreDictionary.registerOre("blockAluminum", RegistrarEmbersBlocks.BLOCK_ALUMINUM);
             OreDictionary.registerOre("ingotAluminum", RegistrarEmbersItems.INGOT_ALUMINUM);
             OreDictionary.registerOre("nuggetAluminum", RegistrarEmbersItems.NUGGET_ALUMINUM);
@@ -1064,7 +1064,7 @@ public class RecipeRegistry {
             OreDictionary.registerOre("oreAluminum", RegistrarEmbersBlocks.ORE_ALUMINUM);
         }
 
-        if (ConfigManager.enableTin) {
+        if (ConfigHandler.compat.enableTin) {
             OreDictionary.registerOre("blockTin", RegistrarEmbersBlocks.BLOCK_TIN);
             OreDictionary.registerOre("ingotTin", RegistrarEmbersItems.INGOT_TIN);
             OreDictionary.registerOre("nuggetTin", RegistrarEmbersItems.NUGGET_TIN);
@@ -1072,7 +1072,7 @@ public class RecipeRegistry {
             OreDictionary.registerOre("oreTin", RegistrarEmbersBlocks.ORE_TIN);
         }
 
-        if (ConfigManager.enableNickel) {
+        if (ConfigHandler.compat.enableNickel) {
             OreDictionary.registerOre("blockNickel", RegistrarEmbersBlocks.BLOCK_NICKEL);
             OreDictionary.registerOre("ingotNickel", RegistrarEmbersItems.INGOT_NICKEL);
             OreDictionary.registerOre("nuggetNickel", RegistrarEmbersItems.NUGGET_NICKEL);
@@ -1080,14 +1080,14 @@ public class RecipeRegistry {
             OreDictionary.registerOre("oreNickel", RegistrarEmbersBlocks.ORE_NICKEL);
         }
 
-        if (ConfigManager.enableBronze) {
+        if (ConfigHandler.compat.enableBronze) {
             OreDictionary.registerOre("blockBronze", RegistrarEmbersBlocks.BLOCK_BRONZE);
             OreDictionary.registerOre("ingotBronze", RegistrarEmbersItems.INGOT_BRONZE);
             OreDictionary.registerOre("nuggetBronze", RegistrarEmbersItems.NUGGET_BRONZE);
             OreDictionary.registerOre("plateBronze", RegistrarEmbersItems.PLATE_BRONZE);
         }
 
-        if (ConfigManager.enableElectrum) {
+        if (ConfigHandler.compat.enableElectrum) {
             OreDictionary.registerOre("blockElectrum", RegistrarEmbersBlocks.BLOCK_ELECTRUM);
             OreDictionary.registerOre("ingotElectrum", RegistrarEmbersItems.INGOT_ELECTRUM);
             OreDictionary.registerOre("nuggetElectrum", RegistrarEmbersItems.NUGGET_ELECTRUM);

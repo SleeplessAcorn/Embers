@@ -22,7 +22,7 @@ import net.minecraftforge.fml.common.registry.EntityRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import teamroots.embers.ConfigManager;
+import teamroots.embers.ConfigHandler;
 import teamroots.embers.Embers;
 import teamroots.embers.entity.*;
 import teamroots.embers.item.ItemEmberCartridge;
@@ -81,7 +81,7 @@ public class RegistrarEmbers {
         biomeEntries.forEach(b -> biomes.add(b.biome));
         biomes.addAll(BiomeManager.oceanBiomes);
 
-        EntityRegistry.addSpawn(EntityAncientGolem.class, ConfigManager.ancientGolemSpawnWeight, 1, 1, EnumCreatureType.MONSTER, biomes.toArray(new Biome[biomes.size()]));
+        EntityRegistry.addSpawn(EntityAncientGolem.class, ConfigHandler.mobs.ancientGolemSpawnWeight, 1, 1, EnumCreatureType.MONSTER, biomes.toArray(new Biome[biomes.size()]));
     }
 
     @SubscribeEvent

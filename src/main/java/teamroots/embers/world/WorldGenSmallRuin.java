@@ -9,7 +9,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraftforge.fml.common.IWorldGenerator;
-import teamroots.embers.ConfigManager;
+import teamroots.embers.ConfigHandler;
 import teamroots.embers.entity.EntityAncientGolem;
 import teamroots.embers.registry.RegistrarEmbersBlocks;
 import teamroots.embers.util.Misc;
@@ -109,12 +109,12 @@ public class WorldGenSmallRuin extends StructureBase implements IWorldGenerator 
         if (world.provider.getDimension() == DimensionType.OVERWORLD.getId() && !world.isRemote) {
             int xx = chunkX * 16 + 13 + Misc.random.nextInt(2);
             int zz = chunkZ * 16 + 13 + Misc.random.nextInt(2);
-            if (ConfigManager.smallRuinChance == 0) {
+            if (ConfigHandler.structures.smallRuinChance == 0) {
                 return;
             }
             if (world.getHeight(xx, zz) > 16) {
                 int yy = 4 + Misc.random.nextInt(world.getHeight(xx, zz));
-                if (random.nextInt(ConfigManager.smallRuinChance) == 0) {
+                if (random.nextInt(ConfigHandler.structures.smallRuinChance) == 0) {
                     if (world.getBlockState(new BlockPos(xx, yy, zz)).getBlock() instanceof BlockStone) {
                         boolean canGenerate = false;
                         BlockPos pos = new BlockPos(xx, yy, zz);

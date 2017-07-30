@@ -6,7 +6,7 @@ import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
-import teamroots.embers.ConfigManager;
+import teamroots.embers.ConfigHandler;
 import teamroots.embers.registry.RegistrarEmbersItems;
 
 import java.util.HashMap;
@@ -101,21 +101,21 @@ public class EmberGenUtil {
         registerMetalCoefficient("blockGold", 1.0f);
         registerMetalCoefficient("blockSilver", 1.0f);
         registerMetalCoefficient("blockCopper", 1.0f);
-        if (ConfigManager.enableElectrum) {
+        if (ConfigHandler.compat.enableElectrum) {
             registerMetalCoefficient("blockElectrum", 1.0f);
         }
-        if (ConfigManager.enableAluminum) {
+        if (ConfigHandler.compat.enableAluminum) {
             registerMetalCoefficient("blockAluminum", 0.9f);
         }
-        if (ConfigManager.enableNickel) {
+        if (ConfigHandler.compat.enableNickel) {
             registerMetalCoefficient("blockNickel", 0.9f);
         }
-        if (ConfigManager.enableTin) {
+        if (ConfigHandler.compat.enableTin) {
             registerMetalCoefficient("blockTin", 0.9f);
         }
         registerMetalCoefficient("blockIron", 0.75f);
         registerMetalCoefficient("blockLead", 0.75f);
-        if (ConfigManager.enableBronze) {
+        if (ConfigHandler.compat.enableBronze) {
             registerMetalCoefficient("blockBronze", 0.75f);
         }
 
