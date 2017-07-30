@@ -6,23 +6,16 @@ import net.minecraft.client.renderer.RenderItem;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.item.ItemStack;
-import net.minecraft.tileentity.TileEntity;
 import org.lwjgl.opengl.GL11;
 
 import java.util.Random;
 
-public class TileEntityChargerRenderer extends TileEntitySpecialRenderer {
+public class TileEntityChargerRenderer extends TileEntitySpecialRenderer<TileEntityCharger> {
     RenderItem renderItem = Minecraft.getMinecraft().getRenderItem();
     Random random = new Random();
 
-    public TileEntityChargerRenderer() {
-        super();
-    }
-
     @Override
-    public void render(TileEntity tile, double x, double y, double z, float partialTicks, int destroyStage, float tileAlpha) {
-        if (tile instanceof TileEntityCharger) {
-            TileEntityCharger charger = (TileEntityCharger) tile;
+    public void render(TileEntityCharger charger, double x, double y, double z, float partialTicks, int destroyStage, float tileAlpha) {
             if (charger.inventory.getStackInSlot(0) != ItemStack.EMPTY) {
                 if (Minecraft.getMinecraft().world != null) {
                     GlStateManager.pushAttrib();
@@ -37,6 +30,5 @@ public class TileEntityChargerRenderer extends TileEntitySpecialRenderer {
                     GlStateManager.popAttrib();
                 }
             }
-        }
     }
 }

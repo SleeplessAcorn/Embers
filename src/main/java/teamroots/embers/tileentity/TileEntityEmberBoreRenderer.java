@@ -8,7 +8,6 @@ import net.minecraft.client.renderer.GlStateManager.SourceFactor;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 import teamroots.embers.Embers;
@@ -16,21 +15,14 @@ import teamroots.embers.util.RenderUtil;
 import teamroots.embers.util.StructBox;
 import teamroots.embers.util.StructUV;
 
-public class TileEntityEmberBoreRenderer extends TileEntitySpecialRenderer {
+public class TileEntityEmberBoreRenderer extends TileEntitySpecialRenderer<TileEntityEmberBore> {
     public ResourceLocation texture = new ResourceLocation(Embers.MODID + ":textures/blocks/bore_blade.png");
     public int lightx = 0, lighty = 0;
     public StructBox blade = new StructBox(-0.125, -1, -1, 0.125, 1, 1, new StructUV[]{new StructUV(0, 32, 32, 36, 64, 64), new StructUV(0, 32, 32, 36, 64, 64), new StructUV(32, 0, 36, 32, 64, 64), new StructUV(32, 0, 36, 32, 64, 64), new StructUV(0, 0, 32, 32, 64, 64), new StructUV(0, 0, 32, 32, 64, 64)});
     public StructBox pole = new StructBox(-0.125, 0, -0.125, 0.125, 1, 0.125, new StructUV[]{new StructUV(32, 32, 36, 36, 64, 64), new StructUV(32, 32, 36, 36, 64, 64), new StructUV(36, 0, 40, 16, 64, 64), new StructUV(36, 0, 40, 16, 64, 64), new StructUV(36, 0, 40, 16, 64, 64), new StructUV(36, 0, 40, 16, 64, 64)});
 
-    public TileEntityEmberBoreRenderer() {
-        super();
-    }
-
     @Override
-    public void render(TileEntity t, double x, double y, double z, float partialTicks, int destroyStage, float tileAlpha) {
-        if (t instanceof TileEntityEmberBore) {
-            TileEntityEmberBore tile = (TileEntityEmberBore) t;
-
+    public void render(TileEntityEmberBore tile, double x, double y, double z, float partialTicks, int destroyStage, float tileAlpha) {
             Minecraft.getMinecraft().renderEngine.bindTexture(texture);
             GlStateManager.disableCull();
             GlStateManager.blendFunc(SourceFactor.SRC_ALPHA, DestFactor.ONE_MINUS_SRC_ALPHA);
@@ -124,6 +116,5 @@ public class TileEntityEmberBoreRenderer extends TileEntitySpecialRenderer {
             tess.draw();
             GlStateManager.popMatrix();
 
-        }
     }
 }

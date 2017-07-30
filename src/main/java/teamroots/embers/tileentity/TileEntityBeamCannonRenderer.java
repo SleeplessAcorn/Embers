@@ -9,7 +9,6 @@ import net.minecraft.client.renderer.RenderItem;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 import teamroots.embers.Embers;
@@ -20,7 +19,7 @@ import teamroots.embers.util.StructUV;
 
 import java.util.Random;
 
-public class TileEntityBeamCannonRenderer extends TileEntitySpecialRenderer {
+public class TileEntityBeamCannonRenderer extends TileEntitySpecialRenderer<TileEntityBeamCannon> {
     public StructBox base = new StructBox(-2.5 * (0.0625), -2.5 * (0.0625), -2.5 * (0.0625), 2.5 * (0.0625), 2.5 * (0.0625), 2.5 * (0.0625), new StructUV[]{new StructUV(0, 0, 5, 5, 16, 16), new StructUV(0, 0, 5, 5, 16, 16), new StructUV(0, 0, 5, 5, 16, 16), new StructUV(0, 0, 5, 5, 16, 16), new StructUV(0, 0, 5, 5, 16, 16), new StructUV(0, 0, 5, 5, 16, 16)});
     public StructBox disc1 = new StructBox(-3.0 * (0.0625), 2.0 * (0.0625), -3.0 * (0.0625), 3.0 * (0.0625), 4.0 * (0.0625), 3.0 * (0.0625), new StructUV[]{new StructUV(0, 5, 6, 11, 16, 16), new StructUV(0, 5, 6, 11, 16, 16), new StructUV(0, 11, 6, 13, 16, 16), new StructUV(0, 11, 6, 13, 16, 16), new StructUV(0, 11, 6, 13, 16, 16), new StructUV(0, 11, 6, 13, 16, 16)});
     public StructBox disc2 = new StructBox(-3.0 * (0.0625), 5.0 * (0.0625), -3.0 * (0.0625), 3.0 * (0.0625), 7.0 * (0.0625), 3.0 * (0.0625), new StructUV[]{new StructUV(0, 5, 6, 11, 16, 16), new StructUV(0, 5, 6, 11, 16, 16), new StructUV(0, 11, 6, 13, 16, 16), new StructUV(0, 11, 6, 13, 16, 16), new StructUV(0, 11, 6, 13, 16, 16), new StructUV(0, 11, 6, 13, 16, 16)});
@@ -30,19 +29,13 @@ public class TileEntityBeamCannonRenderer extends TileEntitySpecialRenderer {
     RenderItem renderItem = Minecraft.getMinecraft().getRenderItem();
     Random random = new Random();
 
-    public TileEntityBeamCannonRenderer() {
-        super();
-    }
-
     @Override
-    public void render(TileEntity tile, double x, double y, double z, float partialTicks, int destroyStage, float tileAlpha) {
-        if (tile instanceof TileEntityBeamCannon) {
-            TileEntityBeamCannon cannon = (TileEntityBeamCannon) tile;
+    public void render(TileEntityBeamCannon cannon, double x, double y, double z, float partialTicks, int destroyStage, float tileAlpha) {
             float yaw = 0;
             float pitch = 0;
             if (cannon.target != null) {
-                yaw = Misc.yawDegreesBetweenPoints(tile.getPos().getX(), tile.getPos().getY(), tile.getPos().getZ(), cannon.target.getX(), cannon.target.getY(), cannon.target.getZ());
-                pitch = Misc.pitchDegreesBetweenPoints(tile.getPos().getX(), tile.getPos().getY(), tile.getPos().getZ(), cannon.target.getX(), cannon.target.getY(), cannon.target.getZ());
+                yaw = Misc.yawDegreesBetweenPoints(cannon.getPos().getX(), cannon.getPos().getY(), cannon.getPos().getZ(), cannon.target.getX(), cannon.target.getY(), cannon.target.getZ());
+                pitch = Misc.pitchDegreesBetweenPoints(cannon.getPos().getX(), cannon.getPos().getY(), cannon.getPos().getZ(), cannon.target.getX(), cannon.target.getY(), cannon.target.getZ());
             }
             GlStateManager.pushMatrix();
             Minecraft.getMinecraft().renderEngine.bindTexture(texture);
@@ -61,6 +54,5 @@ public class TileEntityBeamCannonRenderer extends TileEntitySpecialRenderer {
             RenderUtil.addBox(b, barrel.x1, barrel.y1, barrel.z1, barrel.x2, barrel.y2, barrel.z2, barrel.textures, new int[]{1, 1, 1, 1, 1, 1});
             tess.draw();
             GlStateManager.popMatrix();
-        }
     }
 }

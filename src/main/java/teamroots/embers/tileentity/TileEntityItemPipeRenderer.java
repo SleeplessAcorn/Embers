@@ -8,7 +8,6 @@ import net.minecraft.client.renderer.GlStateManager.SourceFactor;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 import teamroots.embers.Embers;
@@ -16,7 +15,7 @@ import teamroots.embers.util.RenderUtil;
 import teamroots.embers.util.StructBox;
 import teamroots.embers.util.StructUV;
 
-public class TileEntityItemPipeRenderer extends TileEntitySpecialRenderer {
+public class TileEntityItemPipeRenderer extends TileEntitySpecialRenderer<TileEntityItemPipe> {
     public ResourceLocation texture = new ResourceLocation(Embers.MODID + ":textures/blocks/item_pipe_tex.png");
     public int lightx = 0, lighty = 0;
     public StructBox up = new StructBox(0.375, 0.625, 0.375, 0.625, 1.0, 0.625, new StructUV[]{new StructUV(12, 12, 16, 16, 16, 16), new StructUV(12, 12, 16, 16, 16, 16), new StructUV(12, 12, 16, 6, 16, 16), new StructUV(12, 12, 16, 6, 16, 16), new StructUV(12, 12, 16, 6, 16, 16), new StructUV(12, 12, 16, 6, 16, 16)});
@@ -32,15 +31,8 @@ public class TileEntityItemPipeRenderer extends TileEntitySpecialRenderer {
     public StructBox westEnd = new StructBox(0.25, 0.3125, 0.3125, 0, 0.6875, 0.6875, new StructUV[]{new StructUV(0, 6, 6, 10, 16, 16), new StructUV(0, 6, 6, 10, 16, 16), new StructUV(6, 6, 10, 0, 16, 16), new StructUV(6, 6, 10, 0, 16, 16), new StructUV(0, 0, 6, 6, 16, 16), new StructUV(0, 0, 6, 6, 16, 16)});
     public StructBox eastEnd = new StructBox(0.75, 0.3125, 0.3125, 1.0, 0.6875, 0.6875, new StructUV[]{new StructUV(0, 6, 6, 10, 16, 16), new StructUV(0, 6, 6, 10, 16, 16), new StructUV(6, 6, 10, 0, 16, 16), new StructUV(6, 6, 10, 0, 16, 16), new StructUV(0, 0, 6, 6, 16, 16), new StructUV(0, 0, 6, 6, 16, 16)});
 
-    public TileEntityItemPipeRenderer() {
-        super();
-    }
-
     @Override
-    public void render(TileEntity tile, double x, double y, double z, float partialTicks, int destroyStage, float tileAlpha) {
-        if (tile instanceof TileEntityItemPipe) {
-            TileEntityItemPipe pipe = (TileEntityItemPipe) tile;
-
+    public void render(TileEntityItemPipe pipe, double x, double y, double z, float partialTicks, int destroyStage, float tileAlpha) {
             Minecraft.getMinecraft().renderEngine.bindTexture(texture);
             GlStateManager.disableCull();
             GlStateManager.blendFunc(SourceFactor.SRC_ALPHA, DestFactor.ONE_MINUS_SRC_ALPHA);
@@ -85,6 +77,5 @@ public class TileEntityItemPipeRenderer extends TileEntitySpecialRenderer {
             }
             tess.draw();
             GlStateManager.enableCull();
-        }
     }
 }

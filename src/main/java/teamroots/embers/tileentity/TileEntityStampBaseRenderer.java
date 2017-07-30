@@ -12,14 +12,13 @@ import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.item.ItemStack;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 import net.minecraftforge.fluids.Fluid;
 import org.lwjgl.opengl.GL11;
 import teamroots.embers.block.BlockStampBase;
 import teamroots.embers.util.FluidTextureUtil;
 
-public class TileEntityStampBaseRenderer extends TileEntitySpecialRenderer {
+public class TileEntityStampBaseRenderer extends TileEntitySpecialRenderer<TileEntityStampBase> {
     int blue, green, red, alpha;
     int lightx, lighty;
     double minU, minV, maxU, maxV, diffU, diffV;
@@ -29,9 +28,8 @@ public class TileEntityStampBaseRenderer extends TileEntitySpecialRenderer {
     }
 
     @Override
-    public void render(TileEntity tile, double x, double y, double z, float partialTicks, int destroyStage, float tileAlpha) {
-        if (tile instanceof TileEntityStampBase && !tile.getWorld().isAirBlock(tile.getPos())) {
-            TileEntityStampBase tank = (TileEntityStampBase) tile;
+    public void render(TileEntityStampBase tank, double x, double y, double z, float partialTicks, int destroyStage, float tileAlpha) {
+        if (!tank.getWorld().isAirBlock(tank.getPos())) {
             if (tank.getWorld().getBlockState(tank.getPos()).getBlock() instanceof BlockStampBase) {
                 EnumFacing face = tank.getWorld().getBlockState(tank.getPos()).getValue(BlockStampBase.facing);
                 int amount = tank.getAmount();
@@ -55,7 +53,7 @@ public class TileEntityStampBaseRenderer extends TileEntitySpecialRenderer {
                         minV = sprite.getMinV() + diffV * 0.25;
                         maxV = sprite.getMaxV() - diffV * 0.25;
 
-                        int i = getWorld().getCombinedLight(tile.getPos(), fluid.getLuminosity());
+                        int i = getWorld().getCombinedLight(tank.getPos(), fluid.getLuminosity());
                         lightx = i >> 0x10 & 0xFFFF;
                         lighty = i & 0xFFFF;
 

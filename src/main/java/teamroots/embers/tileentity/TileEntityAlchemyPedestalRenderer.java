@@ -11,7 +11,6 @@ import net.minecraft.client.renderer.block.model.ItemCameraTransforms.TransformT
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.item.ItemStack;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 import teamroots.embers.Embers;
@@ -20,20 +19,14 @@ import teamroots.embers.util.StructUV;
 
 import java.util.Random;
 
-public class TileEntityAlchemyPedestalRenderer extends TileEntitySpecialRenderer {
+public class TileEntityAlchemyPedestalRenderer extends TileEntitySpecialRenderer<TileEntityAlchemyPedestal> {
     public ResourceLocation texture = new ResourceLocation(Embers.MODID + ":textures/blocks/ash.png");
     RenderItem renderItem = Minecraft.getMinecraft().getRenderItem();
     Random random = new Random();
 
-    public TileEntityAlchemyPedestalRenderer() {
-        super();
-    }
-
     @Override
-    public void render(TileEntity tile, double x, double y, double z, float partialTicks, int destroyStage, float tileAlpha) {
-        if (tile instanceof TileEntityAlchemyPedestal) {
+    public void render(TileEntityAlchemyPedestal pedestal, double x, double y, double z, float partialTicks, int destroyStage, float tileAlpha) {
             GlStateManager.blendFunc(SourceFactor.SRC_ALPHA, DestFactor.ONE_MINUS_SRC_ALPHA);
-            TileEntityAlchemyPedestal pedestal = (TileEntityAlchemyPedestal) tile;
             if (pedestal.inventory.getStackInSlot(1) != ItemStack.EMPTY) {
                 if (Minecraft.getMinecraft().world != null) {
                     GL11.glPushMatrix();
@@ -54,6 +47,5 @@ public class TileEntityAlchemyPedestalRenderer extends TileEntitySpecialRenderer
                 RenderUtil.addBoxExt(buffer, x + 0.3125, y + 0.125 + coeff * 0.375, z + 0.3125, x + 0.6875, y + 0.125 + coeff * 0.35, z + 0.6875, new StructUV[]{null, new StructUV(1, 1, 7, 7, 16, 16), null, null, null, null}, new int[]{1, 1, 1, 1, 1, 1}, new boolean[]{false, true, false, false, false, false});
                 tess.draw();
             }
-        }
     }
 }

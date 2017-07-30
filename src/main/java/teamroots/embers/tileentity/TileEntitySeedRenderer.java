@@ -9,7 +9,6 @@ import net.minecraft.client.renderer.RenderItem;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
@@ -17,7 +16,7 @@ import teamroots.embers.Embers;
 
 import java.util.Random;
 
-public class TileEntitySeedRenderer extends TileEntitySpecialRenderer {
+public class TileEntitySeedRenderer extends TileEntitySpecialRenderer<TileEntitySeed> {
     public ResourceLocation textureIron = new ResourceLocation(Embers.MODID + ":textures/blocks/material_iron.png");
     public ResourceLocation textureGold = new ResourceLocation(Embers.MODID + ":textures/blocks/material_gold.png");
     public ResourceLocation textureCopper = new ResourceLocation(Embers.MODID + ":textures/blocks/material_copper.png");
@@ -25,10 +24,6 @@ public class TileEntitySeedRenderer extends TileEntitySpecialRenderer {
     public ResourceLocation textureSilver = new ResourceLocation(Embers.MODID + ":textures/blocks/material_silver.png");
     RenderItem renderItem = Minecraft.getMinecraft().getRenderItem();
     Random random = new Random();
-
-    public TileEntitySeedRenderer() {
-        super();
-    }
 
     public void drawCrystal(BufferBuilder b, float x, float y, float z, float rotation, float size, float minU, float minV, float maxU, float maxV) {
         float offX1 = size * 0.25f * (float) Math.sin(Math.toRadians(rotation));
@@ -98,10 +93,8 @@ public class TileEntitySeedRenderer extends TileEntitySpecialRenderer {
     }
 
     @Override
-    public void render(TileEntity tile, double x, double y, double z, float partialTicks, int destroyStage, float tileAlpha) {
-        if (tile instanceof TileEntitySeed) {
+    public void render(TileEntitySeed seed, double x, double y, double z, float partialTicks, int destroyStage, float tileAlpha) {
             GlStateManager.blendFunc(SourceFactor.SRC_ALPHA, DestFactor.ONE_MINUS_SRC_ALPHA);
-            TileEntitySeed seed = (TileEntitySeed) tile;
 
             Minecraft.getMinecraft().renderEngine.bindTexture(textureIron);
             if (seed.material == 0) {
@@ -141,6 +134,5 @@ public class TileEntitySeedRenderer extends TileEntitySpecialRenderer {
             tess.draw();
             GlStateManager.enableCull();
             GlStateManager.popMatrix();
-        }
     }
 }

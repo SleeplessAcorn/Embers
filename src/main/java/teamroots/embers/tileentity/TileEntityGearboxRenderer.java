@@ -9,21 +9,15 @@ import net.minecraft.client.renderer.GlStateManager.SourceFactor;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.block.model.ItemCameraTransforms.TransformType;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 import teamroots.embers.EventManager;
 import teamroots.embers.block.BlockGearbox;
 
-public class TileEntityGearboxRenderer extends TileEntitySpecialRenderer {
-    public TileEntityGearboxRenderer() {
-        super();
-    }
+public class TileEntityGearboxRenderer extends TileEntitySpecialRenderer<TileEntityGearbox> {
 
     @Override
-    public void render(TileEntity t, double x, double y, double z, float partialTicks, int destroyStage, float tileAlpha) {
-        if (t instanceof TileEntityGearbox) {
-            IBlockState state = t.getWorld().getBlockState(t.getPos());
-            TileEntityGearbox box = (TileEntityGearbox) t;
+    public void render(TileEntityGearbox box, double x, double y, double z, float partialTicks, int destroyStage, float tileAlpha) {
+        IBlockState state = box.getWorld().getBlockState(box.getPos());
             if (state.getBlock() instanceof BlockGearbox) {
                 for (int i = 0; i < 6; i++) {
                     if (!box.gears[i].isEmpty()) {
@@ -68,7 +62,5 @@ public class TileEntityGearboxRenderer extends TileEntitySpecialRenderer {
                     }
                 }
             }
-
-        }
     }
 }

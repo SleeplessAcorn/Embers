@@ -10,12 +10,11 @@ import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.fluids.Fluid;
 import org.lwjgl.opengl.GL11;
 import teamroots.embers.util.FluidTextureUtil;
 
-public class TileEntityTankRenderer extends TileEntitySpecialRenderer {
+public class TileEntityTankRenderer extends TileEntitySpecialRenderer<TileEntityTank> {
     int blue, green, red, alpha;
     int lightx, lighty;
     double minU, minV, maxU, maxV, diffU, diffV;
@@ -25,9 +24,7 @@ public class TileEntityTankRenderer extends TileEntitySpecialRenderer {
     }
 
     @Override
-    public void render(TileEntity tile, double x, double y, double z, float partialTicks, int destroyStage, float tileAlpha) {
-        if (tile instanceof TileEntityTank) {
-            TileEntityTank tank = (TileEntityTank) tile;
+    public void render(TileEntityTank tank, double x, double y, double z, float partialTicks, int destroyStage, float tileAlpha) {
             int amount = tank.getAmount();
             int capacity = tank.getCapacity();
             Fluid fluid = tank.getFluid();
@@ -48,7 +45,7 @@ public class TileEntityTankRenderer extends TileEntitySpecialRenderer {
                     minV = sprite.getMinV() + diffV * 0.25;
                     maxV = sprite.getMaxV() - diffV * 0.25;
 
-                    int i = getWorld().getCombinedLight(tile.getPos(), fluid.getLuminosity());
+                    int i = getWorld().getCombinedLight(tank.getPos(), fluid.getLuminosity());
                     lightx = i >> 0x10 & 0xFFFF;
                     lighty = i & 0xFFFF;
 
@@ -72,5 +69,4 @@ public class TileEntityTankRenderer extends TileEntitySpecialRenderer {
                 }
             }
         }
-    }
 }

@@ -7,26 +7,19 @@ import net.minecraft.client.renderer.RenderItem;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 import teamroots.embers.Embers;
 
 import java.util.Random;
 
-public class TileEntityCrystalCellRenderer extends TileEntitySpecialRenderer {
+public class TileEntityCrystalCellRenderer extends TileEntitySpecialRenderer<TileEntityCrystalCell> {
     public ResourceLocation texture = new ResourceLocation(Embers.MODID + ":textures/blocks/crystal_material.png");
     RenderItem renderItem = Minecraft.getMinecraft().getRenderItem();
     Random random = new Random();
 
-    public TileEntityCrystalCellRenderer() {
-        super();
-    }
-
     @Override
-    public void render(TileEntity tile, double x, double y, double z, float partialTicks, int destroyStage, float tileAlpha) {
-        if (tile instanceof TileEntityCrystalCell) {
-            TileEntityCrystalCell cell = (TileEntityCrystalCell) tile;
+    public void render(TileEntityCrystalCell cell, double x, double y, double z, float partialTicks, int destroyStage, float tileAlpha) {
             random.setSeed(cell.seed);
             float numLayers = 2 + (float) Math.floor(cell.capability.getEmberCapacity() / 128000.0f);
             float layerHeight = 0.25f;
@@ -51,7 +44,7 @@ public class TileEntityCrystalCellRenderer extends TileEntitySpecialRenderer {
             Tessellator tess = Tessellator.getInstance();
             BufferBuilder buffer = tess.getBuffer();
 
-            int l = getWorld().getCombinedLight(tile.getPos(), 15);
+        int l = getWorld().getCombinedLight(cell.getPos(), 15);
             int lx = l >> 0x10 & 0xFFFF;
             int ly = l & 0xFFFF;
 
@@ -96,6 +89,5 @@ public class TileEntityCrystalCellRenderer extends TileEntitySpecialRenderer {
             GlStateManager.enableLighting();
             GlStateManager.disableBlend();
             GlStateManager.popAttrib();
-        }
     }
 }

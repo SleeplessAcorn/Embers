@@ -10,7 +10,6 @@ import net.minecraft.client.renderer.RenderItem;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
@@ -23,7 +22,7 @@ import teamroots.embers.util.StructUV;
 
 import java.util.Random;
 
-public class TileEntityStamperRenderer extends TileEntitySpecialRenderer {
+public class TileEntityStamperRenderer extends TileEntitySpecialRenderer<TileEntityStamper> {
     public ResourceLocation texture = new ResourceLocation(Embers.MODID + ":textures/blocks/stamp_top.png");
     public ResourceLocation stampBar = new ResourceLocation(Embers.MODID + ":textures/items/stamp_bar.png");
     public ResourceLocation stampFlat = new ResourceLocation(Embers.MODID + ":textures/items/stamp_flat.png");
@@ -40,10 +39,8 @@ public class TileEntityStamperRenderer extends TileEntitySpecialRenderer {
     }
 
     @Override
-    public void render(TileEntity tile, double x, double y, double z, float partialTicks, int destroyStage, float tileAlpha) {
-        if (tile instanceof TileEntityStamper) {
-            TileEntityStamper stamp = (TileEntityStamper) tile;
-            IBlockState state = tile.getWorld().getBlockState(tile.getPos());
+    public void render(TileEntityStamper stamp, double x, double y, double z, float partialTicks, int destroyStage, float tileAlpha) {
+        IBlockState state = stamp.getWorld().getBlockState(stamp.getPos());
             if (state.getBlock() instanceof BlockStamper) {
                 Minecraft.getMinecraft().renderEngine.bindTexture(texture);
                 GlStateManager.disableCull();
@@ -100,7 +97,7 @@ public class TileEntityStamperRenderer extends TileEntitySpecialRenderer {
                 }
 
                 tess.draw();
-                EnumStampType type = EnumStampType.getType(((TileEntityStamper) tile).stamp.getStackInSlot(0));
+                EnumStampType type = EnumStampType.getType(((TileEntityStamper) stamp).stamp.getStackInSlot(0));
                 if (type != EnumStampType.TYPE_NULL) {
                     if (type == EnumStampType.TYPE_BAR) {
                         Minecraft.getMinecraft().renderEngine.bindTexture(stampBar);
@@ -137,7 +134,6 @@ public class TileEntityStamperRenderer extends TileEntitySpecialRenderer {
 
                     tess.draw();
                 }
-            }
         }
     }
 }

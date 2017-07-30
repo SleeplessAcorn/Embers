@@ -13,25 +13,18 @@ import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.item.ItemStack;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.fluids.Fluid;
 import org.lwjgl.opengl.GL11;
 import teamroots.embers.util.FluidTextureUtil;
 
-public class TileEntityFurnaceTopRenderer extends TileEntitySpecialRenderer {
+public class TileEntityFurnaceTopRenderer extends TileEntitySpecialRenderer<TileEntityFurnaceTop> {
     RenderItem renderItem = Minecraft.getMinecraft().getRenderItem();
     int blue, green, red, alpha;
     int lightx, lighty;
     double minU, minV, maxU, maxV, diffU, diffV;
 
-    public TileEntityFurnaceTopRenderer() {
-        super();
-    }
-
     @Override
-    public void render(TileEntity tile, double x, double y, double z, float partialTicks, int destroyStage, float tileAlpha) {
-        if (tile instanceof TileEntityFurnaceTop) {
-            TileEntityFurnaceTop furnace = (TileEntityFurnaceTop) tile;
+    public void render(TileEntityFurnaceTop furnace, double x, double y, double z, float partialTicks, int destroyStage, float tileAlpha) {
             int amount = furnace.getAmount();
             int capacity = furnace.getCapacity();
             Fluid fluid = furnace.getFluid();
@@ -42,7 +35,7 @@ public class TileEntityFurnaceTopRenderer extends TileEntitySpecialRenderer {
                     GlStateManager.pushMatrix();
                     GlStateManager.translate(x + 0.5, y, z + 0.5);
                     GlStateManager.rotate(1.0f * ((float) furnace.angle + partialTicks), 0, 1, 0);
-                    EntityItem item = new EntityItem(tile.getWorld(), 0, 0, 0, stack);
+                    EntityItem item = new EntityItem(furnace.getWorld(), 0, 0, 0, stack);
                     item.hoverStart = 0;
                     Minecraft.getMinecraft().getRenderManager().doRenderEntity(item, 0, 0, 0, 0, 0, true);
                     GlStateManager.popMatrix();
@@ -65,7 +58,7 @@ public class TileEntityFurnaceTopRenderer extends TileEntitySpecialRenderer {
                     minV = sprite.getMinV() + diffV * 0.25;
                     maxV = sprite.getMaxV() - diffV * 0.25;
 
-                    int i = getWorld().getCombinedLight(tile.getPos(), fluid.getLuminosity());
+                    int i = getWorld().getCombinedLight(furnace.getPos(), fluid.getLuminosity());
                     lightx = i >> 0x10 & 0xFFFF;
                     lighty = i & 0xFFFF;
 
@@ -87,7 +80,6 @@ public class TileEntityFurnaceTopRenderer extends TileEntitySpecialRenderer {
                     GlStateManager.disableAlpha();
                     GlStateManager.disableBlend();
                     GlStateManager.enableLighting();
-                }
             }
         }
     }

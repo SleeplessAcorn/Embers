@@ -1,6 +1,5 @@
 package teamroots.embers.tileentity;
 
-import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
@@ -9,14 +8,13 @@ import net.minecraft.client.renderer.GlStateManager.SourceFactor;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 import teamroots.embers.Embers;
 import teamroots.embers.util.RenderUtil;
 import teamroots.embers.util.StructUV;
 
-public class TileEntityPumpRenderer extends TileEntitySpecialRenderer {
+public class TileEntityPumpRenderer extends TileEntitySpecialRenderer<TileEntityPumpBottom> {
     public ResourceLocation texture = new ResourceLocation(Embers.MODID + ":textures/blocks/pump_piston.png");
     public int lightx = 0, lighty = 0;
 
@@ -50,10 +48,7 @@ public class TileEntityPumpRenderer extends TileEntitySpecialRenderer {
     }
 
     @Override
-    public void render(TileEntity t, double x, double y, double z, float partialTicks, int destroyStage, float tileAlpha) {
-        if (t instanceof TileEntityPumpBottom) {
-            IBlockState state = t.getWorld().getBlockState(t.getPos());
-            TileEntityPumpBottom pump = (TileEntityPumpBottom) t;
+    public void render(TileEntityPumpBottom pump, double x, double y, double z, float partialTicks, int destroyStage, float tileAlpha) {
             Minecraft.getMinecraft().renderEngine.bindTexture(texture);
             GlStateManager.disableCull();
             GlStateManager.blendFunc(SourceFactor.SRC_ALPHA, DestFactor.ONE_MINUS_SRC_ALPHA);
@@ -71,6 +66,5 @@ public class TileEntityPumpRenderer extends TileEntitySpecialRenderer {
             RenderUtil.addBox(buffer, -0.3125, 0.6875 + amountUp * 0.5, -0.3125, 0.3125, 0.8125 + amountUp * 0.5, 0.3125, top_plate, new int[]{1, 1, 1, 1, 1, 1});
             tess.draw();
             GlStateManager.popMatrix();
-        }
     }
 }

@@ -8,7 +8,6 @@ import net.minecraft.client.renderer.GlStateManager.SourceFactor;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 import teamroots.embers.Embers;
@@ -16,7 +15,7 @@ import teamroots.embers.util.RenderUtil;
 import teamroots.embers.util.StructBox;
 import teamroots.embers.util.StructUV;
 
-public class TileEntityPulserRenderer extends TileEntitySpecialRenderer {
+public class TileEntityPulserRenderer extends TileEntitySpecialRenderer<TileEntityPulser> {
     public ResourceLocation texture = new ResourceLocation(Embers.MODID + ":textures/blocks/pipe_tex.png");
     public int lightx = 0, lighty = 0;
     public StructBox up = new StructBox(0.375, 0.625, 0.375, 0.625, 1.0, 0.625, new StructUV[]{new StructUV(12, 12, 16, 16, 16, 16), new StructUV(12, 12, 16, 16, 16, 16), new StructUV(12, 12, 16, 6, 16, 16), new StructUV(12, 12, 16, 6, 16, 16), new StructUV(12, 12, 16, 6, 16, 16), new StructUV(12, 12, 16, 6, 16, 16)});
@@ -37,10 +36,7 @@ public class TileEntityPulserRenderer extends TileEntitySpecialRenderer {
     }
 
     @Override
-    public void render(TileEntity tile, double x, double y, double z, float partialTicks, int destroyStage, float tileAlpha) {
-        if (tile instanceof TileEntityPulser) {
-            TileEntityPulser pipe = (TileEntityPulser) tile;
-
+    public void render(TileEntityPulser pipe, double x, double y, double z, float partialTicks, int destroyStage, float tileAlpha) {
             Minecraft.getMinecraft().renderEngine.bindTexture(texture);
             GlStateManager.disableCull();
             GlStateManager.blendFunc(SourceFactor.SRC_ALPHA, DestFactor.ONE_MINUS_SRC_ALPHA);
@@ -84,6 +80,5 @@ public class TileEntityPulserRenderer extends TileEntitySpecialRenderer {
                 RenderUtil.addBox(buffer, eastEnd.x1 + x, eastEnd.y1 + y, eastEnd.z1 + z, eastEnd.x2 + x, eastEnd.y2 + y, eastEnd.z2 + z, eastEnd.textures, new int[]{1, 1, 1, 1, -1, -1});
             }
             tess.draw();
-        }
     }
 }

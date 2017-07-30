@@ -6,23 +6,16 @@ import net.minecraft.client.renderer.RenderItem;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.item.ItemStack;
-import net.minecraft.tileentity.TileEntity;
 import org.lwjgl.opengl.GL11;
 
 import java.util.Random;
 
-public class TileEntityCinderPlinthRenderer extends TileEntitySpecialRenderer {
+public class TileEntityCinderPlinthRenderer extends TileEntitySpecialRenderer<TileEntityCinderPlinth> {
     RenderItem renderItem = Minecraft.getMinecraft().getRenderItem();
     Random random = new Random();
 
-    public TileEntityCinderPlinthRenderer() {
-        super();
-    }
-
     @Override
-    public void render(TileEntity tile, double x, double y, double z, float partialTicks, int destroyStage, float tileAlpha) {
-        if (tile instanceof TileEntityCinderPlinth) {
-            TileEntityCinderPlinth plinth = (TileEntityCinderPlinth) tile;
+    public void render(TileEntityCinderPlinth plinth, double x, double y, double z, float partialTicks, int destroyStage, float tileAlpha) {
             if (plinth.inventory.getStackInSlot(0) != ItemStack.EMPTY) {
                 if (Minecraft.getMinecraft().world != null) {
                     GlStateManager.pushAttrib();
@@ -37,6 +30,5 @@ public class TileEntityCinderPlinthRenderer extends TileEntitySpecialRenderer {
                     GlStateManager.popAttrib();
                 }
             }
-        }
     }
 }

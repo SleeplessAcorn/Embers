@@ -5,24 +5,17 @@ import net.minecraft.client.renderer.RenderItem;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.item.ItemStack;
-import net.minecraft.tileentity.TileEntity;
 import org.lwjgl.opengl.GL11;
 
 import java.util.Random;
 
-public class TileEntityDawnstoneAnvilRenderer extends TileEntitySpecialRenderer {
+public class TileEntityDawnstoneAnvilRenderer extends TileEntitySpecialRenderer<TileEntityDawnstoneAnvil> {
     RenderItem renderItem = Minecraft.getMinecraft().getRenderItem();
     Random random = new Random();
 
-    public TileEntityDawnstoneAnvilRenderer() {
-        super();
-    }
-
     @Override
-    public void render(TileEntity tile, double x, double y, double z, float partialTicks, int destroyStage, float tileAlpha) {
-        if (tile instanceof TileEntityDawnstoneAnvil) {
-            TileEntityDawnstoneAnvil anvil = (TileEntityDawnstoneAnvil) tile;
-            random.setSeed(tile.getWorld().getSeed());
+    public void render(TileEntityDawnstoneAnvil anvil, double x, double y, double z, float partialTicks, int destroyStage, float tileAlpha) {
+        random.setSeed(anvil.getWorld().getSeed());
             if (anvil.inventory.getStackInSlot(0) != ItemStack.EMPTY) {
                 GL11.glPushMatrix();
                 EntityItem item = new EntityItem(Minecraft.getMinecraft().world, x, y, z, new ItemStack(anvil.inventory.getStackInSlot(0).getItem(), 1, anvil.inventory.getStackInSlot(0).getMetadata()));
@@ -51,6 +44,5 @@ public class TileEntityDawnstoneAnvilRenderer extends TileEntitySpecialRenderer 
                 Minecraft.getMinecraft().getRenderManager().doRenderEntity(item, 0, 0, 0, 0, 0, true);
                 GL11.glPopMatrix();
             }
-        }
     }
 }

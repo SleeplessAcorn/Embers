@@ -10,12 +10,11 @@ import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.fluids.Fluid;
 import org.lwjgl.opengl.GL11;
 import teamroots.embers.util.FluidTextureUtil;
 
-public class TileEntityLargeTankRenderer extends TileEntitySpecialRenderer {
+public class TileEntityLargeTankRenderer extends TileEntitySpecialRenderer<TileEntityLargeTank> {
     int blue, green, red, alpha;
     int lightx, lighty;
     double minU, minV, maxU, maxV, diffU, diffV;
@@ -25,9 +24,7 @@ public class TileEntityLargeTankRenderer extends TileEntitySpecialRenderer {
     }
 
     @Override
-    public void render(TileEntity tile, double x, double y, double z, float partialTicks, int destroyStage, float tileAlpha) {
-        if (tile instanceof TileEntityLargeTank) {
-            TileEntityLargeTank tank = (TileEntityLargeTank) tile;
+    public void render(TileEntityLargeTank tank, double x, double y, double z, float partialTicks, int destroyStage, float tileAlpha) {
             GlStateManager.blendFunc(SourceFactor.SRC_ALPHA, DestFactor.ONE_MINUS_SRC_ALPHA);
             int amount = tank.getAmount();
             int capacity = tank.getCapacity();
@@ -49,7 +46,7 @@ public class TileEntityLargeTankRenderer extends TileEntitySpecialRenderer {
                     minV = sprite.getMinV();
                     maxV = sprite.getMaxV();
 
-                    int i = getWorld().getCombinedLight(tile.getPos(), fluid.getLuminosity());
+                    int i = getWorld().getCombinedLight(tank.getPos(), fluid.getLuminosity());
                     lightx = i >> 0x10 & 0xFFFF;
                     lighty = i & 0xFFFF;
 
@@ -83,7 +80,6 @@ public class TileEntityLargeTankRenderer extends TileEntitySpecialRenderer {
                     GlStateManager.disableBlend();
                     GlStateManager.enableLighting();
                 }
-            }
         }
     }
 }

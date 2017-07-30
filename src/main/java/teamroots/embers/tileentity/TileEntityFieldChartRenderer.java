@@ -8,24 +8,17 @@ import net.minecraft.client.renderer.GlStateManager.SourceFactor;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 import teamroots.embers.Embers;
 import teamroots.embers.util.EmberGenUtil;
 import teamroots.embers.util.RenderUtil;
 
-public class TileEntityFieldChartRenderer extends TileEntitySpecialRenderer {
+public class TileEntityFieldChartRenderer extends TileEntitySpecialRenderer<TileEntityFieldChart> {
     public ResourceLocation texture = new ResourceLocation(Embers.MODID + ":textures/blocks/field_square.png");
 
-    public TileEntityFieldChartRenderer() {
-        super();
-    }
-
     @Override
-    public void render(TileEntity tile, double x, double y, double z, float partialTicks, int destroyStage, float tileAlpha) {
-        if (tile instanceof TileEntityFieldChart) {
-            TileEntityFieldChart pipe = (TileEntityFieldChart) tile;
+    public void render(TileEntityFieldChart pipe, double x, double y, double z, float partialTicks, int destroyStage, float tileAlpha) {
             Minecraft.getMinecraft().renderEngine.bindTexture(texture);
             GlStateManager.disableCull();
             GlStateManager.enableBlend();
@@ -44,10 +37,10 @@ public class TileEntityFieldChartRenderer extends TileEntitySpecialRenderer {
             buffer.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION_TEX_LMAP_COLOR);
             for (float i = -160; i < 160; i += 32) {
                 for (float j = -160; j < 160; j += 32) {
-                    float amountul = EmberGenUtil.getEmberDensity(tile.getWorld().getSeed(), tile.getPos().getX() + (int) i / 2, tile.getPos().getZ() + (int) j / 2);
-                    float amountur = EmberGenUtil.getEmberDensity(tile.getWorld().getSeed(), tile.getPos().getX() + (int) i / 2 + 16, tile.getPos().getZ() + (int) j / 2);
-                    float amountdr = EmberGenUtil.getEmberDensity(tile.getWorld().getSeed(), tile.getPos().getX() + (int) i / 2 + 16, tile.getPos().getZ() + (int) j / 2 + 16);
-                    float amountdl = EmberGenUtil.getEmberDensity(tile.getWorld().getSeed(), tile.getPos().getX() + (int) i / 2, tile.getPos().getZ() + (int) j / 2 + 16);
+                    float amountul = EmberGenUtil.getEmberDensity(pipe.getWorld().getSeed(), pipe.getPos().getX() + (int) i / 2, pipe.getPos().getZ() + (int) j / 2);
+                    float amountur = EmberGenUtil.getEmberDensity(pipe.getWorld().getSeed(), pipe.getPos().getX() + (int) i / 2 + 16, pipe.getPos().getZ() + (int) j / 2);
+                    float amountdr = EmberGenUtil.getEmberDensity(pipe.getWorld().getSeed(), pipe.getPos().getX() + (int) i / 2 + 16, pipe.getPos().getZ() + (int) j / 2 + 16);
+                    float amountdl = EmberGenUtil.getEmberDensity(pipe.getWorld().getSeed(), pipe.getPos().getX() + (int) i / 2, pipe.getPos().getZ() + (int) j / 2 + 16);
                     float alphaul = Math.min(1.0f, Math.max(0.0f, 1.0f - Math.max(Math.abs(i), Math.abs(j)) / 160f));
                     float alphaur = Math.min(1.0f, Math.max(0.0f, 1.0f - Math.max(Math.abs(i + 32f), Math.abs(j)) / 160f));
                     float alphadr = Math.min(1.0f, Math.max(0.0f, 1.0f - Math.max(Math.abs(i + 32f), Math.abs(j + 32f)) / 160f));
@@ -76,10 +69,10 @@ public class TileEntityFieldChartRenderer extends TileEntitySpecialRenderer {
             }*/
             for (float i = -160; i < 160; i += 32) {
                 for (float j = -160; j < 160; j += 32) {
-                    float amountul = EmberGenUtil.getEmberDensity(tile.getWorld().getSeed(), tile.getPos().getX() + (int) i / 2, tile.getPos().getZ() + (int) j / 2);
-                    float amountur = EmberGenUtil.getEmberDensity(tile.getWorld().getSeed(), tile.getPos().getX() + (int) i / 2 + 16, tile.getPos().getZ() + (int) j / 2);
-                    float amountdr = EmberGenUtil.getEmberDensity(tile.getWorld().getSeed(), tile.getPos().getX() + (int) i / 2 + 16, tile.getPos().getZ() + (int) j / 2 + 16);
-                    float amountdl = EmberGenUtil.getEmberDensity(tile.getWorld().getSeed(), tile.getPos().getX() + (int) i / 2, tile.getPos().getZ() + (int) j / 2 + 16);
+                    float amountul = EmberGenUtil.getEmberDensity(pipe.getWorld().getSeed(), pipe.getPos().getX() + (int) i / 2, pipe.getPos().getZ() + (int) j / 2);
+                    float amountur = EmberGenUtil.getEmberDensity(pipe.getWorld().getSeed(), pipe.getPos().getX() + (int) i / 2 + 16, pipe.getPos().getZ() + (int) j / 2);
+                    float amountdr = EmberGenUtil.getEmberDensity(pipe.getWorld().getSeed(), pipe.getPos().getX() + (int) i / 2 + 16, pipe.getPos().getZ() + (int) j / 2 + 16);
+                    float amountdl = EmberGenUtil.getEmberDensity(pipe.getWorld().getSeed(), pipe.getPos().getX() + (int) i / 2, pipe.getPos().getZ() + (int) j / 2 + 16);
                     float alphaul = Math.min(1.0f, Math.max(0.0f, 1.0f - Math.max(Math.abs(i), Math.abs(j)) / 160f) * amountul * amountul);
                     float alphaur = Math.min(1.0f, Math.max(0.0f, 1.0f - Math.max(Math.abs(i + 32f), Math.abs(j)) / 160f) * amountur * amountur);
                     float alphadr = Math.min(1.0f, Math.max(0.0f, 1.0f - Math.max(Math.abs(i + 32f), Math.abs(j + 32f)) / 160f) * amountdr * amountdr);
@@ -92,10 +85,10 @@ public class TileEntityFieldChartRenderer extends TileEntitySpecialRenderer {
             }
             for (float i = -160; i < 160; i += 32) {
                 for (float j = -160; j < 160; j += 32) {
-                    float amountul = EmberGenUtil.getEmberDensity(tile.getWorld().getSeed(), tile.getPos().getX() + (int) i / 2, tile.getPos().getZ() + (int) j / 2);
-                    float amountur = EmberGenUtil.getEmberDensity(tile.getWorld().getSeed(), tile.getPos().getX() + (int) i / 2 + 16, tile.getPos().getZ() + (int) j / 2);
-                    float amountdr = EmberGenUtil.getEmberDensity(tile.getWorld().getSeed(), tile.getPos().getX() + (int) i / 2 + 16, tile.getPos().getZ() + (int) j / 2 + 16);
-                    float amountdl = EmberGenUtil.getEmberDensity(tile.getWorld().getSeed(), tile.getPos().getX() + (int) i / 2, tile.getPos().getZ() + (int) j / 2 + 16);
+                    float amountul = EmberGenUtil.getEmberDensity(pipe.getWorld().getSeed(), pipe.getPos().getX() + (int) i / 2, pipe.getPos().getZ() + (int) j / 2);
+                    float amountur = EmberGenUtil.getEmberDensity(pipe.getWorld().getSeed(), pipe.getPos().getX() + (int) i / 2 + 16, pipe.getPos().getZ() + (int) j / 2);
+                    float amountdr = EmberGenUtil.getEmberDensity(pipe.getWorld().getSeed(), pipe.getPos().getX() + (int) i / 2 + 16, pipe.getPos().getZ() + (int) j / 2 + 16);
+                    float amountdl = EmberGenUtil.getEmberDensity(pipe.getWorld().getSeed(), pipe.getPos().getX() + (int) i / 2, pipe.getPos().getZ() + (int) j / 2 + 16);
                     float alphaul = Math.min(1.0f, Math.max(0.0f, 1.0f - Math.max(Math.abs(i), Math.abs(j)) / 160f) * amountul * amountul * amountul);
                     float alphaur = Math.min(1.0f, Math.max(0.0f, 1.0f - Math.max(Math.abs(i + 32f), Math.abs(j)) / 160f) * amountur * amountur * amountur);
                     float alphadr = Math.min(1.0f, Math.max(0.0f, 1.0f - Math.max(Math.abs(i + 32f), Math.abs(j + 32f)) / 160f) * amountdr * amountdr * amountdr);
@@ -114,6 +107,5 @@ public class TileEntityFieldChartRenderer extends TileEntitySpecialRenderer {
             GlStateManager.enableLighting();
             GlStateManager.blendFunc(SourceFactor.SRC_ALPHA, DestFactor.ONE_MINUS_SRC_ALPHA);
             GlStateManager.disableBlend();
-        }
     }
 }

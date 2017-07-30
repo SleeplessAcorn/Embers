@@ -8,23 +8,16 @@ import net.minecraft.client.renderer.RenderItem;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.item.ItemStack;
-import net.minecraft.tileentity.TileEntity;
 import org.lwjgl.opengl.GL11;
 
 import java.util.Random;
 
-public class TileEntityItemTransferRenderer extends TileEntitySpecialRenderer {
+public class TileEntityItemTransferRenderer extends TileEntitySpecialRenderer<TileEntityItemTransfer> {
     RenderItem renderItem = Minecraft.getMinecraft().getRenderItem();
     Random random = new Random();
 
-    public TileEntityItemTransferRenderer() {
-        super();
-    }
-
     @Override
-    public void render(TileEntity tile, double x, double y, double z, float partialTicks, int destroyStage, float tileAlpha) {
-        if (tile instanceof TileEntityItemTransfer) {
-            TileEntityItemTransfer transfer = (TileEntityItemTransfer) tile;
+    public void render(TileEntityItemTransfer transfer, double x, double y, double z, float partialTicks, int destroyStage, float tileAlpha) {
             if (transfer.filterItem != ItemStack.EMPTY) {
                 if (Minecraft.getMinecraft().world != null) {
                     GlStateManager.pushAttrib();
@@ -40,7 +33,6 @@ public class TileEntityItemTransferRenderer extends TileEntitySpecialRenderer {
                     GL11.glPopMatrix();
                     GlStateManager.popAttrib();
                 }
-            }
         }
     }
 }

@@ -9,7 +9,6 @@ import net.minecraft.client.renderer.GlStateManager.SourceFactor;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
@@ -20,7 +19,7 @@ import teamroots.embers.registry.RegistrarEmbersBlocks;
 import teamroots.embers.util.RenderUtil;
 import teamroots.embers.util.StructUV;
 
-public class TileEntityAxleRenderer extends TileEntitySpecialRenderer {
+public class TileEntityAxleRenderer extends TileEntitySpecialRenderer<TileEntityAxle> {
     public ResourceLocation ironTexture = new ResourceLocation(Embers.MODID + ":textures/blocks/axle_iron.png");
     public ResourceLocation dawnstoneTexture = new ResourceLocation(Embers.MODID + ":textures/blocks/axle_dawnstone.png");
     public int lightx = 0, lighty = 0;
@@ -34,15 +33,9 @@ public class TileEntityAxleRenderer extends TileEntitySpecialRenderer {
             new StructUV(7, 0, 9, 16, 16, 16)
     };
 
-    public TileEntityAxleRenderer() {
-        super();
-    }
-
     @Override
-    public void render(TileEntity t, double x, double y, double z, float partialTicks, int destroyStage, float tileAlpha) {
-        if (t instanceof TileEntityAxle) {
-            IBlockState state = t.getWorld().getBlockState(t.getPos());
-            TileEntityAxle axle = (TileEntityAxle) t;
+    public void render(TileEntityAxle axle, double x, double y, double z, float partialTicks, int destroyStage, float tileAlpha) {
+        IBlockState state = axle.getWorld().getBlockState(axle.getPos());
             if (state.getBlock() instanceof BlockAxle) {
                 EnumFacing face = state.getValue(BlockAxle.facing);
                 ResourceLocation texture = null;
@@ -86,6 +79,5 @@ public class TileEntityAxleRenderer extends TileEntitySpecialRenderer {
                 GlStateManager.popMatrix();
             }
 
-        }
     }
 }

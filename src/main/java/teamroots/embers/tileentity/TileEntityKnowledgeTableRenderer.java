@@ -6,12 +6,11 @@ import net.minecraft.client.renderer.RenderItem;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.item.ItemStack;
-import net.minecraft.tileentity.TileEntity;
 import org.lwjgl.opengl.GL11;
 
 import java.util.Random;
 
-public class TileEntityKnowledgeTableRenderer extends TileEntitySpecialRenderer {
+public class TileEntityKnowledgeTableRenderer extends TileEntitySpecialRenderer<TileEntityKnowledgeTable> {
     RenderItem renderItem = Minecraft.getMinecraft().getRenderItem();
     Random random = new Random();
 
@@ -20,9 +19,7 @@ public class TileEntityKnowledgeTableRenderer extends TileEntitySpecialRenderer 
     }
 
     @Override
-    public void render(TileEntity tile, double x, double y, double z, float partialTicks, int destroyStage, float tileAlpha) {
-        if (tile instanceof TileEntityKnowledgeTable) {
-            TileEntityKnowledgeTable table = (TileEntityKnowledgeTable) tile;
+    public void render(TileEntityKnowledgeTable table, double x, double y, double z, float partialTicks, int destroyStage, float tileAlpha) {
             if (table.inventory.getStackInSlot(0) != ItemStack.EMPTY) {
                 if (Minecraft.getMinecraft().world != null) {
                     GlStateManager.pushAttrib();
@@ -36,7 +33,6 @@ public class TileEntityKnowledgeTableRenderer extends TileEntitySpecialRenderer 
                     GL11.glPopMatrix();
                     GlStateManager.popAttrib();
                 }
-            }
         }
     }
 }

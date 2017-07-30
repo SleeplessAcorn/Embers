@@ -5,24 +5,17 @@ import net.minecraft.client.renderer.RenderItem;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.item.ItemStack;
-import net.minecraft.tileentity.TileEntity;
 import org.lwjgl.opengl.GL11;
 
 import java.util.Random;
 
-public class TileEntityBinRenderer extends TileEntitySpecialRenderer {
+public class TileEntityBinRenderer extends TileEntitySpecialRenderer<TileEntityBin> {
     RenderItem renderItem = Minecraft.getMinecraft().getRenderItem();
     Random random = new Random();
 
-    public TileEntityBinRenderer() {
-        super();
-    }
-
     @Override
-    public void render(TileEntity tile, double x, double y, double z, float partialTicks, int destroyStage, float tileAlpha) {
-        if (tile instanceof TileEntityBin) {
-            TileEntityBin bin = (TileEntityBin) tile;
-            random.setSeed(tile.getWorld().getSeed());
+    public void render(TileEntityBin bin, double x, double y, double z, float partialTicks, int destroyStage, float tileAlpha) {
+        random.setSeed(bin.getWorld().getSeed());
             if (bin.inventory.getStackInSlot(0) != ItemStack.EMPTY) {
                 int itemCount = (int) Math.ceil((bin.inventory.getStackInSlot(0).getCount()) / 4.0);
                 for (int i = 0; i < itemCount; i++) {
@@ -40,6 +33,5 @@ public class TileEntityBinRenderer extends TileEntitySpecialRenderer {
                     GL11.glPopMatrix();
                 }
             }
-        }
     }
 }

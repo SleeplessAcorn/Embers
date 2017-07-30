@@ -20,20 +20,13 @@ import teamroots.embers.util.RenderUtil;
 
 import java.util.Random;
 
-public class TileEntityAlchemyTabletRenderer extends TileEntitySpecialRenderer implements ITileEntitySpecialRendererLater {
+public class TileEntityAlchemyTabletRenderer extends TileEntitySpecialRenderer<TileEntityAlchemyTablet> implements ITileEntitySpecialRendererLater {
     public ResourceLocation texture = new ResourceLocation(Embers.MODID + ":textures/entity/beam.png");
     RenderItem renderItem = Minecraft.getMinecraft().getRenderItem();
     Random random = new Random();
 
-    public TileEntityAlchemyTabletRenderer() {
-        super();
-    }
-
     @Override
-    public void render(TileEntity tile, double x, double y, double z, float partialTicks, int destroyStage, float tileAlpha) {
-        if (tile instanceof TileEntityAlchemyTablet) {
-            TileEntityAlchemyTablet tablet = (TileEntityAlchemyTablet) tile;
-
+    public void render(TileEntityAlchemyTablet tablet, double x, double y, double z, float partialTicks, int destroyStage, float tileAlpha) {
             if (tablet.process != 0) {
                 float processSign = (tablet.progress == 1) ? 1 : -1;
                 if (tablet.process == 20) {
@@ -58,7 +51,7 @@ public class TileEntityAlchemyTabletRenderer extends TileEntitySpecialRenderer i
                 }
                 b.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION_TEX_LMAP_COLOR);
                 for (double i = 0; i < 8; i++) {
-                    RenderUtil.renderAlchemyCircle(b, x + 0.5, y + 1.0 + sign * (i / 1000.0), z + 0.5, 1.0f, 0.25f, 0.0625f, (tablet.process + (partialTicks * processSign)) / 40.0f, 0.4f * (tablet.process + (partialTicks * processSign)) / 10.0f, ((TileEntityAlchemyTablet) tile).angle + partialTicks);
+                    RenderUtil.renderAlchemyCircle(b, x + 0.5, y + 1.0 + sign * (i / 1000.0), z + 0.5, 1.0f, 0.25f, 0.0625f, (tablet.process + (partialTicks * processSign)) / 40.0f, 0.4f * (tablet.process + (partialTicks * processSign)) / 10.0f, tablet.angle + partialTicks);
                 }
                 tess.draw();
                 GlStateManager.alphaFunc(func, ref);
@@ -167,7 +160,6 @@ public class TileEntityAlchemyTabletRenderer extends TileEntitySpecialRenderer i
                     GL11.glPopMatrix();
                     GlStateManager.popAttrib();
                 }
-            }
         }
     }
 
