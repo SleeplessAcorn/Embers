@@ -30,17 +30,23 @@ archivesBaseName = mod_name
 version = "${mc_version}-${mod_version}-${build_number}"
 
 repositories {
-    maven { url "http://tehnut.info/maven" }
+    // JEI
     maven { url "http://dvs1.progwml6.com/files/maven" }
+
+    // Baubles
+    ivy {
+        name "Asie Dependency Mirror"
+        artifactPattern "http://asie.pl/javadeps/[module]-[revision](-[classifier]).[ext]"
+    }
 }
 
 dependencies {
-    // TehNut Maven
-    deobfCompile "mcp.mobius.waila:Hwyla:1.8.13-B26_1.11"
-
     // Prog Maven
     deobfProvided "mezz.jei:jei_1.12:4.7.2.77:api"
     runtime "mezz.jei:jei_1.12:4.7.2.77"
+
+    // Asie Dependency Mirror
+    deobfCompile name: "Baubles", version: "1.12-1.4.5"
 }
 
 minecraft {
