@@ -2,8 +2,8 @@ package teamroots.embers.compat.jei;
 
 import mezz.jei.api.*;
 import net.minecraft.item.ItemStack;
-import teamroots.embers.RegistryManager;
 import teamroots.embers.recipe.RecipeRegistry;
+import teamroots.embers.registry.RegistrarEmbersBlocks;
 
 import java.util.ArrayList;
 
@@ -58,9 +58,9 @@ public class EmbersJEIPlugin extends BlankModPlugin {
         }
         reg.addRecipes(alchemyRecipes);
 
-        reg.addRecipeCategoryCraftingItem(new ItemStack(RegistryManager.stamper), "embers.stamp");
-        reg.addRecipeCategoryCraftingItem(new ItemStack(RegistryManager.block_furnace), "embers.melter");
-        reg.addRecipeCategoryCraftingItem(new ItemStack(RegistryManager.mixer), "embers.mixer");
-        reg.addRecipeCategoryCraftingItem(new ItemStack(RegistryManager.alchemy_tablet), "embers.alchemy");
+        reg.addRecipeCategoryCraftingItem(new ItemStack(RegistrarEmbersBlocks.STAMPER), "embers.stamp");
+        reg.addRecipeCategoryCraftingItem(new ItemStack(RegistrarEmbersBlocks.BLOCK_FURNACE), "embers.melter");
+        reg.addRecipeCategoryCraftingItem(new ItemStack(RegistrarEmbersBlocks.MIXER), "embers.mixer");
+        reg.addRecipeCategoryCraftingItem(new ItemStack(RegistrarEmbersBlocks.ALCHEMY_TABLET), "embers.alchemy");
     }
 }

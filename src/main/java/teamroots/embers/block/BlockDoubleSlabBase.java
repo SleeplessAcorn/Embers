@@ -38,7 +38,7 @@ public class BlockDoubleSlabBase extends BlockSlab implements IModeledBlock, IBl
         setUnlocalizedName(name);
         setRegistryName(Embers.MODID + ":" + name);
         if (addToTab) {
-            setCreativeTab(Embers.tab);
+            setCreativeTab(Embers.TAB_EMBERS);
         }
         itemBlock = (new ItemBlock(this).setRegistryName(this.getRegistryName()));
     }

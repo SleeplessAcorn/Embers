@@ -6,7 +6,7 @@ import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.util.NonNullList;
 import net.minecraft.world.World;
 import net.minecraftforge.registries.IForgeRegistryEntry;
-import teamroots.embers.RegistryManager;
+import teamroots.embers.registry.RegistrarEmbersItems;
 
 public class AshenCloakUnsocketRecipe extends IForgeRegistryEntry.Impl<IRecipe> implements IRecipe {
 
@@ -17,7 +17,7 @@ public class AshenCloakUnsocketRecipe extends IForgeRegistryEntry.Impl<IRecipe> 
         if (inv.getSizeInventory() > 4) {
             for (int i = 0; i < inv.getSizeInventory(); i++) {
                 if (inv.getStackInSlot(i) != ItemStack.EMPTY) {
-                    if (inv.getStackInSlot(i).getItem() == RegistryManager.ashen_cloak_chest && inv.getStackInSlot(i).getTagCompound() != null) {
+                    if (inv.getStackInSlot(i).getItem() == RegistrarEmbersItems.ASHEN_CLOAK_CHEST&& inv.getStackInSlot(i).getTagCompound() != null) {
                         if (inv.getStackInSlot(i).getTagCompound().hasKey("gem1") ||
                                 inv.getStackInSlot(i).getTagCompound().hasKey("gem2") ||
                                 inv.getStackInSlot(i).getTagCompound().hasKey("gem3") ||
@@ -48,7 +48,7 @@ public class AshenCloakUnsocketRecipe extends IForgeRegistryEntry.Impl<IRecipe> 
         ItemStack capeStack = ItemStack.EMPTY;
         for (int i = 0; i < inv.getSizeInventory(); i++) {
             if (!inv.getStackInSlot(i).isEmpty()) {
-                if (inv.getStackInSlot(i).getItem() == RegistryManager.ashen_cloak_chest) {
+                if (inv.getStackInSlot(i).getItem() == RegistrarEmbersItems.ASHEN_CLOAK_CHEST) {
                     capeStack = inv.getStackInSlot(i).copy();
                 }
             }
@@ -65,7 +65,7 @@ public class AshenCloakUnsocketRecipe extends IForgeRegistryEntry.Impl<IRecipe> 
 
     @Override
     public ItemStack getRecipeOutput() {
-        return new ItemStack(RegistryManager.ashen_cloak_chest, 1);
+        return new ItemStack(RegistrarEmbersItems.ASHEN_CLOAK_CHEST, 1);
     }
 
     @Override
@@ -73,7 +73,7 @@ public class AshenCloakUnsocketRecipe extends IForgeRegistryEntry.Impl<IRecipe> 
         NonNullList<ItemStack> gems = NonNullList.create();
         for (int i = 0; i < inv.getSizeInventory(); i++) {
             if (inv.getStackInSlot(i) != ItemStack.EMPTY) {
-                if (inv.getStackInSlot(i).getItem() == RegistryManager.ashen_cloak_chest) {
+                if (inv.getStackInSlot(i).getItem() == RegistrarEmbersItems.ASHEN_CLOAK_CHEST) {
                     for (int j = 1; j < 8; j++) {
                         if (inv.getStackInSlot(i).getTagCompound().hasKey("gem" + j)) {
                             gems.add(new ItemStack(inv.getStackInSlot(i).getTagCompound().getCompoundTag("gem" + j)));

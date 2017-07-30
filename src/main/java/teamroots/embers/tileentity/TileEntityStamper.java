@@ -18,7 +18,6 @@ import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 import teamroots.embers.EventManager;
-import teamroots.embers.RegistryManager;
 import teamroots.embers.block.BlockStamper;
 import teamroots.embers.item.EnumStampType;
 import teamroots.embers.network.PacketHandler;
@@ -29,6 +28,7 @@ import teamroots.embers.power.IEmberCapability;
 import teamroots.embers.recipe.ItemStampingOreRecipe;
 import teamroots.embers.recipe.ItemStampingRecipe;
 import teamroots.embers.recipe.RecipeRegistry;
+import teamroots.embers.registry.RegistrarEmbersBlocks;
 import teamroots.embers.util.Misc;
 
 import javax.annotation.Nullable;
@@ -131,7 +131,7 @@ public class TileEntityStamper extends TileEntity implements ITileEntityBase, IT
         prevPowered = powered;
         if (true) {
             EnumFacing face = getWorld().getBlockState(getPos()).getValue(BlockStamper.facing);
-            if (getWorld().getBlockState(getPos().offset(face, 2)).getBlock() == RegistryManager.stamp_base) {
+            if (getWorld().getBlockState(getPos().offset(face, 2)).getBlock() == RegistrarEmbersBlocks.STAMP_BASE) {
                 if (this.ticksExisted % 80 == 0 && !powered && !getWorld().isRemote) {
                     TileEntityStampBase stamp = (TileEntityStampBase) getWorld().getTileEntity(getPos().offset(face, 2));
                     FluidStack fluid = null;

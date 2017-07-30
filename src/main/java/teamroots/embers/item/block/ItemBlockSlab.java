@@ -29,7 +29,7 @@ public class ItemBlockSlab extends ItemBlock implements IModeledItem {
         super(block);
         doubleSlab = doubleSlabBlock;
         setRegistryName(block.getRegistryName());
-        tab = Embers.tab;
+        tab = Embers.TAB_EMBERS;
     }
 
     @Override

@@ -15,8 +15,8 @@ import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 import teamroots.embers.Embers;
 import teamroots.embers.EventManager;
-import teamroots.embers.RegistryManager;
 import teamroots.embers.block.BlockAxle;
+import teamroots.embers.registry.RegistrarEmbersBlocks;
 import teamroots.embers.util.RenderUtil;
 import teamroots.embers.util.StructUV;
 
@@ -46,7 +46,7 @@ public class TileEntityAxleRenderer extends TileEntitySpecialRenderer {
             if (state.getBlock() instanceof BlockAxle) {
                 EnumFacing face = state.getValue(BlockAxle.facing);
                 ResourceLocation texture = null;
-                if (state.getBlock() == RegistryManager.axle_iron) {
+                if (state.getBlock() == RegistrarEmbersBlocks.AXLE_IRON) {
                     texture = ironTexture;
                 }
                 Minecraft.getMinecraft().renderEngine.bindTexture(texture);

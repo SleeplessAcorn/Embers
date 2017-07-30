@@ -13,12 +13,12 @@ import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.MobEffects;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
-import net.minecraft.potion.Potion;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.ResourceLocation;
@@ -53,6 +53,8 @@ import teamroots.embers.network.message.MessageEmberGenOffset;
 import teamroots.embers.network.message.MessageTEUpdate;
 import teamroots.embers.network.message.MessageTyrfingBurstFX;
 import teamroots.embers.proxy.ClientProxy;
+import teamroots.embers.registry.RegistrarEmbers;
+import teamroots.embers.registry.RegistrarEmbersItems;
 import teamroots.embers.research.ResearchBase;
 import teamroots.embers.tileentity.ITileEntitySpecialRendererLater;
 import teamroots.embers.util.*;
@@ -123,13 +125,13 @@ public class EventManager {
             String source = event.getSource().getDamageType();
             if (source.compareTo("mob") != 0 && source.compareTo("generic") != 0 && source.compareTo("player") != 0 && source.compareTo("arrow") != 0) {
                 if (player.getHeldItemMainhand() != ItemStack.EMPTY) {
-                    if (player.getHeldItemMainhand().getItem() == RegistryManager.inflictor_gem && player.getHeldItemMainhand().hasTagCompound()) {
+                    if (player.getHeldItemMainhand().getItem() == RegistrarEmbersItems.INFLICTOR_GEM&& player.getHeldItemMainhand().hasTagCompound()) {
                         player.getHeldItemMainhand().setItemDamage(1);
                         player.getHeldItemMainhand().getTagCompound().setString("type", event.getSource().getDamageType());
                     }
                 }
                 if (player.getHeldItemOffhand() != ItemStack.EMPTY) {
-                    if (player.getHeldItemOffhand().getItem() == RegistryManager.inflictor_gem && player.getHeldItemOffhand().hasTagCompound()) {
+                    if (player.getHeldItemOffhand().getItem() == RegistrarEmbersItems.INFLICTOR_GEM&& player.getHeldItemOffhand().hasTagCompound()) {
                         player.getHeldItemOffhand().setItemDamage(1);
                         player.getHeldItemOffhand().getTagCompound().setString("type", event.getSource().getDamageType());
                     }
@@ -293,14 +295,14 @@ public class EventManager {
 
     @SubscribeEvent(priority = EventPriority.LOW)
     public void onEntityDamaged(LivingHurtEvent event) {
-        if (event.getSource().damageType == RegistryManager.damage_ember.damageType) {
-            if (event.getEntityLiving().isPotionActive(Potion.getPotionFromResourceLocation("fire_resistance"))) {
+        if (event.getSource().damageType.equals(RegistrarEmbers.DAMAGE_EMBER.damageType)) {
+            if (event.getEntityLiving().isPotionActive(MobEffects.FIRE_RESISTANCE)) {
                 event.setAmount(event.getAmount() * 0.5f);
             }
         }
         if (event.getSource().getTrueSource() != null) {
             if (event.getSource().getTrueSource() instanceof EntityPlayer) {
-                if (((EntityPlayer) event.getSource().getTrueSource()).getHeldItemMainhand().getItem() == RegistryManager.tyrfing) {
+                if (((EntityPlayer) event.getSource().getTrueSource()).getHeldItemMainhand().getItem() == RegistrarEmbersItems.TYRFING) {
                     if (!event.getEntity().world.isRemote) {
                         PacketHandler.INSTANCE.sendToAll(new MessageTyrfingBurstFX(event.getEntity().posX, event.getEntity().posY + event.getEntity().height / 2.0f, event.getEntity().posZ));
                     }
@@ -378,7 +380,7 @@ public class EventManager {
                         List<String> modifiers = new ArrayList<String>();
                         NBTTagList l = event.getStack().getTagCompound().getCompoundTag(ItemModUtil.HEAT_TAG).getTagList("modifiers", Constants.NBT.TAG_COMPOUND);
                         for (int j = 0; j < l.tagCount(); j++) {
-                            if (l.getCompoundTagAt(j).getString("name").compareTo(ItemModUtil.modifierRegistry.get(RegistryManager.ancient_motive_core).name) != 0) {
+                            if (l.getCompoundTagAt(j).getString("name").compareTo(ItemModUtil.modifierRegistry.get(RegistrarEmbersItems.ANCIENT_MOTIVE_CORE).name) != 0) {
                                 modifiers.add(l.getCompoundTagAt(j).getString("name"));
                             }
                         }

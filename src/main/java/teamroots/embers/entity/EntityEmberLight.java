@@ -7,8 +7,8 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import teamroots.embers.RegistryManager;
 import teamroots.embers.particle.ParticleUtil;
+import teamroots.embers.registry.RegistrarEmbersBlocks;
 
 public class EntityEmberLight extends Entity {
     public BlockPos dest = new BlockPos(0, 0, 0);
@@ -73,8 +73,8 @@ public class EntityEmberLight extends Entity {
                 }
             }
             if (getEntityWorld().isAirBlock(getPosition().offset(face)) || getEntityWorld().getBlockState(getPosition().offset(face)).getBlock().isReplaceable(getEntityWorld(), getPosition().offset(face))) {
-                getEntityWorld().setBlockState(getPosition().offset(face), RegistryManager.glow.getDefaultState());
-                getEntityWorld().notifyBlockUpdate(getPosition().offset(face), Blocks.AIR.getDefaultState(), RegistryManager.glow.getDefaultState(), 8);
+                getEntityWorld().setBlockState(getPosition().offset(face), RegistrarEmbersBlocks.GLOW.getDefaultState());
+                getEntityWorld().notifyBlockUpdate(getPosition().offset(face), Blocks.AIR.getDefaultState(), RegistrarEmbersBlocks.GLOW.getDefaultState(), 8);
                 didHit = true;
             }
             if (!didHit) {
@@ -84,8 +84,8 @@ public class EntityEmberLight extends Entity {
                     face = EnumFacing.EAST;
                 }
                 if (getEntityWorld().isAirBlock(getPosition().offset(face)) || getEntityWorld().getBlockState(getPosition().offset(face)).getBlock().isReplaceable(getEntityWorld(), getPosition().offset(face))) {
-                    getEntityWorld().setBlockState(getPosition().offset(face), RegistryManager.glow.getDefaultState());
-                    getEntityWorld().notifyBlockUpdate(getPosition().offset(face), Blocks.AIR.getDefaultState(), RegistryManager.glow.getDefaultState(), 8);
+                    getEntityWorld().setBlockState(getPosition().offset(face), RegistrarEmbersBlocks.GLOW.getDefaultState());
+                    getEntityWorld().notifyBlockUpdate(getPosition().offset(face), Blocks.AIR.getDefaultState(), RegistrarEmbersBlocks.GLOW.getDefaultState(), 8);
                     didHit = true;
                 }
             }
@@ -96,8 +96,8 @@ public class EntityEmberLight extends Entity {
                     face = EnumFacing.UP;
                 }
                 if (getEntityWorld().isAirBlock(getPosition().offset(face)) || getEntityWorld().getBlockState(getPosition().offset(face)).getBlock().isReplaceable(getEntityWorld(), getPosition().offset(face))) {
-                    getEntityWorld().setBlockState(getPosition().offset(face), RegistryManager.glow.getDefaultState());
-                    getEntityWorld().notifyBlockUpdate(getPosition().offset(face), Blocks.AIR.getDefaultState(), RegistryManager.glow.getDefaultState(), 8);
+                    getEntityWorld().setBlockState(getPosition().offset(face), RegistrarEmbersBlocks.GLOW.getDefaultState());
+                    getEntityWorld().notifyBlockUpdate(getPosition().offset(face), Blocks.AIR.getDefaultState(), RegistrarEmbersBlocks.GLOW.getDefaultState(), 8);
                     didHit = true;
                 }
             }
@@ -108,8 +108,8 @@ public class EntityEmberLight extends Entity {
                     face = EnumFacing.SOUTH;
                 }
                 if (getEntityWorld().isAirBlock(getPosition().offset(face)) || getEntityWorld().getBlockState(getPosition().offset(face)).getBlock().isReplaceable(getEntityWorld(), getPosition().offset(face))) {
-                    getEntityWorld().setBlockState(getPosition().offset(face), RegistryManager.glow.getDefaultState());
-                    getEntityWorld().notifyBlockUpdate(getPosition().offset(face), Blocks.AIR.getDefaultState(), RegistryManager.glow.getDefaultState(), 8);
+                    getEntityWorld().setBlockState(getPosition().offset(face), RegistrarEmbersBlocks.GLOW.getDefaultState());
+                    getEntityWorld().notifyBlockUpdate(getPosition().offset(face), Blocks.AIR.getDefaultState(), RegistrarEmbersBlocks.GLOW.getDefaultState(), 8);
                     didHit = true;
                 }
             }

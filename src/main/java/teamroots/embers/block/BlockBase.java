@@ -22,7 +22,7 @@ public class BlockBase extends Block implements IModeledBlock, IBlock {
         setUnlocalizedName(name);
         setRegistryName(Embers.MODID + ":" + name);
         if (addToTab) {
-            setCreativeTab(Embers.tab);
+            setCreativeTab(Embers.TAB_EMBERS);
         }
         itemBlock = (new ItemBlock(this).setRegistryName(this.getRegistryName()));
     }

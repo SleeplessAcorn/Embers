@@ -8,8 +8,8 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.NonNullList;
 import net.minecraft.world.World;
 import net.minecraftforge.registries.IForgeRegistryEntry;
-import teamroots.embers.RegistryManager;
 import teamroots.embers.item.ItemInflictorGem;
+import teamroots.embers.registry.RegistrarEmbersItems;
 
 public class AshenCloakSocketRecipe extends IForgeRegistryEntry.Impl<IRecipe> implements IRecipe {
 
@@ -23,7 +23,7 @@ public class AshenCloakSocketRecipe extends IForgeRegistryEntry.Impl<IRecipe> im
         if (inv.getSizeInventory() > 4) {
             for (int i = 0; i < inv.getSizeInventory(); i++) {
                 if (!inv.getStackInSlot(i).isEmpty()) {
-                    if (inv.getStackInSlot(i).getItem() == RegistryManager.ashen_cloak_chest) {
+                    if (inv.getStackInSlot(i).getItem() == RegistrarEmbersItems.ASHEN_CLOAK_CHEST) {
                         if (!inv.getStackInSlot(i).hasTagCompound() || !inv.getStackInSlot(i).getTagCompound().hasKey("gem1")
                                 && !inv.getStackInSlot(i).getTagCompound().hasKey("gem2")
                                 && !inv.getStackInSlot(i).getTagCompound().hasKey("gem3")
@@ -63,7 +63,7 @@ public class AshenCloakSocketRecipe extends IForgeRegistryEntry.Impl<IRecipe> im
         ItemStack capeStack = ItemStack.EMPTY;
         for (int i = 0; i < inv.getSizeInventory(); i++) {
             if (!inv.getStackInSlot(i).isEmpty()) {
-                if (inv.getStackInSlot(i).getItem() == RegistryManager.ashen_cloak_chest) {
+                if (inv.getStackInSlot(i).getItem() == RegistrarEmbersItems.ASHEN_CLOAK_CHEST) {
                     capeStack = inv.getStackInSlot(i).copy();
                 }
             }
@@ -88,7 +88,7 @@ public class AshenCloakSocketRecipe extends IForgeRegistryEntry.Impl<IRecipe> im
 
     @Override
     public ItemStack getRecipeOutput() {
-        return new ItemStack(RegistryManager.ashen_cloak_chest, 1);
+        return new ItemStack(RegistrarEmbersItems.ASHEN_CLOAK_CHEST, 1);
     }
 
     @Override

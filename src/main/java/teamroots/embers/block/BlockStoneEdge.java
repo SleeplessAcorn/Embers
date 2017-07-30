@@ -12,7 +12,7 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import teamroots.embers.RegistryManager;
+import teamroots.embers.registry.RegistrarEmbersBlocks;
 import teamroots.embers.tileentity.ITileEntityBase;
 import teamroots.embers.tileentity.TileEntityLargeTank;
 
@@ -117,7 +117,7 @@ public class BlockStoneEdge extends BlockBase {
         if (world.getTileEntity(pos) instanceof ITileEntityBase) {
             ((ITileEntityBase) world.getTileEntity(pos)).breakBlock(world, pos, world.getBlockState(pos), player);
         }
-        if (world.getBlockState(pos).getBlock() == RegistryManager.stone_edge) {
+        if (world.getBlockState(pos).getBlock() == RegistrarEmbersBlocks.STONE_EDGE) {
             if (world.getBlockState(pos).getValue(BlockStoneEdge.state) == 8) {
                 boolean foundBlock = false;
                 for (int i = 1; i < 64 && !foundBlock; i++) {
@@ -243,15 +243,15 @@ public class BlockStoneEdge extends BlockBase {
     @Override
     public void onBlockAdded(World world, BlockPos pos, IBlockState state) {
         if (state.getValue(BlockStoneEdge.state) == 0) {
-            world.setBlockState(pos, RegistryManager.stone_edge.getStateFromMeta(8));
-            world.setBlockState(pos.north(), RegistryManager.stone_edge.getStateFromMeta(9));
-            world.setBlockState(pos.north().west(), RegistryManager.stone_edge.getStateFromMeta(1));
-            world.setBlockState(pos.west(), RegistryManager.stone_edge.getStateFromMeta(2));
-            world.setBlockState(pos.south().west(), RegistryManager.stone_edge.getStateFromMeta(3));
-            world.setBlockState(pos.south(), RegistryManager.stone_edge.getStateFromMeta(4));
-            world.setBlockState(pos.south().east(), RegistryManager.stone_edge.getStateFromMeta(5));
-            world.setBlockState(pos.east(), RegistryManager.stone_edge.getStateFromMeta(6));
-            world.setBlockState(pos.north().east(), RegistryManager.stone_edge.getStateFromMeta(7));
+            world.setBlockState(pos, RegistrarEmbersBlocks.STONE_EDGE.getStateFromMeta(8));
+            world.setBlockState(pos.north(), RegistrarEmbersBlocks.STONE_EDGE.getStateFromMeta(9));
+            world.setBlockState(pos.north().west(), RegistrarEmbersBlocks.STONE_EDGE.getStateFromMeta(1));
+            world.setBlockState(pos.west(), RegistrarEmbersBlocks.STONE_EDGE.getStateFromMeta(2));
+            world.setBlockState(pos.south().west(), RegistrarEmbersBlocks.STONE_EDGE.getStateFromMeta(3));
+            world.setBlockState(pos.south(), RegistrarEmbersBlocks.STONE_EDGE.getStateFromMeta(4));
+            world.setBlockState(pos.south().east(), RegistrarEmbersBlocks.STONE_EDGE.getStateFromMeta(5));
+            world.setBlockState(pos.east(), RegistrarEmbersBlocks.STONE_EDGE.getStateFromMeta(6));
+            world.setBlockState(pos.north().east(), RegistrarEmbersBlocks.STONE_EDGE.getStateFromMeta(7));
         }
         boolean foundBlock = false;
         for (int i = 0; i < 64 && !foundBlock; i++) {

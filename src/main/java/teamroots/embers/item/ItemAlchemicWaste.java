@@ -8,7 +8,7 @@ import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import teamroots.embers.RegistryManager;
+import teamroots.embers.registry.RegistrarEmbersItems;
 
 import java.util.List;
 
@@ -32,7 +32,7 @@ public class ItemAlchemicWaste extends ItemBase {
     }
 
     public static ItemStack create(int ironInaccuracy, int copperInaccuracy, int silverInaccuracy, int dawnstoneInaccuracy, int leadInaccuracy, int totalAsh) {
-        ItemStack stack = new ItemStack(RegistryManager.alchemic_waste, 1);
+        ItemStack stack = new ItemStack(RegistrarEmbersItems.ALCHEMIC_WASTE, 1);
         stack.setTagCompound(new NBTTagCompound());
         stack.getTagCompound().setInteger("ironInaccuracy", ironInaccuracy);
         stack.getTagCompound().setInteger("copperInaccuracy", copperInaccuracy);

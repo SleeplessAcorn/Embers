@@ -12,48 +12,35 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 import teamroots.embers.proxy.CommonProxy;
 import teamroots.embers.recipe.RecipeRegistry;
+import teamroots.embers.registry.RegistrarEmbersItems;
 
 @Mod(modid = Embers.MODID, name = Embers.MODNAME, version = Embers.VERSION, dependencies = Embers.DEPENDENCIES)
 public class Embers {
     public static final String MODID = "embers";
     public static final String MODNAME = "Embers";
-    public static final String VERSION = "0.221";
+    public static final String VERSION = "@VERSION@";
     public static final String DEPENDENCIES = "";
 
     @SidedProxy(clientSide = "teamroots.embers.proxy.ClientProxy", serverSide = "teamroots.embers.proxy.ServerProxy")
     public static CommonProxy proxy;
 
-    public static CreativeTabs tab = new CreativeTabs("embers") {
+    public static final CreativeTabs TAB_EMBERS = new CreativeTabs("embers") {
         @Override
-        public String getTabLabel() {
-            return "embers";
-        }
-
-        @Override
-        @SideOnly(Side.CLIENT)
         public ItemStack getTabIconItem() {
-            return new ItemStack(RegistryManager.crystal_ember, 1);
+            return new ItemStack(RegistrarEmbersItems.CRYSTAL_EMBER, 1);
         }
     };
 
-    public static CreativeTabs resource_tab = new CreativeTabs("embers_resources") {
+    public static final CreativeTabs TAB_RESOURCE = new CreativeTabs("embers_resources") {
         @Override
-        public String getTabLabel() {
-            return "embers_resources";
-        }
-
-        @Override
-        @SideOnly(Side.CLIENT)
         public ItemStack getTabIconItem() {
-            return new ItemStack(RegistryManager.ingot_dawnstone, 1);
+            return new ItemStack(RegistrarEmbersItems.INGOT_DAWNSTONE, 1);
         }
     };
 
-    @Instance("embers")
+    @Instance(MODID)
     public static Embers instance;
 
     static {
@@ -64,7 +51,6 @@ public class Embers {
     public void preInit(FMLPreInitializationEvent event) {
         MinecraftForge.EVENT_BUS.register(new EventManager());
         MinecraftForge.EVENT_BUS.register(new ConfigManager());
-        MinecraftForge.EVENT_BUS.register(new RegistryManager());
         MinecraftForge.EVENT_BUS.register(new RecipeRegistry());
         ConfigManager.init(event.getSuggestedConfigurationFile());
         proxy.preInit(event);

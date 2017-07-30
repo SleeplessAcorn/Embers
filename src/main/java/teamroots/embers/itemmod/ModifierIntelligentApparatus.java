@@ -5,7 +5,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.living.LivingExperienceDropEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import teamroots.embers.RegistryManager;
+import teamroots.embers.registry.RegistrarEmbersItems;
 import teamroots.embers.util.EmberInventoryUtil;
 import teamroots.embers.util.ItemModUtil;
 
@@ -23,7 +23,7 @@ public class ModifierIntelligentApparatus extends ModifierBase {
             ItemStack s = player.getHeldItemMainhand();
             if (!s.isEmpty()) {
                 if (ItemModUtil.hasHeat(s)) {
-                    int level = ItemModUtil.getModifierLevel(s, ItemModUtil.modifierRegistry.get(RegistryManager.superheater).name);
+                    int level = ItemModUtil.getModifierLevel(s, ItemModUtil.modifierRegistry.get(RegistrarEmbersItems.SUPERHEATER).name);
                     if (level > 0 && EmberInventoryUtil.getEmberTotal(player) >= cost) {
                         EmberInventoryUtil.removeEmber(player, cost);
                         event.setDroppedExperience(event.getDroppedExperience() * level);

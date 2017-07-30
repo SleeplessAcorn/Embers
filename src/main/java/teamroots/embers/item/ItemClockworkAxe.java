@@ -29,7 +29,7 @@ public class ItemClockworkAxe extends ItemTool implements IModeledItem, IEmberCh
         setUnlocalizedName(name);
         setRegistryName(Embers.MODID + ":" + name);
         if (addToTab) {
-            setCreativeTab(Embers.tab);
+            setCreativeTab(Embers.TAB_EMBERS);
         }
         setHarvestLevel("axe", this.toolMaterial.getHarvestLevel());
         this.damageVsEntity = 8.0f;

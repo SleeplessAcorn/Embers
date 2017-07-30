@@ -16,7 +16,6 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.minecraftforge.common.capabilities.Capability;
 import teamroots.embers.EventManager;
-import teamroots.embers.RegistryManager;
 import teamroots.embers.block.BlockBeamCannon;
 import teamroots.embers.network.PacketHandler;
 import teamroots.embers.network.message.MessageBeamCannonFX;
@@ -24,6 +23,7 @@ import teamroots.embers.power.DefaultEmberCapability;
 import teamroots.embers.power.EmberCapabilityProvider;
 import teamroots.embers.power.IEmberCapability;
 import teamroots.embers.power.IEmberPacketReceiver;
+import teamroots.embers.registry.RegistrarEmbers;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -139,7 +139,7 @@ public class TileEntityBeamCannon extends TileEntity implements ITileEntityBase,
                     }
                     List<EntityLivingBase> rawEntities = getWorld().getEntitiesWithinAABB(EntityLivingBase.class, new AxisAlignedBB(posX - 0.85, posY - 0.85, posZ - 0.85, posX + 0.85, posY + 0.85, posZ + 0.85));
                     for (int j = 0; j < rawEntities.size(); j++) {
-                        rawEntities.get(j).attackEntityFrom(RegistryManager.damage_ember, 25.0f);
+                        rawEntities.get(j).attackEntityFrom(RegistrarEmbers.DAMAGE_EMBER, 25.0f);
                     }
                 }
                 this.capability.setEmber(0);

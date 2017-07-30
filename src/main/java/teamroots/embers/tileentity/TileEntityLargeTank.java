@@ -17,7 +17,7 @@ import net.minecraftforge.fluids.*;
 import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
 import net.minecraftforge.fluids.capability.TileFluidHandler;
 import teamroots.embers.EventManager;
-import teamroots.embers.RegistryManager;
+import teamroots.embers.registry.RegistrarEmbersBlocks;
 
 import javax.annotation.Nullable;
 
@@ -104,7 +104,7 @@ public class TileEntityLargeTank extends TileFluidHandler implements ITileEntity
 
     public void updateCapacity() {
         int capacity = 0;
-        for (int i = 1; getWorld().getBlockState(getPos().add(0, i, 0)) == RegistryManager.stone_edge.getStateFromMeta(8); i++) {
+        for (int i = 1; getWorld().getBlockState(getPos().add(0, i, 0)) == RegistrarEmbersBlocks.STONE_EDGE.getStateFromMeta(8); i++) {
             capacity += 40000;
         }
         this.tank.setCapacity(capacity);

@@ -12,10 +12,10 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import teamroots.embers.RegistryManager;
 import teamroots.embers.network.PacketHandler;
 import teamroots.embers.network.message.MessageEmberSizedBurstFX;
 import teamroots.embers.particle.ParticleUtil;
+import teamroots.embers.registry.RegistrarEmbers;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -125,7 +125,7 @@ public class EntityEmberProjectile extends Entity/* implements ILightProvider*/ 
             }
             if (entities.size() > 0) {
                 for (EntityLivingBase target : entities) {
-                    DamageSource source = RegistryManager.damage_ember;
+                    DamageSource source = RegistrarEmbers.DAMAGE_EMBER;
                     if (getEntityWorld().getPlayerEntityByUUID(id) != null) {
                         EntityPlayer player = getEntityWorld().getPlayerEntityByUUID(id);
                         source = DamageSource.causePlayerDamage(player);

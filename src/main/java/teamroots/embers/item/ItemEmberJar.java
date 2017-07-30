@@ -12,7 +12,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import teamroots.embers.Embers;
 import teamroots.embers.EventManager;
-import teamroots.embers.RegistryManager;
+import teamroots.embers.registry.RegistrarEmbersItems;
 import teamroots.embers.util.Misc;
 
 import java.util.List;
@@ -164,7 +164,7 @@ public class ItemEmberJar extends ItemBase implements IInventoryEmberCell, IHeld
         @Override
         public int getColorFromItemstack(ItemStack stack, int tintIndex) {
             if (tintIndex == 1) {
-                if (stack.hasTagCompound() && stack.getItem() == RegistryManager.ember_jar) {
+                if (stack.hasTagCompound() && stack.getItem() == RegistrarEmbersItems.EMBER_JAR) {
                     float coeff = (float) (((IEmberItem) stack.getItem()).getEmber(stack) / ((IEmberItem) stack.getItem()).getEmberCapacity(stack));
                     float timerSine = ((float) Math.sin(8.0 * Math.toRadians(EventManager.ticks % 360)) + 1.0f) / 2.0f;
                     int r = (int) 255.0f;

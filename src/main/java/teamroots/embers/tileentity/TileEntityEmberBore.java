@@ -18,7 +18,7 @@ import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 import teamroots.embers.EventManager;
-import teamroots.embers.RegistryManager;
+import teamroots.embers.registry.RegistrarEmbersItems;
 import teamroots.embers.util.EmberGenUtil;
 import teamroots.embers.util.Misc;
 
@@ -150,7 +150,7 @@ public class TileEntityEmberBore extends TileEntity implements ITileEntityBase, 
                                 inventory.getStackInSlot(stackCrystals).setCount(Math.min(64, inventory.getStackInSlot(stackCrystals).getCount()));
                             }
                         } else {
-                            inventory.setStackInSlot(stackCrystals, new ItemStack(RegistryManager.crystal_ember, 1));
+                            inventory.setStackInSlot(stackCrystals, new ItemStack(RegistrarEmbersItems.CRYSTAL_EMBER, 1));
                         }
                         markDirty();
                     } else {
@@ -159,7 +159,7 @@ public class TileEntityEmberBore extends TileEntity implements ITileEntityBase, 
                                 inventory.getStackInSlot(stackShards).setCount(Math.min(inventory.getStackInSlot(stackShards).getMaxStackSize(), inventory.getStackInSlot(stackShards).getCount()));
                             }
                         } else {
-                            inventory.setStackInSlot(stackShards, new ItemStack(RegistryManager.shard_ember, 1));
+                            inventory.setStackInSlot(stackShards, new ItemStack(RegistrarEmbersItems.SHARD_EMBER, 1));
                         }
                         markDirty();
                     }

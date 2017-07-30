@@ -14,7 +14,7 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.world.BlockEvent.BreakEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import teamroots.embers.RegistryManager;
+import teamroots.embers.registry.RegistrarEmbersItems;
 import teamroots.embers.util.EmberInventoryUtil;
 import teamroots.embers.util.ItemModUtil;
 import teamroots.embers.util.Misc;
@@ -33,8 +33,8 @@ public class ModifierBlastingCore extends ModifierBase {
         if (event.getPlayer() != null) {
             if (!event.getPlayer().getHeldItem(EnumHand.MAIN_HAND).isEmpty()) {
                 ItemStack s = event.getPlayer().getHeldItem(EnumHand.MAIN_HAND);
-                if (ItemModUtil.getModifierLevel(s, ItemModUtil.modifierRegistry.get(RegistryManager.blasting_core).name) > 0 && EmberInventoryUtil.getEmberTotal(event.getPlayer()) >= cost) {
-                    int blastingLevel = ItemModUtil.getModifierLevel(s, ItemModUtil.modifierRegistry.get(RegistryManager.blasting_core).name);
+                if (ItemModUtil.getModifierLevel(s, ItemModUtil.modifierRegistry.get(RegistrarEmbersItems.BLASTING_CORE).name) > 0 && EmberInventoryUtil.getEmberTotal(event.getPlayer()) >= cost) {
+                    int blastingLevel = ItemModUtil.getModifierLevel(s, ItemModUtil.modifierRegistry.get(RegistrarEmbersItems.BLASTING_CORE).name);
                     event.getWorld().createExplosion(event.getPlayer(), event.getPos().getX() + 0.5, event.getPos().getY() + 0.5, event.getPos().getZ() + 0.5, 0.5f, true);
                     for (int i = 0; i < 6; i++) {
                         EnumFacing face = EnumFacing.getFront(i);
@@ -59,7 +59,7 @@ public class ModifierBlastingCore extends ModifierBase {
             EntityPlayer damager = (EntityPlayer) event.getSource().getTrueSource();
             ItemStack s = damager.getHeldItemMainhand();
             if (!s.isEmpty()) {
-                int blastingLevel = ItemModUtil.getModifierLevel(s, ItemModUtil.modifierRegistry.get(RegistryManager.blasting_core).name);
+                int blastingLevel = ItemModUtil.getModifierLevel(s, ItemModUtil.modifierRegistry.get(RegistrarEmbersItems.BLASTING_CORE).name);
                 float strength = (float) (2.0 * (Math.atan(0.6 * (blastingLevel)) / (Math.PI)));
                 if (blastingLevel > 0 && EmberInventoryUtil.getEmberTotal(damager) >= cost) {
                     event.getEntityLiving().world.createExplosion(event.getEntityLiving(), event.getEntityLiving().posX, event.getEntityLiving().posY + event.getEntityLiving().height / 2.0, event.getEntityLiving().posZ, 0.5f, true);
@@ -75,7 +75,7 @@ public class ModifierBlastingCore extends ModifierBase {
             }
         }
         if (event.getEntity() instanceof EntityPlayer) {
-            int blastingLevel = ItemModUtil.getArmorMod((EntityPlayer) event.getEntity(), ItemModUtil.modifierRegistry.get(RegistryManager.blasting_core).name);
+            int blastingLevel = ItemModUtil.getArmorMod((EntityPlayer) event.getEntity(), ItemModUtil.modifierRegistry.get(RegistrarEmbersItems.BLASTING_CORE).name);
 
             float strength = (float) (2.0 * (Math.atan(0.6 * (blastingLevel)) / (Math.PI)));
             if (blastingLevel > 0 && EmberInventoryUtil.getEmberTotal(((EntityPlayer) event.getEntity())) >= cost) {

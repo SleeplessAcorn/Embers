@@ -15,8 +15,8 @@ import net.minecraft.util.ITickable;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import teamroots.embers.EventManager;
-import teamroots.embers.RegistryManager;
 import teamroots.embers.block.BlockSeed;
+import teamroots.embers.registry.RegistrarEmbersItems;
 
 import javax.annotation.Nullable;
 import java.util.Random;
@@ -116,19 +116,19 @@ public class TileEntitySeed extends TileEntity implements ITileEntityBase, ITick
                 if (willSpawn[i] && !getWorld().isRemote) {
                     ItemStack nuggetStack = ItemStack.EMPTY;
                     if (material == 0) {
-                        nuggetStack = new ItemStack(RegistryManager.nugget_iron, 1);
+                        nuggetStack = new ItemStack(RegistrarEmbersItems.NUGGET_IRON, 1);
                     }
                     if (material == 1) {
                         nuggetStack = new ItemStack(Items.GOLD_NUGGET, 1);
                     }
                     if (material == 2) {
-                        nuggetStack = new ItemStack(RegistryManager.nugget_copper, 1);
+                        nuggetStack = new ItemStack(RegistrarEmbersItems.NUGGET_COPPER, 1);
                     }
                     if (material == 3) {
-                        nuggetStack = new ItemStack(RegistryManager.nugget_lead, 1);
+                        nuggetStack = new ItemStack(RegistrarEmbersItems.NUGGET_LEAD, 1);
                     }
                     if (material == 4) {
-                        nuggetStack = new ItemStack(RegistryManager.nugget_silver, 1);
+                        nuggetStack = new ItemStack(RegistrarEmbersItems.NUGGET_SILVER, 1);
                     }
                     float offX = 0.4f * (float) Math.sin(Math.toRadians(i * 30.0));
                     float offZ = 0.4f * (float) Math.cos(Math.toRadians(i * 30.0));

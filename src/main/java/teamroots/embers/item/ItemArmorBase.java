@@ -34,7 +34,7 @@ public class ItemArmorBase extends ItemArmor implements IModeledItem {
 
         setRegistryName(Embers.MODID + ":" + getUnlocalizedName().substring(5));
         if (addToTab) {
-            setCreativeTab(Embers.tab);
+            setCreativeTab(Embers.TAB_EMBERS);
         }
     }
 

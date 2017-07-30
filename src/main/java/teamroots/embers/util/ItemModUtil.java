@@ -7,9 +7,9 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraftforge.common.util.Constants;
 import teamroots.embers.Embers;
-import teamroots.embers.RegistryManager;
 import teamroots.embers.itemmod.*;
 import teamroots.embers.itemmod.ModifierBase.EnumType;
+import teamroots.embers.registry.RegistrarEmbersItems;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -20,15 +20,15 @@ public class ItemModUtil {
     public static Map<Item, ModifierBase> modifierRegistry = new HashMap<Item, ModifierBase>();
 
     public static void init() {
-        modifierRegistry.put(RegistryManager.ancient_motive_core, new ModifierCore());
-        modifierRegistry.put(RegistryManager.superheater, new ModifierSuperheater());
-        modifierRegistry.put(RegistryManager.jet_augment, new ModifierCinderJet());
-        modifierRegistry.put(RegistryManager.caster_orb, new ModifierCasterOrb());
-        modifierRegistry.put(RegistryManager.resonating_bell, new ModifierResonatingBell());
-        modifierRegistry.put(RegistryManager.blasting_core, new ModifierBlastingCore());
-        modifierRegistry.put(RegistryManager.flame_barrier, new ModifierFlameBarrier());
-        modifierRegistry.put(RegistryManager.eldritch_insignia, new ModifierEldritchInsignia());
-        modifierRegistry.put(RegistryManager.intelligent_apparatus, new ModifierIntelligentApparatus());
+        modifierRegistry.put(RegistrarEmbersItems.ANCIENT_MOTIVE_CORE, new ModifierCore());
+        modifierRegistry.put(RegistrarEmbersItems.SUPERHEATER, new ModifierSuperheater());
+        modifierRegistry.put(RegistrarEmbersItems.JET_AUGMENT, new ModifierCinderJet());
+        modifierRegistry.put(RegistrarEmbersItems.CASTER_ORB, new ModifierCasterOrb());
+        modifierRegistry.put(RegistrarEmbersItems.RESONATING_BELL, new ModifierResonatingBell());
+        modifierRegistry.put(RegistrarEmbersItems.BLASTING_CORE, new ModifierBlastingCore());
+        modifierRegistry.put(RegistrarEmbersItems.FLAME_BARRIER, new ModifierFlameBarrier());
+        modifierRegistry.put(RegistrarEmbersItems.ELDRITCH_INSIGNIA, new ModifierEldritchInsignia());
+        modifierRegistry.put(RegistrarEmbersItems.INTELLIGENT_APPARATUS, new ModifierIntelligentApparatus());
     }
 
     public static void checkForTag(ItemStack stack) {

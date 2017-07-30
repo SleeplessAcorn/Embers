@@ -17,7 +17,6 @@ import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 import teamroots.embers.EventManager;
-import teamroots.embers.RegistryManager;
 import teamroots.embers.network.PacketHandler;
 import teamroots.embers.network.message.MessageEmberSphereFX;
 import teamroots.embers.particle.ParticleUtil;
@@ -25,6 +24,7 @@ import teamroots.embers.power.DefaultEmberCapability;
 import teamroots.embers.power.IEmberCapability;
 import teamroots.embers.recipe.AlchemyRecipe;
 import teamroots.embers.recipe.RecipeRegistry;
+import teamroots.embers.registry.RegistrarEmbersItems;
 import teamroots.embers.util.Misc;
 
 import javax.annotation.Nullable;
@@ -303,19 +303,19 @@ public class TileEntityAlchemyTablet extends TileEntity implements ITileEntityBa
                             }
                         }
                         ItemStack stack = pedestal.inventory.extractItem(0, 1, false);
-                        if (pedestal.inventory.getStackInSlot(1).getItem() == RegistryManager.aspectus_iron) {
+                        if (pedestal.inventory.getStackInSlot(1).getItem() == RegistrarEmbersItems.ASPECTUS_IRON) {
                             this.iron++;
                         }
-                        if (pedestal.inventory.getStackInSlot(1).getItem() == RegistryManager.aspectus_dawnstone) {
+                        if (pedestal.inventory.getStackInSlot(1).getItem() == RegistrarEmbersItems.ASPECTUS_DAWNSTONE) {
                             this.dawnstone++;
                         }
-                        if (pedestal.inventory.getStackInSlot(1).getItem() == RegistryManager.aspectus_copper) {
+                        if (pedestal.inventory.getStackInSlot(1).getItem() == RegistrarEmbersItems.ASPECTUS_COPPER) {
                             this.copper++;
                         }
-                        if (pedestal.inventory.getStackInSlot(1).getItem() == RegistryManager.aspectus_silver) {
+                        if (pedestal.inventory.getStackInSlot(1).getItem() == RegistrarEmbersItems.ASPECTUS_SILVER) {
                             this.silver++;
                         }
-                        if (pedestal.inventory.getStackInSlot(1).getItem() == RegistryManager.aspectus_lead) {
+                        if (pedestal.inventory.getStackInSlot(1).getItem() == RegistrarEmbersItems.ASPECTUS_LEAD) {
                             this.lead++;
                         }
                         markDirty();

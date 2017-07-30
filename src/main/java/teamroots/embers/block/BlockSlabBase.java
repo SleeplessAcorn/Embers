@@ -25,7 +25,7 @@ public class BlockSlabBase extends BlockSlab {
         setRegistryName(Embers.MODID + ":" + name);
         this.doubleSlab = block;
         if (addToTab) {
-            setCreativeTab(Embers.tab);
+            setCreativeTab(Embers.TAB_EMBERS);
         }
         this.useNeighborBrightness = true;
     }

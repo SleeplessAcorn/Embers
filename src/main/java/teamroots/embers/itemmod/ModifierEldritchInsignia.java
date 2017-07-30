@@ -5,7 +5,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.living.LivingSetAttackTargetEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import teamroots.embers.RegistryManager;
+import teamroots.embers.registry.RegistrarEmbersItems;
 import teamroots.embers.util.ItemModUtil;
 
 public class ModifierEldritchInsignia extends ModifierBase {
@@ -18,7 +18,7 @@ public class ModifierEldritchInsignia extends ModifierBase {
     @SubscribeEvent
     public void onEntityTarget(LivingSetAttackTargetEvent event) {
         if (event.getTarget() instanceof EntityPlayer) {
-            int level = ItemModUtil.getArmorMod((EntityPlayer) event.getTarget(), ItemModUtil.modifierRegistry.get(RegistryManager.eldritch_insignia).name);
+            int level = ItemModUtil.getArmorMod((EntityPlayer) event.getTarget(), ItemModUtil.modifierRegistry.get(RegistrarEmbersItems.ELDRITCH_INSIGNIA).name);
             if ((event.getEntityLiving().getLastDamageSource() == null
                     || event.getEntityLiving().getLastDamageSource() != null && event.getEntityLiving().getLastDamageSource().getTrueSource() == null
                     || event.getEntityLiving().getLastDamageSource() != null && event.getEntityLiving().getLastDamageSource().getTrueSource() != null && event.getEntityLiving().getLastDamageSource().getTrueSource().getUniqueID().compareTo(event.getTarget().getUniqueID()) != 0

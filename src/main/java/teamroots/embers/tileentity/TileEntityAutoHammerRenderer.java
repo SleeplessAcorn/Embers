@@ -13,8 +13,8 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 import teamroots.embers.Embers;
-import teamroots.embers.RegistryManager;
 import teamroots.embers.block.BlockAutoHammer;
+import teamroots.embers.registry.RegistrarEmbersBlocks;
 import teamroots.embers.util.RenderUtil;
 import teamroots.embers.util.StructBox;
 import teamroots.embers.util.StructUV;
@@ -31,7 +31,7 @@ public class TileEntityAutoHammerRenderer extends TileEntitySpecialRenderer {
 
     @Override
     public void render(TileEntity t, double x, double y, double z, float partialTicks, int destroyStage, float tileAlpha) {
-        if (t instanceof TileEntityAutoHammer && t.getWorld().getBlockState(t.getPos()).getBlock() == RegistryManager.auto_hammer) {
+        if (t instanceof TileEntityAutoHammer && t.getWorld().getBlockState(t.getPos()).getBlock() == RegistrarEmbersBlocks.AUTO_HAMMER) {
             float progress = ((TileEntityAutoHammer) t).progress;
 
             GlStateManager.pushMatrix();

@@ -16,7 +16,7 @@ import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 import teamroots.embers.EventManager;
-import teamroots.embers.RegistryManager;
+import teamroots.embers.registry.RegistrarEmbersItems;
 import teamroots.embers.util.Misc;
 
 import javax.annotation.Nullable;
@@ -39,7 +39,7 @@ public class TileEntityAlchemyPedestal extends TileEntity implements ITileEntity
 
         @Override
         public ItemStack insertItem(int slot, ItemStack stack, boolean simulate) {
-            if (slot == stackAsh && stack.getItem() != RegistryManager.dust_ash) {
+            if (slot == stackAsh && stack.getItem() != RegistrarEmbersItems.DUST_ASH) {
                 return insertItem(slot + 1, stack, simulate);
             }
             return super.insertItem(slot, stack, simulate);
@@ -116,7 +116,7 @@ public class TileEntityAlchemyPedestal extends TileEntity implements ITileEntity
                             EnumFacing side, float hitX, float hitY, float hitZ) {
         ItemStack heldItem = player.getHeldItem(hand);
         if (heldItem != ItemStack.EMPTY) {
-            if (heldItem.getItem() == RegistryManager.dust_ash) {
+            if (heldItem.getItem() == RegistrarEmbersItems.DUST_ASH) {
                 player.setHeldItem(hand, this.inventory.insertItem(0, heldItem, false));
                 markDirty();
             } else {

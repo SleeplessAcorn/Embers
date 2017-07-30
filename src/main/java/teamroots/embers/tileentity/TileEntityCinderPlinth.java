@@ -17,11 +17,11 @@ import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 import teamroots.embers.EventManager;
-import teamroots.embers.RegistryManager;
 import teamroots.embers.particle.ParticleUtil;
 import teamroots.embers.power.DefaultEmberCapability;
 import teamroots.embers.power.EmberCapabilityProvider;
 import teamroots.embers.power.IEmberCapability;
+import teamroots.embers.registry.RegistrarEmbersItems;
 import teamroots.embers.util.Misc;
 
 import javax.annotation.Nullable;
@@ -158,17 +158,17 @@ public class TileEntityCinderPlinth extends TileEntity implements ITileEntityBas
                 boolean doSpawn = true;
                 if (tile instanceof TileEntityBin) {
                     if (((TileEntityBin) tile).inventory.getStackInSlot(0) == ItemStack.EMPTY) {
-                        ((TileEntityBin) tile).inventory.insertItem(0, new ItemStack(RegistryManager.dust_ash, 1), false);
+                        ((TileEntityBin) tile).inventory.insertItem(0, new ItemStack(RegistrarEmbersItems.DUST_ASH, 1), false);
                         tile.markDirty();
                         doSpawn = false;
-                    } else if (((TileEntityBin) tile).inventory.getStackInSlot(0).getItem() == RegistryManager.dust_ash && ((TileEntityBin) tile).inventory.getStackInSlot(0).getCount() < 64) {
-                        ((TileEntityBin) tile).inventory.insertItem(0, new ItemStack(RegistryManager.dust_ash, 1), false);
+                    } else if (((TileEntityBin) tile).inventory.getStackInSlot(0).getItem() == RegistrarEmbersItems.DUST_ASH && ((TileEntityBin) tile).inventory.getStackInSlot(0).getCount() < 64) {
+                        ((TileEntityBin) tile).inventory.insertItem(0, new ItemStack(RegistrarEmbersItems.DUST_ASH, 1), false);
                         tile.markDirty();
                         doSpawn = false;
                     }
                 }
                 if (doSpawn && !getWorld().isRemote) {
-                    getWorld().spawnEntity(new EntityItem(getWorld(), getPos().getX() + 0.5, getPos().getY() + 1.0, getPos().getZ() + 0.5, new ItemStack(RegistryManager.dust_ash, 1)));
+                    getWorld().spawnEntity(new EntityItem(getWorld(), getPos().getX() + 0.5, getPos().getY() + 1.0, getPos().getZ() + 0.5, new ItemStack(RegistrarEmbersItems.DUST_ASH, 1)));
                 }
             }
             markDirty();

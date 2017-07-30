@@ -10,7 +10,7 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import teamroots.embers.RegistryManager;
+import teamroots.embers.registry.RegistrarEmbersBlocks;
 
 public class ItemGlimmerShard extends ItemBase {
     public ItemGlimmerShard() {
@@ -39,8 +39,8 @@ public class ItemGlimmerShard extends ItemBase {
             if (stack.getTagCompound().getInteger("light") >= 10) {
                 if (world.isAirBlock(pos.offset(face))) {
                     stack.getTagCompound().setInteger("light", stack.getTagCompound().getInteger("light") - 10);
-                    world.setBlockState(pos.offset(face), RegistryManager.glow.getDefaultState());
-                    world.notifyBlockUpdate(pos.offset(face), Blocks.AIR.getDefaultState(), RegistryManager.glow.getDefaultState(), 8);
+                    world.setBlockState(pos.offset(face), RegistrarEmbersBlocks.GLOW.getDefaultState());
+                    world.notifyBlockUpdate(pos.offset(face), Blocks.AIR.getDefaultState(), RegistrarEmbersBlocks.GLOW.getDefaultState(), 8);
                     return EnumActionResult.SUCCESS;
                 }
             }

@@ -16,7 +16,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.common.capabilities.Capability;
 import teamroots.embers.EventManager;
-import teamroots.embers.RegistryManager;
 import teamroots.embers.block.BlockInfernoForge;
 import teamroots.embers.network.PacketHandler;
 import teamroots.embers.network.message.MessageEmberActivationFX;
@@ -24,6 +23,7 @@ import teamroots.embers.particle.ParticleUtil;
 import teamroots.embers.power.DefaultEmberCapability;
 import teamroots.embers.power.EmberCapabilityProvider;
 import teamroots.embers.power.IEmberCapability;
+import teamroots.embers.registry.RegistrarEmbersItems;
 import teamroots.embers.util.EmberGenUtil;
 import teamroots.embers.util.ItemModUtil;
 import teamroots.embers.util.Misc;
@@ -176,7 +176,7 @@ public class TileEntityInfernoForge extends TileEntity implements ITileEntityBas
                             }
                         }
                     }
-                    if (!item.isEmpty() && emberValue > 0 && emberValue <= EmberGenUtil.getEmberForItem(RegistryManager.ember_cluster) * 3.0) {
+                    if (!item.isEmpty() && emberValue > 0 && emberValue <= EmberGenUtil.getEmberForItem(RegistrarEmbersItems.EMBER_CLUSTER) * 3.0) {
                         TileEntity tile = world.getTileEntity(pos.up());
                         if (tile instanceof TileEntityInfernoForgeOpening) {
                             ((TileEntityInfernoForgeOpening) tile).isOpen = true;
@@ -227,7 +227,7 @@ public class TileEntityInfernoForge extends TileEntity implements ITileEntityBas
                     }
                 }
             }
-            if (!item.isEmpty() && emberValue > 0 && emberValue < EmberGenUtil.getEmberForItem(RegistryManager.ember_cluster) * 3.0) {
+            if (!item.isEmpty() && emberValue > 0 && emberValue < EmberGenUtil.getEmberForItem(RegistrarEmbersItems.EMBER_CLUSTER) * 3.0) {
                 progress = 200;
                 markDirty();
             }

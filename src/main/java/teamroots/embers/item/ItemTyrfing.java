@@ -13,7 +13,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import teamroots.embers.Embers;
 import teamroots.embers.EventManager;
-import teamroots.embers.RegistryManager;
+import teamroots.embers.registry.RegistrarEmbersItems;
 import teamroots.embers.util.Misc;
 
 import java.util.List;
@@ -25,7 +25,7 @@ public class ItemTyrfing extends ItemSword implements IModeledItem {
         setUnlocalizedName(name);
         setRegistryName(Embers.MODID + ":" + name);
         if (addToTab) {
-            setCreativeTab(Embers.tab);
+            setCreativeTab(Embers.TAB_EMBERS);
         }
     }
 
@@ -44,7 +44,7 @@ public class ItemTyrfing extends ItemSword implements IModeledItem {
         @Override
         public int getColorFromItemstack(ItemStack stack, int tintIndex) {
             if (tintIndex == 1) {
-                if (stack.getItem() == RegistryManager.tyrfing) {
+                if (stack.getItem() == RegistrarEmbersItems.TYRFING) {
                     float timerSine = ((float) Math.sin(8.0 * Math.toRadians(EventManager.ticks % 360)) + 1.0f) / 2.0f;
                     int r = (int) (64.0f * timerSine);
                     int g = (int) (16.0f);

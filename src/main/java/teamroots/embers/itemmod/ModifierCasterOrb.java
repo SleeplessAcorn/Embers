@@ -8,10 +8,10 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import teamroots.embers.RegistryManager;
 import teamroots.embers.network.PacketHandler;
 import teamroots.embers.network.message.MessageRemovePlayerEmber;
 import teamroots.embers.network.message.MessageSpawnEmberProj;
+import teamroots.embers.registry.RegistrarEmbersItems;
 import teamroots.embers.util.EmberInventoryUtil;
 import teamroots.embers.util.ItemModUtil;
 
@@ -42,7 +42,7 @@ public class ModifierCasterOrb extends ModifierBase {
         ItemStack s = event.getItemStack();
         if (prevCooledStrength == 1.0f) {
             if (ItemModUtil.hasHeat(s)) {
-                int level = ItemModUtil.getModifierLevel(s, ItemModUtil.modifierRegistry.get(RegistryManager.caster_orb).name);
+                int level = ItemModUtil.getModifierLevel(s, ItemModUtil.modifierRegistry.get(RegistrarEmbersItems.CASTER_ORB).name);
                 if (event.getWorld().isRemote && level > 0 && EmberInventoryUtil.getEmberTotal(event.getEntityPlayer()) > cost && cooldownTicks == 0) {
                     float offX = 0.5f * (float) Math.sin(Math.toRadians(-event.getEntityPlayer().rotationYaw - 90));
                     float offZ = 0.5f * (float) Math.cos(Math.toRadians(-event.getEntityPlayer().rotationYaw - 90));
@@ -61,7 +61,7 @@ public class ModifierCasterOrb extends ModifierBase {
         ItemStack s = event.getItemStack();
         if (prevCooledStrength == 1.0f) {
             if (ItemModUtil.hasHeat(s)) {
-                int level = ItemModUtil.getModifierLevel(s, ItemModUtil.modifierRegistry.get(RegistryManager.caster_orb).name);
+                int level = ItemModUtil.getModifierLevel(s, ItemModUtil.modifierRegistry.get(RegistrarEmbersItems.CASTER_ORB).name);
                 if (event.getWorld().isRemote && level > 0 && EmberInventoryUtil.getEmberTotal(event.getEntityPlayer()) > cost && cooldownTicks == 0) {
                     float offX = 0.5f * (float) Math.sin(Math.toRadians(-event.getEntityPlayer().rotationYaw - 90));
                     float offZ = 0.5f * (float) Math.cos(Math.toRadians(-event.getEntityPlayer().rotationYaw - 90));

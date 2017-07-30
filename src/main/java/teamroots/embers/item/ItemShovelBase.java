@@ -12,7 +12,7 @@ public class ItemShovelBase extends ItemSpade implements IModeledItem {
         setUnlocalizedName(name);
         setRegistryName(Embers.MODID + ":" + name);
         if (addToTab) {
-            setCreativeTab(Embers.tab);
+            setCreativeTab(Embers.TAB_EMBERS);
         }
     }
 

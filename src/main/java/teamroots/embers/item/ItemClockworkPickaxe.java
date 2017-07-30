@@ -29,7 +29,7 @@ public class ItemClockworkPickaxe extends ItemTool implements IModeledItem, IEmb
         setUnlocalizedName(name);
         setRegistryName(Embers.MODID + ":" + name);
         if (addToTab) {
-            setCreativeTab(Embers.tab);
+            setCreativeTab(Embers.TAB_EMBERS);
         }
         setHarvestLevel("pickaxe", this.toolMaterial.getHarvestLevel());
         setHarvestLevel("shovel", this.toolMaterial.getHarvestLevel());

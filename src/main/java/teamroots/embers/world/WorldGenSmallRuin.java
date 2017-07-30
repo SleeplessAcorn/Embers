@@ -10,26 +10,25 @@ import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraftforge.fml.common.IWorldGenerator;
 import teamroots.embers.ConfigManager;
-import teamroots.embers.RegistryManager;
 import teamroots.embers.entity.EntityAncientGolem;
+import teamroots.embers.registry.RegistrarEmbersBlocks;
 import teamroots.embers.util.Misc;
 
 import java.util.Random;
 
 public class WorldGenSmallRuin extends StructureBase implements IWorldGenerator {
-    double l = Math.sin(1);
 
     public WorldGenSmallRuin() {
         super(7, 7);
         this.replaceWithAir = false;
         addBlockMapping(" ", Blocks.AIR.getDefaultState());
-        addBlockMapping(".", RegistryManager.structure_marker.getStateFromMeta(1));
-        addBlockMapping("A", RegistryManager.archaic_bricks.getDefaultState());
-        addBlockMapping("T", RegistryManager.ashen_tile.getDefaultState());
-        addBlockMapping("L", RegistryManager.archaic_light.getDefaultState());
-        addBlockMapping("G", RegistryManager.structure_marker.getStateFromMeta(0));
-        addBlockMapping("R", RegistryManager.archaic_edge.getDefaultState());
-        addBlockMapping("B", RegistryManager.ashen_brick.getDefaultState());
+        addBlockMapping(".", RegistrarEmbersBlocks.STRUCTURE_MARKER.getStateFromMeta(1));
+        addBlockMapping("A", RegistrarEmbersBlocks.ARCHAIC_BRICKS.getDefaultState());
+        addBlockMapping("T", RegistrarEmbersBlocks.ASHEN_TILE.getDefaultState());
+        addBlockMapping("L", RegistrarEmbersBlocks.ARCHAIC_LIGHT.getDefaultState());
+        addBlockMapping("G", RegistrarEmbersBlocks.STRUCTURE_MARKER.getStateFromMeta(0));
+        addBlockMapping("R", RegistrarEmbersBlocks.ARCHAIC_EDGE.getDefaultState());
+        addBlockMapping("B", RegistrarEmbersBlocks.ASHEN_BRICK.getDefaultState());
         addLayer(new String[]{
                 "       ",
                 " BBTBB ",
@@ -88,7 +87,7 @@ public class WorldGenSmallRuin extends StructureBase implements IWorldGenerator 
 
     @Override
     public void placeBlock(World world, BlockPos pos, IBlockState state) {
-        if (state.getBlock() == RegistryManager.structure_marker) {
+        if (state.getBlock() == RegistrarEmbersBlocks.STRUCTURE_MARKER) {
             if (state.getBlock().getMetaFromState(state) == 0) {
                 EntityAncientGolem golem = new EntityAncientGolem(world);
                 golem.setPosition(pos.getX() + 0.5, pos.getY(), pos.getZ());

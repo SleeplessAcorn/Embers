@@ -26,7 +26,6 @@ import teamroots.embers.tileentity.TileEntitySeed;
 public class BlockSeed extends BlockBase implements ITileEntityProvider, IModeledBlock {
     public static final PropertyInteger type = PropertyInteger.create("type", 0, 4);
     public static AxisAlignedBB AABB_BASE = new AxisAlignedBB(0.3125, 0.0625, 0.3125, 0.6875, 0.9375, 0.6875);
-    public Item itemBlock = null;
     public boolean isOpaqueCube = true, isFullCube = true;
     public BlockRenderLayer layer = BlockRenderLayer.SOLID;
 

@@ -16,11 +16,11 @@ import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 import teamroots.embers.EventManager;
-import teamroots.embers.RegistryManager;
 import teamroots.embers.particle.ParticleUtil;
 import teamroots.embers.power.DefaultEmberCapability;
 import teamroots.embers.power.EmberCapabilityProvider;
 import teamroots.embers.power.IEmberCapability;
+import teamroots.embers.registry.RegistrarEmbersItems;
 import teamroots.embers.util.EmberGenUtil;
 import teamroots.embers.util.Misc;
 
@@ -45,7 +45,7 @@ public class TileEntityCrystalCell extends TileEntity implements ITileEntityBase
 
         @Override
         public ItemStack insertItem(int slot, ItemStack stack, boolean simulate) {
-            if (stack.getItem() != RegistryManager.shard_ember && stack.getItem() != RegistryManager.crystal_ember) {
+            if (stack.getItem() != RegistrarEmbersItems.SHARD_EMBER && stack.getItem() != RegistrarEmbersItems.CRYSTAL_EMBER) {
                 return stack;
             }
             return super.insertItem(slot, stack, simulate);

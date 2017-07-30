@@ -28,7 +28,7 @@ public class ItemGrandhammer extends ItemTool implements IModeledItem, IEmberCha
         setUnlocalizedName(name);
         setRegistryName(Embers.MODID + ":" + name);
         if (addToTab) {
-            setCreativeTab(Embers.tab);
+            setCreativeTab(Embers.TAB_EMBERS);
         }
         setHarvestLevel("pickaxe", this.toolMaterial.getHarvestLevel());
         setHarvestLevel("axe", this.toolMaterial.getHarvestLevel());

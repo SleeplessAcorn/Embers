@@ -23,10 +23,10 @@ import net.minecraftforge.common.util.Constants;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 import teamroots.embers.EventManager;
-import teamroots.embers.RegistryManager;
 import teamroots.embers.network.PacketHandler;
 import teamroots.embers.network.message.MessageAnvilSparksFX;
 import teamroots.embers.network.message.MessageStamperFX;
+import teamroots.embers.registry.RegistrarEmbersItems;
 import teamroots.embers.util.ItemModUtil;
 import teamroots.embers.util.Misc;
 
@@ -114,7 +114,7 @@ public class TileEntityDawnstoneAnvil extends TileEntity implements ITileEntityB
                     return true;
                 }
             }
-        } else if (heldItem.getItem() == RegistryManager.tinker_hammer) {
+        } else if (heldItem.getItem() == RegistrarEmbersItems.TINKER_HAMMER) {
             onHit();
             return true;
         } else if (!heldItem.isEmpty() && hand == EnumHand.MAIN_HAND) {
@@ -148,7 +148,7 @@ public class TileEntityDawnstoneAnvil extends TileEntity implements ITileEntityB
 
     public boolean isValid(ItemStack stack1, ItemStack stack2) {
         if (stack1.getItem() instanceof ItemTool || stack1.getItem() instanceof ItemSword || stack1.getItem() instanceof ItemArmor) {
-            if (!ItemModUtil.hasHeat(stack1) && stack2.getItem() == RegistryManager.ancient_motive_core) {
+            if (!ItemModUtil.hasHeat(stack1) && stack2.getItem() == RegistrarEmbersItems.ANCIENT_MOTIVE_CORE) {
                 return true;
             } else if (ItemModUtil.hasHeat(stack1) && ItemModUtil.modifierRegistry.containsKey(stack2.getItem()) && ItemModUtil.getLevel(stack1) > ItemModUtil.getTotalModLevel(stack1) && ItemModUtil.isModValid(stack1, stack2)) {
                 return true;
@@ -159,7 +159,7 @@ public class TileEntityDawnstoneAnvil extends TileEntity implements ITileEntityB
             }
         }
         if (stack1.getItem().getIsRepairable(stack1, stack2)
-                || stack1.getItem().isRepairable() && stack2.getItem() == RegistryManager.isolated_materia) {
+                || stack1.getItem().isRepairable() && stack2.getItem() == RegistrarEmbersItems.ISOLATED_MATERIA) {
             return true;
         }
         return !Misc.getRepairItem(stack1).isEmpty() && stack1.getItem().getIsRepairable(stack1, Misc.getRepairItem(stack1)) && Misc.getResourceCount(stack1) != -1 && stack2.isEmpty();
@@ -167,7 +167,7 @@ public class TileEntityDawnstoneAnvil extends TileEntity implements ITileEntityB
 
     public ItemStack[] getResult(ItemStack stack1, ItemStack stack2) {
         if (stack1.getItem() instanceof ItemTool || stack1.getItem() instanceof ItemSword || stack1.getItem() instanceof ItemArmor) {
-            if ((!ItemModUtil.hasHeat(stack1) || !ItemModUtil.hasModifier(stack1, ItemModUtil.modifierRegistry.get(RegistryManager.ancient_motive_core).name)) && stack2.getItem() == RegistryManager.ancient_motive_core) {
+            if ((!ItemModUtil.hasHeat(stack1) || !ItemModUtil.hasModifier(stack1, ItemModUtil.modifierRegistry.get(RegistrarEmbersItems.ANCIENT_MOTIVE_CORE).name)) && stack2.getItem() == RegistrarEmbersItems.ANCIENT_MOTIVE_CORE) {
                 ItemModUtil.checkForTag(stack1);
                 ItemModUtil.addModifier(stack1, stack2.copy());
                 ItemStack result = stack1.copy();
@@ -204,7 +204,7 @@ public class TileEntityDawnstoneAnvil extends TileEntity implements ITileEntityB
             }
         }
         if (stack1.getItem().getIsRepairable(stack1, stack2)
-                || stack1.getItem().isRepairable() && stack2.getItem() == RegistryManager.isolated_materia) {
+                || stack1.getItem().isRepairable() && stack2.getItem() == RegistrarEmbersItems.ISOLATED_MATERIA) {
             inventory.setStackInSlot(1, ItemStack.EMPTY);
             inventory.getStackInSlot(0).setItemDamage(Math.max(0, inventory.getStackInSlot(0).getItemDamage() - inventory.getStackInSlot(0).getMaxDamage()));
             ItemStack result = inventory.getStackInSlot(0).copy();

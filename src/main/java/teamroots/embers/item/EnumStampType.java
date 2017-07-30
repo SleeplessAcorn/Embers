@@ -1,20 +1,21 @@
 package teamroots.embers.item;
 
 import net.minecraft.item.ItemStack;
-import teamroots.embers.RegistryManager;
+import teamroots.embers.registry.RegistrarEmbersItems;
+
 
 public enum EnumStampType {
     TYPE_FLAT, TYPE_BAR, TYPE_PLATE, TYPE_NULL;
 
     public static EnumStampType getType(ItemStack stack) {
         if (stack != ItemStack.EMPTY) {
-            if (stack.getItem() == RegistryManager.stamp_bar) {
+            if (stack.getItem() == RegistrarEmbersItems.STAMP_BAR) {
                 return TYPE_BAR;
             }
-            if (stack.getItem() == RegistryManager.stamp_flat) {
+            if (stack.getItem() == RegistrarEmbersItems.STAMP_FLAT) {
                 return TYPE_FLAT;
             }
-            if (stack.getItem() == RegistryManager.stamp_plate) {
+            if (stack.getItem() == RegistrarEmbersItems.STAMP_PLATE) {
                 return TYPE_PLATE;
             }
         }

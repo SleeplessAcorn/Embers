@@ -5,9 +5,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import teamroots.embers.RegistryManager;
 import teamroots.embers.network.PacketHandler;
 import teamroots.embers.network.message.MessagePlayerJetFX;
+import teamroots.embers.registry.RegistrarEmbersItems;
 import teamroots.embers.util.EmberInventoryUtil;
 import teamroots.embers.util.ItemModUtil;
 
@@ -26,7 +26,7 @@ public class ModifierCinderJet extends ModifierBase {
 
     public float addDash(ItemStack stack) {
         if (ItemModUtil.hasHeat(stack)) {
-            int level = ItemModUtil.getModifierLevel(stack, ItemModUtil.modifierRegistry.get(RegistryManager.jet_augment).name);
+            int level = ItemModUtil.getModifierLevel(stack, ItemModUtil.modifierRegistry.get(RegistrarEmbersItems.JET_AUGMENT).name);
             return (float) (0.5 * (Math.atan(0.6 * (level)) / (1.25)));
         }
         return 0;
@@ -38,7 +38,7 @@ public class ModifierCinderJet extends ModifierBase {
             UUID id = event.getEntity().getUniqueID();
             if (sprinting.containsKey(id)) {
                 if (event.getEntity().isSprinting() && !sprinting.get(id)) {
-                    int level = ItemModUtil.getArmorMod((EntityPlayer) event.getEntity(), ItemModUtil.modifierRegistry.get(RegistryManager.jet_augment).name);
+                    int level = ItemModUtil.getArmorMod((EntityPlayer) event.getEntity(), ItemModUtil.modifierRegistry.get(RegistrarEmbersItems.JET_AUGMENT).name);
                     float dashStrength = (float) (2.0 * (Math.atan(0.6 * (level)) / (1.25)));
                     if (dashStrength > 0 && event.getEntityLiving().onGround && EmberInventoryUtil.getEmberTotal((EntityPlayer) event.getEntity()) > cost) {
                         EmberInventoryUtil.removeEmber(((EntityPlayer) event.getEntity()), cost);
