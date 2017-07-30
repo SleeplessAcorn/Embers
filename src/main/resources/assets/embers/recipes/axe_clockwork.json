@@ -1,0 +1,29 @@
+{
+  "result": {
+    "item": "embers:axe_clockwork"
+  },
+  "pattern": [
+    "PCP",
+    "ISI",
+    " W "
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "P": {
+      "item": "#PLATEDAWNSTONE"
+    },
+    "C": {
+      "item": "#PLATECOPPER"
+    },
+    "S": {
+      "item": "embers:shard_ember"
+    },
+    "W": {
+      "item": "#STICKWOOD"
+    },
+    "I": {
+      "item": "#INGOTDAWNSTONE"
+    }
+  },
+  "mirrored": true
+}

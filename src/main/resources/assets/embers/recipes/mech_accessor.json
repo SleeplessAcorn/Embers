@@ -1,0 +1,21 @@
+{
+  "result": {
+    "item": "embers:mech_accessor"
+  },
+  "pattern": [
+    "SPI"
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "P": {
+      "item": "#PLATEIRON"
+    },
+    "S": {
+      "item": "embers:stairs_caminite_brick"
+    },
+    "I": {
+      "item": "#INGOTIRON"
+    }
+  },
+  "mirrored": true
+}

@@ -1,0 +1,18 @@
+{
+  "conditions": [
+    {
+      "type": "embers:material_enabled",
+      "material": "tin"
+    }
+  ],
+  "result": {
+    "item": "embers:nugget_tin",
+    "count": 9
+  },
+  "ingredients": [
+    {
+      "item": "#INGOTTIN"
+    }
+  ],
+  "type": "forge:ore_shapeless"
+}

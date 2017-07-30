@@ -1,0 +1,26 @@
+{
+  "result": {
+    "item": "embers:resonating_bell"
+  },
+  "pattern": [
+    "IIP",
+    " sI",
+    "S I"
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "P": {
+      "item": "#PLATEIRON"
+    },
+    "s": {
+      "item": "#INGOTSILVER"
+    },
+    "S": {
+      "item": "#PLATESILVER"
+    },
+    "I": {
+      "item": "#INGOTIRON"
+    }
+  },
+  "mirrored": true
+}

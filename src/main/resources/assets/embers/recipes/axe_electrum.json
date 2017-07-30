@@ -1,0 +1,26 @@
+{
+  "conditions": [
+    {
+      "type": "embers:material_enabled",
+      "material": "electrum"
+    }
+  ],
+  "result": {
+    "item": "embers:axe_electrum"
+  },
+  "pattern": [
+    " CC",
+    " SC",
+    " S "
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "C": {
+      "item": "#INGOTELECTRUM"
+    },
+    "S": {
+      "item": "#STICKWOOD"
+    }
+  },
+  "mirrored": true
+}

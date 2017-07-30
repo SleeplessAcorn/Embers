@@ -1,0 +1,26 @@
+{
+  "conditions": [
+    {
+      "type": "embers:material_enabled",
+      "material": "nickel"
+    }
+  ],
+  "result": {
+    "item": "embers:axe_nickel"
+  },
+  "pattern": [
+    " CC",
+    " SC",
+    " S "
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "C": {
+      "item": "#INGOTNICKEL"
+    },
+    "S": {
+      "item": "#STICKWOOD"
+    }
+  },
+  "mirrored": true
+}

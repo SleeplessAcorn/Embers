@@ -1,0 +1,17 @@
+{
+  "result": {
+    "item": "embers:archaic_tile",
+    "count": 4
+  },
+  "pattern": [
+    "BB",
+    "BB"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "B": {
+      "item": "embers:archaic_bricks"
+    }
+  },
+  "mirrored": true
+}

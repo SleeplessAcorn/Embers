@@ -1,0 +1,17 @@
+{
+  "result": {
+    "item": "embers:ingot_dawnstone"
+  },
+  "pattern": [
+    "XXX",
+    "XXX",
+    "XXX"
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "X": {
+      "item": "#NUGGETDAWNSTONE"
+    }
+  },
+  "mirrored": true
+}

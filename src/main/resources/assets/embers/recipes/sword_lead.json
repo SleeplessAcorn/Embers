@@ -1,0 +1,20 @@
+{
+  "result": {
+    "item": "embers:sword_lead"
+  },
+  "pattern": [
+    " C ",
+    " C ",
+    " S "
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "C": {
+      "item": "#INGOTLEAD"
+    },
+    "S": {
+      "item": "#STICKWOOD"
+    }
+  },
+  "mirrored": true
+}

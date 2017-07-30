@@ -1,0 +1,23 @@
+{
+  "result": {
+    "item": "embers:ember_gauge"
+  },
+  "pattern": [
+    "B",
+    "P",
+    "C"
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "P": {
+      "item": "minecraft:paper"
+    },
+    "B": {
+      "item": "minecraft:compass"
+    },
+    "C": {
+      "item": "#INGOTCOPPER"
+    }
+  },
+  "mirrored": true
+}

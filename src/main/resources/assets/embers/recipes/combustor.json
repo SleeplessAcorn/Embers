@@ -1,0 +1,26 @@
+{
+  "result": {
+    "item": "embers:combustor"
+  },
+  "pattern": [
+    " C ",
+    "PEP",
+    "CMC"
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "P": {
+      "item": "#PLATECOPPER"
+    },
+    "C": {
+      "item": "#INGOTCOPPER"
+    },
+    "E": {
+      "item": "embers:ember_cluster"
+    },
+    "M": {
+      "item": "embers:mech_core"
+    }
+  },
+  "mirrored": true
+}

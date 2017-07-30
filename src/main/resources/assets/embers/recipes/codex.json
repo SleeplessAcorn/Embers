@@ -1,0 +1,20 @@
+{
+  "result": {
+    "item": "embers:codex"
+  },
+  "pattern": [
+    " B ",
+    " E ",
+    " B "
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "B": {
+      "item": "embers:archaic_brick"
+    },
+    "E": {
+      "item": "embers:ancient_motive_core"
+    }
+  },
+  "mirrored": true
+}

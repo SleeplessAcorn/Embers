@@ -1,0 +1,12 @@
+{
+  "result": {
+    "item": "embers:nugget_copper",
+    "count": 9
+  },
+  "ingredients": [
+    {
+      "item": "#INGOTCOPPER"
+    }
+  ],
+  "type": "forge:ore_shapeless"
+}

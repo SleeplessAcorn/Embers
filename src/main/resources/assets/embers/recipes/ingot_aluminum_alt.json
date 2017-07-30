@@ -1,0 +1,18 @@
+{
+  "conditions": [
+    {
+      "type": "embers:material_enabled",
+      "material": "aluminum"
+    }
+  ],
+  "result": {
+    "item": "embers:ingot_aluminum",
+    "count": 9
+  },
+  "ingredients": [
+    {
+      "item": "#BLOCKALUMINUM"
+    }
+  ],
+  "type": "forge:ore_shapeless"
+}

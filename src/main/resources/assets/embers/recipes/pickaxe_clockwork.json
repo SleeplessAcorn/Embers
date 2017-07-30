@@ -1,0 +1,26 @@
+{
+  "result": {
+    "item": "embers:pickaxe_clockwork"
+  },
+  "pattern": [
+    "ISI",
+    " C ",
+    " W "
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "C": {
+      "item": "#INGOTCOPPER"
+    },
+    "S": {
+      "item": "embers:shard_ember"
+    },
+    "W": {
+      "item": "#STICKWOOD"
+    },
+    "I": {
+      "item": "#INGOTDAWNSTONE"
+    }
+  },
+  "mirrored": true
+}

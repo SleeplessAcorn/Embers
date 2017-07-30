@@ -1,0 +1,23 @@
+{
+  "result": {
+    "item": "embers:ember_receiver",
+    "count": 4
+  },
+  "pattern": [
+    "I I",
+    "CPC"
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "P": {
+      "item": "embers:plate_caminite"
+    },
+    "C": {
+      "item": "#INGOTCOPPER"
+    },
+    "I": {
+      "item": "#INGOTIRON"
+    }
+  },
+  "mirrored": true
+}

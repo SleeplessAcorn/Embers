@@ -1,0 +1,20 @@
+{
+  "result": {
+    "item": "embers:archaic_circuit"
+  },
+  "pattern": [
+    " B ",
+    "BCB",
+    " B "
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "B": {
+      "item": "embers:archaic_brick"
+    },
+    "C": {
+      "item": "#INGOTCOPPER"
+    }
+  },
+  "mirrored": true
+}

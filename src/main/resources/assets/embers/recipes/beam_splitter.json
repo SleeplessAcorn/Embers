@@ -1,0 +1,26 @@
+{
+  "result": {
+    "item": "embers:beam_splitter"
+  },
+  "pattern": [
+    " D ",
+    "CPC",
+    " I "
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "P": {
+      "item": "#PLATEIRON"
+    },
+    "C": {
+      "item": "#INGOTCOPPER"
+    },
+    "D": {
+      "item": "#INGOTDAWNSTONE"
+    },
+    "I": {
+      "item": "#INGOTIRON"
+    }
+  },
+  "mirrored": true
+}

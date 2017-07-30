@@ -1,0 +1,17 @@
+{
+  "result": {
+    "item": "embers:block_silver"
+  },
+  "pattern": [
+    "XXX",
+    "XXX",
+    "XXX"
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "X": {
+      "item": "#INGOTSILVER"
+    }
+  },
+  "mirrored": true
+}

@@ -1,0 +1,26 @@
+{
+  "result": {
+    "item": "embers:grandhammer"
+  },
+  "pattern": [
+    "BIB",
+    " C ",
+    " W "
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "B": {
+      "item": "#BLOCKDAWNSTONE"
+    },
+    "C": {
+      "item": "#INGOTCOPPER"
+    },
+    "W": {
+      "item": "#STICKWOOD"
+    },
+    "I": {
+      "item": "#INGOTDAWNSTONE"
+    }
+  },
+  "mirrored": true
+}

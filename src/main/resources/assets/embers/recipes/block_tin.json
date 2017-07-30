@@ -1,0 +1,23 @@
+{
+  "conditions": [
+    {
+      "type": "embers:material_enabled",
+      "material": "tin"
+    }
+  ],
+  "result": {
+    "item": "embers:block_tin"
+  },
+  "pattern": [
+    "XXX",
+    "XXX",
+    "XXX"
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "X": {
+      "item": "#INGOTTIN"
+    }
+  },
+  "mirrored": true
+}

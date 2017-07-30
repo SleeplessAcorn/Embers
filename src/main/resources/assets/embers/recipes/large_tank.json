@@ -1,0 +1,23 @@
+{
+  "result": {
+    "item": "embers:large_tank"
+  },
+  "pattern": [
+    "Y Y",
+    "I I",
+    "YTY"
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "T": {
+      "item": "embers:block_tank"
+    },
+    "Y": {
+      "item": "embers:stairs_caminite_brick"
+    },
+    "I": {
+      "item": "#INGOTIRON"
+    }
+  },
+  "mirrored": true
+}

@@ -1,0 +1,17 @@
+{
+  "result": {
+    "item": "embers:ingot_copper"
+  },
+  "pattern": [
+    "XXX",
+    "XXX",
+    "XXX"
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "X": {
+      "item": "#NUGGETCOPPER"
+    }
+  },
+  "mirrored": true
+}

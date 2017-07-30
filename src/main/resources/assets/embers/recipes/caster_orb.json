@@ -1,0 +1,23 @@
+{
+  "result": {
+    "item": "embers:caster_orb"
+  },
+  "pattern": [
+    "DCD",
+    "D D",
+    " P "
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "P": {
+      "item": "#PLATEDAWNSTONE"
+    },
+    "C": {
+      "item": "embers:crystal_ember"
+    },
+    "D": {
+      "item": "#INGOTDAWNSTONE"
+    }
+  },
+  "mirrored": true
+}

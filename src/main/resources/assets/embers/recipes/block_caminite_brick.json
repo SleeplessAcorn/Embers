@@ -1,0 +1,16 @@
+{
+  "result": {
+    "item": "embers:block_caminite_brick"
+  },
+  "pattern": [
+    "XX",
+    "XX"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "X": {
+      "item": "embers:brick_caminite"
+    }
+  },
+  "mirrored": true
+}

@@ -1,0 +1,20 @@
+{
+  "result": {
+    "item": "embers:axe_lead"
+  },
+  "pattern": [
+    " CC",
+    " SC",
+    " S "
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "C": {
+      "item": "#INGOTLEAD"
+    },
+    "S": {
+      "item": "#STICKWOOD"
+    }
+  },
+  "mirrored": true
+}

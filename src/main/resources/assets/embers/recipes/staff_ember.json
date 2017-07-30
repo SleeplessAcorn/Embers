@@ -1,0 +1,26 @@
+{
+  "result": {
+    "item": "embers:staff_ember"
+  },
+  "pattern": [
+    "SES",
+    "IWI",
+    " W "
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "S": {
+      "item": "#PLATESILVER"
+    },
+    "E": {
+      "item": "embers:shard_ember"
+    },
+    "W": {
+      "item": "#STICKWOOD"
+    },
+    "I": {
+      "item": "#INGOTDAWNSTONE"
+    }
+  },
+  "mirrored": true
+}

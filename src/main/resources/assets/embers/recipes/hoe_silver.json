@@ -1,0 +1,20 @@
+{
+  "result": {
+    "item": "embers:hoe_silver"
+  },
+  "pattern": [
+    " CC",
+    " S ",
+    " S "
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "C": {
+      "item": "#INGOTSILVER"
+    },
+    "S": {
+      "item": "#STICKWOOD"
+    }
+  },
+  "mirrored": true
+}

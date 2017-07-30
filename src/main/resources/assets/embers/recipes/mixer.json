@@ -1,0 +1,26 @@
+{
+  "result": {
+    "item": "embers:mixer"
+  },
+  "pattern": [
+    "PPP",
+    "PCP",
+    "IMI"
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "P": {
+      "item": "#PLATEIRON"
+    },
+    "C": {
+      "item": "#INGOTCOPPER"
+    },
+    "I": {
+      "item": "#INGOTIRON"
+    },
+    "M": {
+      "item": "embers:mech_core"
+    }
+  },
+  "mirrored": true
+}

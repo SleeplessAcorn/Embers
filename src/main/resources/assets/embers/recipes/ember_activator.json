@@ -1,0 +1,23 @@
+{
+  "result": {
+    "item": "embers:ember_activator"
+  },
+  "pattern": [
+    "CCC",
+    "CCC",
+    "IFI"
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "C": {
+      "item": "#INGOTCOPPER"
+    },
+    "F": {
+      "item": "minecraft:furnace"
+    },
+    "I": {
+      "item": "#PLATEIRON"
+    }
+  },
+  "mirrored": true
+}

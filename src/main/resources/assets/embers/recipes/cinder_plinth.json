@@ -1,0 +1,26 @@
+{
+  "result": {
+    "item": "embers:cinder_plinth"
+  },
+  "pattern": [
+    " P ",
+    "SFS",
+    "PBP"
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "P": {
+      "item": "#PLATELEAD"
+    },
+    "B": {
+      "item": "embers:block_caminite_brick"
+    },
+    "S": {
+      "item": "#INGOTSILVER"
+    },
+    "F": {
+      "item": "minecraft:furnace"
+    }
+  },
+  "mirrored": true
+}

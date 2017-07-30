@@ -1,0 +1,20 @@
+{
+  "result": {
+    "item": "embers:archaic_light"
+  },
+  "pattern": [
+    " B ",
+    "BSB",
+    " B "
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "B": {
+      "item": "embers:archaic_brick"
+    },
+    "S": {
+      "item": "embers:shard_ember"
+    }
+  },
+  "mirrored": true
+}

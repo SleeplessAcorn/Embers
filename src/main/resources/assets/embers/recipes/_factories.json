@@ -1,0 +1,5 @@
+{
+  "conditions": {
+    "material_enabled": "teamroots.embers.recipe.ConditionResourceEnabled"
+  }
+}

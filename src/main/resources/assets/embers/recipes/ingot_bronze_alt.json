@@ -1,0 +1,18 @@
+{
+  "conditions": [
+    {
+      "type": "embers:material_enabled",
+      "material": "bronze"
+    }
+  ],
+  "result": {
+    "item": "embers:ingot_bronze",
+    "count": 9
+  },
+  "ingredients": [
+    {
+      "item": "#BLOCKBRONZE"
+    }
+  ],
+  "type": "forge:ore_shapeless"
+}

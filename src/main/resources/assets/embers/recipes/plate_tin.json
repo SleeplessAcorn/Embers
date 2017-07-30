@@ -1,0 +1,29 @@
+{
+  "conditions": [
+    {
+      "type": "embers:material_enabled",
+      "material": "tin"
+    }
+  ],
+  "result": {
+    "item": "embers:plate_tin"
+  },
+  "ingredients": [
+    {
+      "item": "#INGOTTIN"
+    },
+    {
+      "item": "#INGOTTIN"
+    },
+    {
+      "item": "#INGOTTIN"
+    },
+    {
+      "item": "#INGOTTIN"
+    },
+    {
+      "item": "embers:tinker_hammer"
+    }
+  ],
+  "type": "forge:ore_shapeless"
+}

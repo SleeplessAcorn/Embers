@@ -1,0 +1,21 @@
+{
+  "result": {
+    "item": "embers:ember_relay",
+    "count": 4
+  },
+  "pattern": [
+    " C ",
+    "C C",
+    " P "
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "P": {
+      "item": "#PLATEIRON"
+    },
+    "C": {
+      "item": "#INGOTCOPPER"
+    }
+  },
+  "mirrored": true
+}

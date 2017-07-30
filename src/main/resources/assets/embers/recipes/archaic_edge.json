@@ -1,0 +1,21 @@
+{
+  "result": {
+    "item": "embers:archaic_edge",
+    "count": 2
+  },
+  "pattern": [
+    "BBB",
+    "BCB",
+    "BBB"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "B": {
+      "item": "embers:archaic_brick"
+    },
+    "C": {
+      "item": "embers:shard_ember"
+    }
+  },
+  "mirrored": true
+}

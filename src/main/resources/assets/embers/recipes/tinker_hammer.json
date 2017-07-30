@@ -1,0 +1,23 @@
+{
+  "result": {
+    "item": "embers:tinker_hammer"
+  },
+  "pattern": [
+    "IBI",
+    "ISI",
+    " S "
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "B": {
+      "item": "#INGOTLEAD"
+    },
+    "S": {
+      "item": "#STICKWOOD"
+    },
+    "I": {
+      "item": "#INGOTIRON"
+    }
+  },
+  "mirrored": true
+}

@@ -1,0 +1,23 @@
+{
+  "result": {
+    "item": "embers:fluid_gauge"
+  },
+  "pattern": [
+    "B",
+    "P",
+    "I"
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "P": {
+      "item": "minecraft:paper"
+    },
+    "B": {
+      "item": "minecraft:compass"
+    },
+    "I": {
+      "item": "#INGOTIRON"
+    }
+  },
+  "mirrored": true
+}

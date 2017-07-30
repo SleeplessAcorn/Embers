@@ -1,0 +1,14 @@
+{
+  "result": {
+    "item": "embers:wrapped_sealed_planks"
+  },
+  "ingredients": [
+    {
+      "item": "minecraft:iron_bars"
+    },
+    {
+      "item": "embers:sealed_planks"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless"
+}

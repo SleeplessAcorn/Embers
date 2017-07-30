@@ -1,0 +1,29 @@
+{
+  "result": {
+    "item": "embers:alchemy_tablet"
+  },
+  "pattern": [
+    " D ",
+    "SXS",
+    "BIB"
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "B": {
+      "item": "embers:block_caminite_brick"
+    },
+    "S": {
+      "item": "embers:stairs_caminite_brick"
+    },
+    "D": {
+      "item": "#PLATEDAWNSTONE"
+    },
+    "X": {
+      "item": "#PLATECOPPER"
+    },
+    "I": {
+      "item": "#INGOTDAWNSTONE"
+    }
+  },
+  "mirrored": true
+}

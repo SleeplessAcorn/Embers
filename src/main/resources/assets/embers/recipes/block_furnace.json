@@ -1,0 +1,29 @@
+{
+  "result": {
+    "item": "embers:block_furnace"
+  },
+  "pattern": [
+    "BPB",
+    "BCB",
+    "IFI"
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "P": {
+      "item": "embers:plate_caminite"
+    },
+    "B": {
+      "item": "embers:brick_caminite"
+    },
+    "C": {
+      "item": "#INGOTCOPPER"
+    },
+    "F": {
+      "item": "minecraft:furnace"
+    },
+    "I": {
+      "item": "#INGOTIRON"
+    }
+  },
+  "mirrored": true
+}

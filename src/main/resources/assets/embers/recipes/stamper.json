@@ -1,0 +1,23 @@
+{
+  "result": {
+    "item": "embers:stamper"
+  },
+  "pattern": [
+    "XCX",
+    "XBX",
+    "X X"
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "B": {
+      "item": "#BLOCKIRON"
+    },
+    "C": {
+      "item": "#INGOTCOPPER"
+    },
+    "X": {
+      "item": "embers:brick_caminite"
+    }
+  },
+  "mirrored": true
+}

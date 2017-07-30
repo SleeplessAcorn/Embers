@@ -1,0 +1,17 @@
+{
+  "result": {
+    "item": "embers:ashen_tile",
+    "count": 4
+  },
+  "pattern": [
+    "SS",
+    "SS"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "S": {
+      "item": "embers:ashen_brick"
+    }
+  },
+  "mirrored": true
+}

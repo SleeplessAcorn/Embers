@@ -1,0 +1,20 @@
+{
+  "result": {
+    "item": "embers:pickaxe_silver"
+  },
+  "pattern": [
+    "CCC",
+    " S ",
+    " S "
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "C": {
+      "item": "#INGOTSILVER"
+    },
+    "S": {
+      "item": "#STICKWOOD"
+    }
+  },
+  "mirrored": true
+}

@@ -1,0 +1,20 @@
+{
+  "result": {
+    "item": "embers:ashen_cloak_legs"
+  },
+  "pattern": [
+    "CCC",
+    "D D",
+    "D D"
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "C": {
+      "item": "embers:ashen_cloth"
+    },
+    "D": {
+      "item": "#INGOTDAWNSTONE"
+    }
+  },
+  "mirrored": true
+}

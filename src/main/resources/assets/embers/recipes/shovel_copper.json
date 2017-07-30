@@ -1,0 +1,20 @@
+{
+  "result": {
+    "item": "embers:shovel_copper"
+  },
+  "pattern": [
+    " C ",
+    " S ",
+    " S "
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "C": {
+      "item": "#INGOTCOPPER"
+    },
+    "S": {
+      "item": "#STICKWOOD"
+    }
+  },
+  "mirrored": true
+}

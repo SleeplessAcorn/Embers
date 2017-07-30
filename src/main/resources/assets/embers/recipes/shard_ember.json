@@ -1,0 +1,12 @@
+{
+  "result": {
+    "item": "embers:shard_ember",
+    "count": 6
+  },
+  "ingredients": [
+    {
+      "item": "embers:crystal_ember"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless"
+}

@@ -1,0 +1,19 @@
+{
+  "result": {
+    "item": "embers:item_pipe",
+    "count": 8
+  },
+  "pattern": [
+    "IPI"
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "P": {
+      "item": "#PLATELEAD"
+    },
+    "I": {
+      "item": "#INGOTLEAD"
+    }
+  },
+  "mirrored": true
+}

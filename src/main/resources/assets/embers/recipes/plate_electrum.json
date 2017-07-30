@@ -1,0 +1,29 @@
+{
+  "conditions": [
+    {
+      "type": "embers:material_enabled",
+      "material": "electrum"
+    }
+  ],
+  "result": {
+    "item": "embers:plate_electrum"
+  },
+  "ingredients": [
+    {
+      "item": "#INGOTELECTRUM"
+    },
+    {
+      "item": "#INGOTELECTRUM"
+    },
+    {
+      "item": "#INGOTELECTRUM"
+    },
+    {
+      "item": "#INGOTELECTRUM"
+    },
+    {
+      "item": "embers:tinker_hammer"
+    }
+  ],
+  "type": "forge:ore_shapeless"
+}

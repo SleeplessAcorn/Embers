@@ -1,0 +1,26 @@
+{
+  "result": {
+    "item": "embers:breaker"
+  },
+  "pattern": [
+    "PIP",
+    "LRL",
+    "L L"
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "P": {
+      "item": "#PLATEIRON"
+    },
+    "R": {
+      "item": "minecraft:redstone"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "L": {
+      "item": "#INGOTLEAD"
+    }
+  },
+  "mirrored": true
+}

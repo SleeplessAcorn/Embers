@@ -1,0 +1,23 @@
+{
+  "result": {
+    "item": "embers:ember_pulser"
+  },
+  "pattern": [
+    "D",
+    "E",
+    "I"
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "D": {
+      "item": "#PLATEDAWNSTONE"
+    },
+    "E": {
+      "item": "embers:ember_emitter"
+    },
+    "I": {
+      "item": "#INGOTIRON"
+    }
+  },
+  "mirrored": true
+}

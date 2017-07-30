@@ -1,0 +1,23 @@
+{
+  "result": {
+    "item": "embers:superheater"
+  },
+  "pattern": [
+    " ID",
+    "PPI",
+    "PP "
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "P": {
+      "item": "#INGOTCOPPER"
+    },
+    "D": {
+      "item": "#PLATEDAWNSTONE"
+    },
+    "I": {
+      "item": "#INGOTDAWNSTONE"
+    }
+  },
+  "mirrored": true
+}

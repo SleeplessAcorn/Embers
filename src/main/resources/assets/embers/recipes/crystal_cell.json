@@ -1,0 +1,26 @@
+{
+  "result": {
+    "item": "embers:crystal_cell"
+  },
+  "pattern": [
+    " E ",
+    "DED",
+    "CBC"
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "B": {
+      "item": "#BLOCKDAWNSTONE"
+    },
+    "C": {
+      "item": "#BLOCKCOPPER"
+    },
+    "D": {
+      "item": "#PLATEDAWNSTONE"
+    },
+    "E": {
+      "item": "embers:crystal_ember"
+    }
+  },
+  "mirrored": true
+}

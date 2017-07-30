@@ -1,0 +1,29 @@
+{
+  "conditions": [
+    {
+      "type": "embers:material_enabled",
+      "material": "aluminum"
+    }
+  ],
+  "result": {
+    "item": "embers:plate_aluminum"
+  },
+  "ingredients": [
+    {
+      "item": "#INGOTALUMINUM"
+    },
+    {
+      "item": "#INGOTALUMINUM"
+    },
+    {
+      "item": "#INGOTALUMINUM"
+    },
+    {
+      "item": "#INGOTALUMINUM"
+    },
+    {
+      "item": "embers:tinker_hammer"
+    }
+  ],
+  "type": "forge:ore_shapeless"
+}

@@ -1,0 +1,29 @@
+{
+  "conditions": [
+    {
+      "type": "embers:material_enabled",
+      "material": "nickel"
+    }
+  ],
+  "result": {
+    "item": "embers:plate_nickel"
+  },
+  "ingredients": [
+    {
+      "item": "#INGOTNICKEL"
+    },
+    {
+      "item": "#INGOTNICKEL"
+    },
+    {
+      "item": "#INGOTNICKEL"
+    },
+    {
+      "item": "#INGOTNICKEL"
+    },
+    {
+      "item": "embers:tinker_hammer"
+    }
+  ],
+  "type": "forge:ore_shapeless"
+}

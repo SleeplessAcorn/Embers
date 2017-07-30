@@ -1,0 +1,23 @@
+{
+  "result": {
+    "item": "embers:block_tank"
+  },
+  "pattern": [
+    "B B",
+    "P P",
+    "BIB"
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "P": {
+      "item": "#PLATEIRON"
+    },
+    "B": {
+      "item": "embers:brick_caminite"
+    },
+    "I": {
+      "item": "#INGOTIRON"
+    }
+  },
+  "mirrored": true
+}

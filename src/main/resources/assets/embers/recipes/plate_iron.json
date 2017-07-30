@@ -1,0 +1,23 @@
+{
+  "result": {
+    "item": "embers:plate_iron"
+  },
+  "ingredients": [
+    {
+      "item": "#INGOTIRON"
+    },
+    {
+      "item": "#INGOTIRON"
+    },
+    {
+      "item": "#INGOTIRON"
+    },
+    {
+      "item": "#INGOTIRON"
+    },
+    {
+      "item": "embers:tinker_hammer"
+    }
+  ],
+  "type": "forge:ore_shapeless"
+}

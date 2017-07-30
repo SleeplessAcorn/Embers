@@ -1,0 +1,18 @@
+{
+  "conditions": [
+    {
+      "type": "embers:material_enabled",
+      "material": "electrum"
+    }
+  ],
+  "result": {
+    "item": "embers:ingot_electrum",
+    "count": 9
+  },
+  "ingredients": [
+    {
+      "item": "#BLOCKELECTRUM"
+    }
+  ],
+  "type": "forge:ore_shapeless"
+}

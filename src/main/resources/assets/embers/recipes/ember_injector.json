@@ -1,0 +1,29 @@
+{
+  "result": {
+    "item": "embers:ember_injector"
+  },
+  "pattern": [
+    "S S",
+    "DCD",
+    "BPB"
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "P": {
+      "item": "#PLATESILVER"
+    },
+    "B": {
+      "item": "embers:block_caminite_brick"
+    },
+    "S": {
+      "item": "#INGOTSILVER"
+    },
+    "C": {
+      "item": "embers:wildfire_core"
+    },
+    "D": {
+      "item": "#PLATEDAWNSTONE"
+    }
+  },
+  "mirrored": true
+}

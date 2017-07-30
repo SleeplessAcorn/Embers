@@ -1,0 +1,24 @@
+{
+  "result": {
+    "item": "embers:blend_caminite",
+    "count": 8
+  },
+  "ingredients": [
+    {
+      "item": "minecraft:clay_ball"
+    },
+    {
+      "item": "minecraft:clay_ball"
+    },
+    {
+      "item": "minecraft:clay_ball"
+    },
+    {
+      "item": "minecraft:clay_ball"
+    },
+    {
+      "item": "#SAND"
+    }
+  ],
+  "type": "forge:ore_shapeless"
+}

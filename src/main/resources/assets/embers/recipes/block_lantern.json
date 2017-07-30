@@ -1,0 +1,24 @@
+{
+  "result": {
+    "item": "embers:block_lantern",
+    "count": 4
+  },
+  "pattern": [
+    "P",
+    "E",
+    "I"
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "P": {
+      "item": "#PLATEIRON"
+    },
+    "E": {
+      "item": "embers:shard_ember"
+    },
+    "I": {
+      "item": "#INGOTIRON"
+    }
+  },
+  "mirrored": true
+}

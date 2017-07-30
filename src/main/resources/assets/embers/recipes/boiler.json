@@ -1,0 +1,26 @@
+{
+  "result": {
+    "item": "embers:boiler"
+  },
+  "pattern": [
+    "CCC",
+    "IFI",
+    "IBI"
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "B": {
+      "item": "#BLOCKCOPPER"
+    },
+    "C": {
+      "item": "#INGOTCOPPER"
+    },
+    "F": {
+      "item": "minecraft:furnace"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "mirrored": true
+}

@@ -1,0 +1,18 @@
+{
+  "result": {
+    "item": "embers:stairs_ashen_brick",
+    "count": 4
+  },
+  "pattern": [
+    "X  ",
+    "XX ",
+    "XXX"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "X": {
+      "item": "embers:ashen_brick"
+    }
+  },
+  "mirrored": true
+}

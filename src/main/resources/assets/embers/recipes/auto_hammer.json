@@ -1,0 +1,26 @@
+{
+  "result": {
+    "item": "embers:auto_hammer"
+  },
+  "pattern": [
+    "cc ",
+    "CIB",
+    "cc "
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "B": {
+      "item": "#BLOCKIRON"
+    },
+    "C": {
+      "item": "#BLOCKCOPPER"
+    },
+    "c": {
+      "item": "embers:stairs_caminite_brick"
+    },
+    "I": {
+      "item": "#INGOTIRON"
+    }
+  },
+  "mirrored": true
+}

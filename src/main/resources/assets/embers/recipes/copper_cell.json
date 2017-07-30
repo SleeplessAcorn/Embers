@@ -1,0 +1,23 @@
+{
+  "result": {
+    "item": "embers:copper_cell"
+  },
+  "pattern": [
+    "BIB",
+    "ICI",
+    "BIB"
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "B": {
+      "item": "embers:block_caminite_brick"
+    },
+    "C": {
+      "item": "#BLOCKCOPPER"
+    },
+    "I": {
+      "item": "#INGOTIRON"
+    }
+  },
+  "mirrored": true
+}

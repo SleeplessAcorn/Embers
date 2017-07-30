@@ -1,0 +1,23 @@
+{
+  "conditions": [
+    {
+      "type": "embers:material_enabled",
+      "material": "aluminum"
+    }
+  ],
+  "result": {
+    "item": "embers:ingot_aluminum"
+  },
+  "pattern": [
+    "XXX",
+    "XXX",
+    "XXX"
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "X": {
+      "item": "#NUGGETALUMINUM"
+    }
+  },
+  "mirrored": true
+}

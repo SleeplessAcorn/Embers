@@ -1,0 +1,26 @@
+{
+  "conditions": [
+    {
+      "type": "embers:material_enabled",
+      "material": "tin"
+    }
+  ],
+  "result": {
+    "item": "embers:hoe_tin"
+  },
+  "pattern": [
+    " CC",
+    " S ",
+    " S "
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "C": {
+      "item": "#INGOTTIN"
+    },
+    "S": {
+      "item": "#STICKWOOD"
+    }
+  },
+  "mirrored": true
+}

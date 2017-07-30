@@ -1,0 +1,12 @@
+{
+  "result": {
+    "item": "embers:ingot_silver",
+    "count": 9
+  },
+  "ingredients": [
+    {
+      "item": "#BLOCKSILVER"
+    }
+  ],
+  "type": "forge:ore_shapeless"
+}

@@ -1,0 +1,20 @@
+{
+  "result": {
+    "item": "embers:stone_edge"
+  },
+  "pattern": [
+    "XXX",
+    "Y Y",
+    "XXX"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "X": {
+      "item": "embers:wall_caminite_brick"
+    },
+    "Y": {
+      "item": "embers:brick_caminite"
+    }
+  },
+  "mirrored": true
+}

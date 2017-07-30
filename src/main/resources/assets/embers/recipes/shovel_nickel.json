@@ -1,0 +1,26 @@
+{
+  "conditions": [
+    {
+      "type": "embers:material_enabled",
+      "material": "nickel"
+    }
+  ],
+  "result": {
+    "item": "embers:shovel_nickel"
+  },
+  "pattern": [
+    " C ",
+    " S ",
+    " S "
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "C": {
+      "item": "#INGOTNICKEL"
+    },
+    "S": {
+      "item": "#STICKWOOD"
+    }
+  },
+  "mirrored": true
+}

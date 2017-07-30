@@ -1,0 +1,310 @@
+[
+  {
+    "ingredient": {
+      "type": "forge:ore_dict",
+      "ore": "blockAluminum"
+    },
+    "name": "BLOCKALUMINUM"
+  },
+  {
+    "ingredient": {
+      "type": "forge:ore_dict",
+      "ore": "blockBronze"
+    },
+    "name": "BLOCKBRONZE"
+  },
+  {
+    "ingredient": {
+      "type": "forge:ore_dict",
+      "ore": "blockCopper"
+    },
+    "name": "BLOCKCOPPER"
+  },
+  {
+    "ingredient": {
+      "type": "forge:ore_dict",
+      "ore": "blockDawnstone"
+    },
+    "name": "BLOCKDAWNSTONE"
+  },
+  {
+    "ingredient": {
+      "type": "forge:ore_dict",
+      "ore": "blockElectrum"
+    },
+    "name": "BLOCKELECTRUM"
+  },
+  {
+    "ingredient": {
+      "type": "forge:ore_dict",
+      "ore": "blockGlass"
+    },
+    "name": "BLOCKGLASS"
+  },
+  {
+    "ingredient": {
+      "type": "forge:ore_dict",
+      "ore": "blockIron"
+    },
+    "name": "BLOCKIRON"
+  },
+  {
+    "ingredient": {
+      "type": "forge:ore_dict",
+      "ore": "blockLead"
+    },
+    "name": "BLOCKLEAD"
+  },
+  {
+    "ingredient": {
+      "type": "forge:ore_dict",
+      "ore": "blockNickel"
+    },
+    "name": "BLOCKNICKEL"
+  },
+  {
+    "ingredient": {
+      "type": "forge:ore_dict",
+      "ore": "blockSilver"
+    },
+    "name": "BLOCKSILVER"
+  },
+  {
+    "ingredient": {
+      "type": "forge:ore_dict",
+      "ore": "blockTin"
+    },
+    "name": "BLOCKTIN"
+  },
+  {
+    "ingredient": {
+      "type": "forge:ore_dict",
+      "ore": "dustAsh"
+    },
+    "name": "DUSTASH"
+  },
+  {
+    "ingredient": {
+      "type": "forge:ore_dict",
+      "ore": "dustRedstone"
+    },
+    "name": "DUSTREDSTONE"
+  },
+  {
+    "ingredient": {
+      "type": "forge:ore_dict",
+      "ore": "ingotAluminum"
+    },
+    "name": "INGOTALUMINUM"
+  },
+  {
+    "ingredient": {
+      "type": "forge:ore_dict",
+      "ore": "ingotBronze"
+    },
+    "name": "INGOTBRONZE"
+  },
+  {
+    "ingredient": {
+      "type": "forge:ore_dict",
+      "ore": "ingotCopper"
+    },
+    "name": "INGOTCOPPER"
+  },
+  {
+    "ingredient": {
+      "type": "forge:ore_dict",
+      "ore": "ingotDawnstone"
+    },
+    "name": "INGOTDAWNSTONE"
+  },
+  {
+    "ingredient": {
+      "type": "forge:ore_dict",
+      "ore": "ingotElectrum"
+    },
+    "name": "INGOTELECTRUM"
+  },
+  {
+    "ingredient": {
+      "type": "forge:ore_dict",
+      "ore": "ingotGold"
+    },
+    "name": "INGOTGOLD"
+  },
+  {
+    "ingredient": {
+      "type": "forge:ore_dict",
+      "ore": "ingotIron"
+    },
+    "name": "INGOTIRON"
+  },
+  {
+    "ingredient": {
+      "type": "forge:ore_dict",
+      "ore": "ingotLead"
+    },
+    "name": "INGOTLEAD"
+  },
+  {
+    "ingredient": {
+      "type": "forge:ore_dict",
+      "ore": "ingotNickel"
+    },
+    "name": "INGOTNICKEL"
+  },
+  {
+    "ingredient": {
+      "type": "forge:ore_dict",
+      "ore": "ingotSilver"
+    },
+    "name": "INGOTSILVER"
+  },
+  {
+    "ingredient": {
+      "type": "forge:ore_dict",
+      "ore": "ingotTin"
+    },
+    "name": "INGOTTIN"
+  },
+  {
+    "ingredient": {
+      "type": "forge:ore_dict",
+      "ore": "nuggetAluminum"
+    },
+    "name": "NUGGETALUMINUM"
+  },
+  {
+    "ingredient": {
+      "type": "forge:ore_dict",
+      "ore": "nuggetBronze"
+    },
+    "name": "NUGGETBRONZE"
+  },
+  {
+    "ingredient": {
+      "type": "forge:ore_dict",
+      "ore": "nuggetCopper"
+    },
+    "name": "NUGGETCOPPER"
+  },
+  {
+    "ingredient": {
+      "type": "forge:ore_dict",
+      "ore": "nuggetDawnstone"
+    },
+    "name": "NUGGETDAWNSTONE"
+  },
+  {
+    "ingredient": {
+      "type": "forge:ore_dict",
+      "ore": "nuggetElectrum"
+    },
+    "name": "NUGGETELECTRUM"
+  },
+  {
+    "ingredient": {
+      "type": "forge:ore_dict",
+      "ore": "nuggetLead"
+    },
+    "name": "NUGGETLEAD"
+  },
+  {
+    "ingredient": {
+      "type": "forge:ore_dict",
+      "ore": "nuggetNickel"
+    },
+    "name": "NUGGETNICKEL"
+  },
+  {
+    "ingredient": {
+      "type": "forge:ore_dict",
+      "ore": "nuggetSilver"
+    },
+    "name": "NUGGETSILVER"
+  },
+  {
+    "ingredient": {
+      "type": "forge:ore_dict",
+      "ore": "nuggetTin"
+    },
+    "name": "NUGGETTIN"
+  },
+  {
+    "ingredient": {
+      "type": "forge:ore_dict",
+      "ore": "plankWood"
+    },
+    "name": "PLANKWOOD"
+  },
+  {
+    "ingredient": {
+      "type": "forge:ore_dict",
+      "ore": "plateCopper"
+    },
+    "name": "PLATECOPPER"
+  },
+  {
+    "ingredient": {
+      "type": "forge:ore_dict",
+      "ore": "plateDawnstone"
+    },
+    "name": "PLATEDAWNSTONE"
+  },
+  {
+    "ingredient": {
+      "type": "forge:ore_dict",
+      "ore": "plateIron"
+    },
+    "name": "PLATEIRON"
+  },
+  {
+    "ingredient": {
+      "type": "forge:ore_dict",
+      "ore": "plateLead"
+    },
+    "name": "PLATELEAD"
+  },
+  {
+    "ingredient": {
+      "type": "forge:ore_dict",
+      "ore": "plateSilver"
+    },
+    "name": "PLATESILVER"
+  },
+  {
+    "ingredient": {
+      "type": "forge:ore_dict",
+      "ore": "sand"
+    },
+    "name": "SAND"
+  },
+  {
+    "ingredient": {
+      "type": "forge:ore_dict",
+      "ore": "slimeball"
+    },
+    "name": "SLIMEBALL"
+  },
+  {
+    "ingredient": {
+      "type": "forge:ore_dict",
+      "ore": "stickWood"
+    },
+    "name": "STICKWOOD"
+  },
+  {
+    "ingredient": {
+      "type": "forge:ore_dict",
+      "ore": "stone"
+    },
+    "name": "STONE"
+  },
+  {
+    "ingredient": {
+      "type": "forge:ore_dict",
+      "ore": "string"
+    },
+    "name": "STRING"
+  }
+]

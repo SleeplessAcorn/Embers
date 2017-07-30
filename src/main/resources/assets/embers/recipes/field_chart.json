@@ -1,0 +1,20 @@
+{
+  "result": {
+    "item": "embers:field_chart"
+  },
+  "pattern": [
+    "BBB",
+    "BCB",
+    "BBB"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "B": {
+      "item": "embers:archaic_brick"
+    },
+    "C": {
+      "item": "embers:ember_cluster"
+    }
+  },
+  "mirrored": true
+}

@@ -1,0 +1,23 @@
+{
+  "result": {
+    "item": "embers:ember_detector"
+  },
+  "pattern": [
+    " I ",
+    "CRC",
+    "CIC"
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "R": {
+      "item": "#DUSTREDSTONE"
+    },
+    "C": {
+      "item": "#INGOTCOPPER"
+    },
+    "I": {
+      "item": "#INGOTIRON"
+    }
+  },
+  "mirrored": true
+}

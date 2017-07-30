@@ -1,0 +1,27 @@
+{
+  "result": {
+    "item": "embers:ember_jar",
+    "data": 0
+  },
+  "pattern": [
+    " C ",
+    "ISI",
+    " G "
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "S": {
+      "item": "embers:shard_ember"
+    },
+    "C": {
+      "item": "#INGOTCOPPER"
+    },
+    "G": {
+      "item": "#BLOCKGLASS"
+    },
+    "I": {
+      "item": "#INGOTIRON"
+    }
+  },
+  "mirrored": true
+}

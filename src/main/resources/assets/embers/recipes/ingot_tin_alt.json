@@ -1,0 +1,18 @@
+{
+  "conditions": [
+    {
+      "type": "embers:material_enabled",
+      "material": "tin"
+    }
+  ],
+  "result": {
+    "item": "embers:ingot_tin",
+    "count": 9
+  },
+  "ingredients": [
+    {
+      "item": "#BLOCKTIN"
+    }
+  ],
+  "type": "forge:ore_shapeless"
+}

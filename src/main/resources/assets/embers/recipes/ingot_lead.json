@@ -1,0 +1,17 @@
+{
+  "result": {
+    "item": "embers:ingot_lead"
+  },
+  "pattern": [
+    "XXX",
+    "XXX",
+    "XXX"
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "X": {
+      "item": "#NUGGETLEAD"
+    }
+  },
+  "mirrored": true
+}

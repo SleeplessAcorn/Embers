@@ -1,0 +1,23 @@
+{
+  "result": {
+    "item": "embers:ashen_cloak_head"
+  },
+  "pattern": [
+    " S ",
+    "C C",
+    "DCD"
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "S": {
+      "item": "#STRING"
+    },
+    "C": {
+      "item": "embers:ashen_cloth"
+    },
+    "D": {
+      "item": "#INGOTDAWNSTONE"
+    }
+  },
+  "mirrored": true
+}

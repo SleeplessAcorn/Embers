@@ -1,0 +1,16 @@
+{
+  "result": {
+    "item": "embers:plate_caminite_raw"
+  },
+  "pattern": [
+    "XX",
+    "XX"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "X": {
+      "item": "embers:blend_caminite"
+    }
+  },
+  "mirrored": true
+}

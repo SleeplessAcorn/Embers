@@ -1,0 +1,17 @@
+{
+  "result": {
+    "item": "embers:block_lead"
+  },
+  "pattern": [
+    "XXX",
+    "XXX",
+    "XXX"
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "X": {
+      "item": "#INGOTLEAD"
+    }
+  },
+  "mirrored": true
+}

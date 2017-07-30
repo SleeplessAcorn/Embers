@@ -1,0 +1,26 @@
+{
+  "result": {
+    "item": "embers:reactor"
+  },
+  "pattern": [
+    "CCC",
+    "CWC",
+    "SBS"
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "B": {
+      "item": "embers:block_caminite_brick"
+    },
+    "C": {
+      "item": "#INGOTCOPPER"
+    },
+    "S": {
+      "item": "#PLATESILVER"
+    },
+    "W": {
+      "item": "embers:wildfire_core"
+    }
+  },
+  "mirrored": true
+}

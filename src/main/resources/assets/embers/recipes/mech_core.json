@@ -1,0 +1,23 @@
+{
+  "result": {
+    "item": "embers:mech_core"
+  },
+  "pattern": [
+    "IBI",
+    " P ",
+    "I I"
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "P": {
+      "item": "#PLATELEAD"
+    },
+    "B": {
+      "item": "minecraft:compass"
+    },
+    "I": {
+      "item": "#INGOTIRON"
+    }
+  },
+  "mirrored": true
+}

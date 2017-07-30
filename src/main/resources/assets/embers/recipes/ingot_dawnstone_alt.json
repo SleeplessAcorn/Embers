@@ -1,0 +1,12 @@
+{
+  "result": {
+    "item": "embers:ingot_dawnstone",
+    "count": 9
+  },
+  "ingredients": [
+    {
+      "item": "#BLOCKDAWNSTONE"
+    }
+  ],
+  "type": "forge:ore_shapeless"
+}

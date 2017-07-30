@@ -1,0 +1,24 @@
+{
+  "result": {
+    "item": "embers:item_transfer",
+    "count": 2
+  },
+  "pattern": [
+    "PLP",
+    "ILI",
+    "I I"
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "P": {
+      "item": "#PLATELEAD"
+    },
+    "I": {
+      "item": "#INGOTLEAD"
+    },
+    "L": {
+      "item": "embers:item_pipe"
+    }
+  },
+  "mirrored": true
+}

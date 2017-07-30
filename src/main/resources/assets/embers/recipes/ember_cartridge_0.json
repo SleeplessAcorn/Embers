@@ -1,0 +1,27 @@
+{
+  "result": {
+    "item": "embers:ember_cartridge",
+    "data": 0
+  },
+  "pattern": [
+    "ICI",
+    "GSG",
+    " G "
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "S": {
+      "item": "embers:crystal_ember"
+    },
+    "C": {
+      "item": "#PLATECOPPER"
+    },
+    "G": {
+      "item": "#BLOCKGLASS"
+    },
+    "I": {
+      "item": "#INGOTIRON"
+    }
+  },
+  "mirrored": true
+}

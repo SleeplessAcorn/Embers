@@ -1,0 +1,20 @@
+{
+  "result": {
+    "item": "embers:bin"
+  },
+  "pattern": [
+    "I I",
+    "I I",
+    "IPI"
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "P": {
+      "item": "#PLATEIRON"
+    },
+    "I": {
+      "item": "#INGOTIRON"
+    }
+  },
+  "mirrored": true
+}

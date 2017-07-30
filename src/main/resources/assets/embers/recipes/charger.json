@@ -1,0 +1,29 @@
+{
+  "result": {
+    "item": "embers:charger"
+  },
+  "pattern": [
+    " X ",
+    "DCD",
+    "IPI"
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "P": {
+      "item": "#PLATECOPPER"
+    },
+    "C": {
+      "item": "#INGOTCOPPER"
+    },
+    "D": {
+      "item": "#INGOTDAWNSTONE"
+    },
+    "X": {
+      "item": "#PLATEIRON"
+    },
+    "I": {
+      "item": "#INGOTIRON"
+    }
+  },
+  "mirrored": true
+}

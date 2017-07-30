@@ -1,0 +1,23 @@
+{
+  "conditions": [
+    {
+      "type": "embers:material_enabled",
+      "material": "electrum"
+    }
+  ],
+  "result": {
+    "item": "embers:ingot_electrum"
+  },
+  "pattern": [
+    "XXX",
+    "XXX",
+    "XXX"
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "X": {
+      "item": "#NUGGETELECTRUM"
+    }
+  },
+  "mirrored": true
+}

@@ -1,0 +1,23 @@
+{
+  "conditions": [
+    {
+      "type": "embers:material_enabled",
+      "material": "bronze"
+    }
+  ],
+  "result": {
+    "item": "embers:ingot_bronze"
+  },
+  "pattern": [
+    "XXX",
+    "XXX",
+    "XXX"
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "X": {
+      "item": "#NUGGETBRONZE"
+    }
+  },
+  "mirrored": true
+}

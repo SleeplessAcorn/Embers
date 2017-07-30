@@ -1,0 +1,29 @@
+{
+  "result": {
+    "item": "embers:alchemy_pedestal"
+  },
+  "pattern": [
+    "D D",
+    "ICI",
+    "SBS"
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "B": {
+      "item": "#BLOCKCOPPER"
+    },
+    "S": {
+      "item": "embers:stairs_caminite_brick"
+    },
+    "C": {
+      "item": "embers:crystal_ember"
+    },
+    "D": {
+      "item": "#PLATEDAWNSTONE"
+    },
+    "I": {
+      "item": "#INGOTDAWNSTONE"
+    }
+  },
+  "mirrored": true
+}

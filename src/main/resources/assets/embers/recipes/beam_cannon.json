@@ -1,0 +1,26 @@
+{
+  "result": {
+    "item": "embers:beam_cannon"
+  },
+  "pattern": [
+    "PSP",
+    "PSP",
+    "IBI"
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "P": {
+      "item": "#PLATECOPPER"
+    },
+    "B": {
+      "item": "embers:block_caminite_brick"
+    },
+    "S": {
+      "item": "embers:crystal_ember"
+    },
+    "I": {
+      "item": "#INGOTDAWNSTONE"
+    }
+  },
+  "mirrored": true
+}

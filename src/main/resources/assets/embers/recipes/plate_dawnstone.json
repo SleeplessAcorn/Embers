@@ -1,0 +1,23 @@
+{
+  "result": {
+    "item": "embers:plate_dawnstone"
+  },
+  "ingredients": [
+    {
+      "item": "#INGOTDAWNSTONE"
+    },
+    {
+      "item": "#INGOTDAWNSTONE"
+    },
+    {
+      "item": "#INGOTDAWNSTONE"
+    },
+    {
+      "item": "#INGOTDAWNSTONE"
+    },
+    {
+      "item": "embers:tinker_hammer"
+    }
+  ],
+  "type": "forge:ore_shapeless"
+}

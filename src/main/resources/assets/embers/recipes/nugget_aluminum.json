@@ -1,0 +1,18 @@
+{
+  "conditions": [
+    {
+      "type": "embers:material_enabled",
+      "material": "aluminum"
+    }
+  ],
+  "result": {
+    "item": "embers:nugget_aluminum",
+    "count": 9
+  },
+  "ingredients": [
+    {
+      "item": "#INGOTALUMINUM"
+    }
+  ],
+  "type": "forge:ore_shapeless"
+}

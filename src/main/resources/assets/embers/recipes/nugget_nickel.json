@@ -1,0 +1,18 @@
+{
+  "conditions": [
+    {
+      "type": "embers:material_enabled",
+      "material": "nickel"
+    }
+  ],
+  "result": {
+    "item": "embers:nugget_nickel",
+    "count": 9
+  },
+  "ingredients": [
+    {
+      "item": "#INGOTNICKEL"
+    }
+  ],
+  "type": "forge:ore_shapeless"
+}

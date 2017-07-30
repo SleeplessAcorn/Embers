@@ -1,0 +1,26 @@
+{
+  "result": {
+    "item": "embers:catalyzer"
+  },
+  "pattern": [
+    " C ",
+    "PEP",
+    "CMC"
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "P": {
+      "item": "#PLATESILVER"
+    },
+    "C": {
+      "item": "#INGOTSILVER"
+    },
+    "E": {
+      "item": "embers:ember_cluster"
+    },
+    "M": {
+      "item": "embers:mech_core"
+    }
+  },
+  "mirrored": true
+}

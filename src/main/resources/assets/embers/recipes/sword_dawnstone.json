@@ -1,0 +1,20 @@
+{
+  "result": {
+    "item": "embers:sword_dawnstone"
+  },
+  "pattern": [
+    " C ",
+    " C ",
+    " S "
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "C": {
+      "item": "#INGOTDAWNSTONE"
+    },
+    "S": {
+      "item": "#STICKWOOD"
+    }
+  },
+  "mirrored": true
+}

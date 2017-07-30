@@ -1,0 +1,21 @@
+{
+  "result": {
+    "item": "embers:ashen_stone",
+    "count": 4
+  },
+  "pattern": [
+    " S ",
+    "SAS",
+    " S "
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "A": {
+      "item": "#DUSTASH"
+    },
+    "S": {
+      "item": "#STONE"
+    }
+  },
+  "mirrored": true
+}

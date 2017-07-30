@@ -1,0 +1,16 @@
+{
+  "result": {
+    "item": "embers:crystal_ember"
+  },
+  "pattern": [
+    "XXX",
+    "XXX"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "X": {
+      "item": "embers:shard_ember"
+    }
+  },
+  "mirrored": true
+}

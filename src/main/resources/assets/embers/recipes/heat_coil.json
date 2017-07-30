@@ -1,0 +1,26 @@
+{
+  "result": {
+    "item": "embers:heat_coil"
+  },
+  "pattern": [
+    "PPP",
+    "IBI",
+    " M "
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "P": {
+      "item": "#PLATECOPPER"
+    },
+    "B": {
+      "item": "#BLOCKCOPPER"
+    },
+    "I": {
+      "item": "#INGOTIRON"
+    },
+    "M": {
+      "item": "embers:mech_core"
+    }
+  },
+  "mirrored": true
+}

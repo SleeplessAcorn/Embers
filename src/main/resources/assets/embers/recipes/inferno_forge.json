@@ -1,0 +1,32 @@
+{
+  "result": {
+    "item": "embers:inferno_forge"
+  },
+  "pattern": [
+    "BPB",
+    "DCD",
+    "SWS"
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "P": {
+      "item": "#PLATEIRON"
+    },
+    "B": {
+      "item": "embers:block_dawnstone"
+    },
+    "C": {
+      "item": "#BLOCKCOPPER"
+    },
+    "S": {
+      "item": "embers:block_caminite_brick"
+    },
+    "D": {
+      "item": "#INGOTDAWNSTONE"
+    },
+    "W": {
+      "item": "embers:wildfire_core"
+    }
+  },
+  "mirrored": true
+}

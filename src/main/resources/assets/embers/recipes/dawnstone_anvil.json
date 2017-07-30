@@ -1,0 +1,26 @@
+{
+  "result": {
+    "item": "embers:dawnstone_anvil"
+  },
+  "pattern": [
+    "BBB",
+    "cIc",
+    "CCC"
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "B": {
+      "item": "#BLOCKDAWNSTONE"
+    },
+    "C": {
+      "item": "embers:block_caminite_brick"
+    },
+    "c": {
+      "item": "embers:brick_caminite"
+    },
+    "I": {
+      "item": "#INGOTDAWNSTONE"
+    }
+  },
+  "mirrored": true
+}

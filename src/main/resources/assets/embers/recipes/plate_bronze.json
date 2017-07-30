@@ -1,0 +1,29 @@
+{
+  "conditions": [
+    {
+      "type": "embers:material_enabled",
+      "material": "bronze"
+    }
+  ],
+  "result": {
+    "item": "embers:plate_bronze"
+  },
+  "ingredients": [
+    {
+      "item": "#INGOTBRONZE"
+    },
+    {
+      "item": "#INGOTBRONZE"
+    },
+    {
+      "item": "#INGOTBRONZE"
+    },
+    {
+      "item": "#INGOTBRONZE"
+    },
+    {
+      "item": "embers:tinker_hammer"
+    }
+  ],
+  "type": "forge:ore_shapeless"
+}

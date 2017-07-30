@@ -1,0 +1,20 @@
+{
+  "result": {
+    "item": "embers:pickaxe_dawnstone"
+  },
+  "pattern": [
+    "CCC",
+    " S ",
+    " S "
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "C": {
+      "item": "#INGOTDAWNSTONE"
+    },
+    "S": {
+      "item": "#STICKWOOD"
+    }
+  },
+  "mirrored": true
+}

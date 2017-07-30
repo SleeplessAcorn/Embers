@@ -1,0 +1,19 @@
+{
+  "result": {
+    "item": "embers:item_dropper"
+  },
+  "pattern": [
+    " P ",
+    "I I"
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "P": {
+      "item": "embers:pipe"
+    },
+    "I": {
+      "item": "#INGOTIRON"
+    }
+  },
+  "mirrored": true
+}

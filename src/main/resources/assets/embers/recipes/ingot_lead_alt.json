@@ -1,0 +1,12 @@
+{
+  "result": {
+    "item": "embers:ingot_lead",
+    "count": 9
+  },
+  "ingredients": [
+    {
+      "item": "#BLOCKLEAD"
+    }
+  ],
+  "type": "forge:ore_shapeless"
+}

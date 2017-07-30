@@ -1,0 +1,26 @@
+{
+  "result": {
+    "item": "embers:jet_augment"
+  },
+  "pattern": [
+    "PP ",
+    "IsD",
+    "PP "
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "P": {
+      "item": "#PLATEDAWNSTONE"
+    },
+    "s": {
+      "item": "embers:shard_ember"
+    },
+    "D": {
+      "item": "#INGOTDAWNSTONE"
+    },
+    "I": {
+      "item": "#INGOTIRON"
+    }
+  },
+  "mirrored": true
+}

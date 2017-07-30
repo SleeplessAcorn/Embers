@@ -1,0 +1,18 @@
+{
+  "conditions": [
+    {
+      "type": "embers:material_enabled",
+      "material": "bronze"
+    }
+  ],
+  "result": {
+    "item": "embers:nugget_bronze",
+    "count": 9
+  },
+  "ingredients": [
+    {
+      "item": "#INGOTBRONZE"
+    }
+  ],
+  "type": "forge:ore_shapeless"
+}
