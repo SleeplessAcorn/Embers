@@ -1,66 +1,49 @@
 package teamroots.embers.compat.jei;
 
-import mezz.jei.api.*;
+import mezz.jei.api.IModPlugin;
+import mezz.jei.api.IModRegistry;
+import mezz.jei.api.JEIPlugin;
+import mezz.jei.api.recipe.IRecipeCategoryRegistration;
 import net.minecraft.item.ItemStack;
-import teamroots.embers.recipe.RecipeRegistry;
+import teamroots.embers.recipe.*;
 import teamroots.embers.registry.RegistrarEmbersBlocks;
 
-import java.util.ArrayList;
-
+import javax.annotation.Nonnull;
 
 @JEIPlugin
-public class EmbersJEIPlugin extends BlankModPlugin {
+public class EmbersJEIPlugin implements IModPlugin {
+
     @Override
-    public void register(IModRegistry reg) {
-        IJeiHelpers helper = reg.getJeiHelpers();
-        IGuiHelper guiHelper = helper.getGuiHelper();
+    public void register(@Nonnull IModRegistry reg) {
+        reg.handleRecipes(ItemStampingRecipe.class, StampingRecipeWrapper::new, "embers.stamp");
+        reg.handleRecipes(ItemStampingOreRecipe.class, StampingRecipeWrapper::new, "embers.stamp");
+        reg.addRecipes(RecipeRegistry.stampingRecipes, "embers.stamp");
+        reg.addRecipes(RecipeRegistry.stampingOreRecipes, "embers.stamp");
 
-        reg.addRecipeCategories(new StampRecipeCategory(guiHelper));
-        reg.addRecipeHandlers(new StampRecipeHandler());
+        reg.handleRecipes(ItemMeltingRecipe.class, MeltingRecipeWrapper::new, "embers.melter");
+        reg.handleRecipes(ItemMeltingOreRecipe.class, MeltingRecipeWrapper::new, "embers.melter");
+        reg.addRecipes(RecipeRegistry.meltingRecipes, "embers.melter");
+        reg.addRecipes(RecipeRegistry.meltingOreRecipes, "embers.melter");
 
-        ArrayList<StampingRecipeWrapper> stampingRecipes = new ArrayList<StampingRecipeWrapper>();
-        for (int i = 0; i < RecipeRegistry.stampingRecipes.size(); i++) {
-            stampingRecipes.add(new StampingRecipeWrapper(RecipeRegistry.stampingRecipes.get(i)));
-        }
-        for (int i = 0; i < RecipeRegistry.stampingOreRecipes.size(); i++) {
-            stampingRecipes.add(new StampingRecipeWrapper(RecipeRegistry.stampingOreRecipes.get(i)));
-        }
-        reg.addRecipes(stampingRecipes);
+        reg.handleRecipes(FluidMixingRecipe.class, MixingRecipeWrapper::new, "embers.mixer");
+        reg.addRecipes(RecipeRegistry.mixingRecipes, "embers.mixer");
 
-        reg.addRecipeCategories(new MelterRecipeCategory(guiHelper));
-        reg.addRecipeHandlers(new MelterRecipeHandler());
+        reg.handleRecipes(AlchemyRecipe.class, AlchemyRecipeWrapper::new, "embers.alchemy");
+        reg.addRecipes(RecipeRegistry.alchemyRecipes, "embers.alchemy");
 
-        ArrayList<MeltingRecipeWrapper> meltingRecipes = new ArrayList<MeltingRecipeWrapper>();
-        for (int i = 0; i < RecipeRegistry.meltingRecipes.size(); i++) {
-            ItemStack key = RecipeRegistry.meltingRecipes.get(i).getStack();
-            meltingRecipes.add(new MeltingRecipeWrapper(RecipeRegistry.meltingRecipes.get(i)));
-        }
-        for (int i = 0; i < RecipeRegistry.meltingOreRecipes.size(); i++) {
-            meltingRecipes.add(new MeltingRecipeWrapper(RecipeRegistry.meltingOreRecipes.get(i)));
-        }
-        reg.addRecipes(meltingRecipes);
+        reg.addRecipeCatalyst(new ItemStack(RegistrarEmbersBlocks.STAMPER), "embers.stamp");
+        reg.addRecipeCatalyst(new ItemStack(RegistrarEmbersBlocks.BLOCK_FURNACE), "embers.melter");
+        reg.addRecipeCatalyst(new ItemStack(RegistrarEmbersBlocks.MIXER), "embers.mixer");
+        reg.addRecipeCatalyst(new ItemStack(RegistrarEmbersBlocks.ALCHEMY_TABLET), "embers.alchemy");
+    }
 
-        reg.addRecipeCategories(new MixingRecipeCategory(guiHelper));
-        reg.addRecipeHandlers(new MixingRecipeHandler());
-
-        ArrayList<MixingRecipeWrapper> mixingRecipes = new ArrayList<MixingRecipeWrapper>();
-        for (int i = 0; i < RecipeRegistry.mixingRecipes.size(); i++) {
-            mixingRecipes.add(new MixingRecipeWrapper(RecipeRegistry.mixingRecipes.get(i)));
-        }
-        reg.addRecipes(mixingRecipes);
-
-        reg.addRecipeCategories(new AlchemyRecipeCategory(guiHelper));
-        reg.addRecipeHandlers(new AlchemyRecipeHandler());
-
-        ArrayList<AlchemyRecipeWrapper> alchemyRecipes = new ArrayList<AlchemyRecipeWrapper>();
-        for (int i = 0; i < RecipeRegistry.alchemyRecipes.size(); i++) {
-            alchemyRecipes.add(new AlchemyRecipeWrapper(RecipeRegistry.alchemyRecipes.get(i)));
-        }
-        reg.addRecipes(alchemyRecipes);
-
-        reg.addRecipeCategoryCraftingItem(new ItemStack(RegistrarEmbersBlocks.STAMPER), "embers.stamp");
-        reg.addRecipeCategoryCraftingItem(new ItemStack(RegistrarEmbersBlocks.BLOCK_FURNACE), "embers.melter");
-        reg.addRecipeCategoryCraftingItem(new ItemStack(RegistrarEmbersBlocks.MIXER), "embers.mixer");
-        reg.addRecipeCategoryCraftingItem(new ItemStack(RegistrarEmbersBlocks.ALCHEMY_TABLET), "embers.alchemy");
+    @Override
+    public void registerCategories(@Nonnull IRecipeCategoryRegistration registry) {
+        registry.addRecipeCategories(
+                new AlchemyRecipeCategory(registry.getJeiHelpers().getGuiHelper()),
+                new MelterRecipeCategory(registry.getJeiHelpers().getGuiHelper()),
+                new MixingRecipeCategory(registry.getJeiHelpers().getGuiHelper()),
+                new StampRecipeCategory(registry.getJeiHelpers().getGuiHelper())
+        );
     }
 }

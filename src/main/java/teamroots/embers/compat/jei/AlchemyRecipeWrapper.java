@@ -1,14 +1,15 @@
 package teamroots.embers.compat.jei;
 
+import com.google.common.collect.Lists;
 import mezz.jei.api.ingredients.IIngredients;
-import mezz.jei.api.recipe.BlankRecipeWrapper;
+import mezz.jei.api.recipe.IRecipeWrapper;
 import net.minecraft.item.ItemStack;
 import teamroots.embers.recipe.AlchemyRecipe;
 
-import java.util.ArrayList;
+import javax.annotation.Nonnull;
 import java.util.List;
 
-public class AlchemyRecipeWrapper extends BlankRecipeWrapper {
+public class AlchemyRecipeWrapper implements IRecipeWrapper {
 
     public AlchemyRecipe recipe = null;
 
@@ -17,8 +18,8 @@ public class AlchemyRecipeWrapper extends BlankRecipeWrapper {
     }
 
     @Override
-    public void getIngredients(IIngredients ingredients) {
-        List<ItemStack> inputs = new ArrayList<ItemStack>();
+    public void getIngredients(@Nonnull IIngredients ingredients) {
+        List<ItemStack> inputs = Lists.newArrayList();
         inputs.add(recipe.centerInput);
         inputs.addAll(recipe.inputs);
         ingredients.setInputs(ItemStack.class, inputs);

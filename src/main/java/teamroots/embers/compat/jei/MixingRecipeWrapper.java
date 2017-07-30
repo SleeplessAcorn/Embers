@@ -1,11 +1,13 @@
 package teamroots.embers.compat.jei;
 
 import mezz.jei.api.ingredients.IIngredients;
-import mezz.jei.api.recipe.BlankRecipeWrapper;
+import mezz.jei.api.recipe.IRecipeWrapper;
 import net.minecraftforge.fluids.FluidStack;
 import teamroots.embers.recipe.FluidMixingRecipe;
 
-public class MixingRecipeWrapper extends BlankRecipeWrapper {
+import javax.annotation.Nonnull;
+
+public class MixingRecipeWrapper implements IRecipeWrapper {
 
     public FluidMixingRecipe recipe = null;
 
@@ -14,7 +16,7 @@ public class MixingRecipeWrapper extends BlankRecipeWrapper {
     }
 
     @Override
-    public void getIngredients(IIngredients ingredients) {
+    public void getIngredients(@Nonnull IIngredients ingredients) {
         if (recipe.inputs != null) {
             if (recipe.inputs.size() > 0) {
                 ingredients.setInputs(FluidStack.class, recipe.inputs);

@@ -1,7 +1,8 @@
 package teamroots.embers.compat.jei;
 
+import com.google.common.collect.Lists;
 import mezz.jei.api.ingredients.IIngredients;
-import mezz.jei.api.recipe.BlankRecipeWrapper;
+import mezz.jei.api.recipe.IRecipeWrapper;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.oredict.OreDictionary;
@@ -10,15 +11,13 @@ import teamroots.embers.recipe.ItemStampingOreRecipe;
 import teamroots.embers.recipe.ItemStampingRecipe;
 import teamroots.embers.registry.RegistrarEmbersItems;
 
-import java.util.ArrayList;
+import javax.annotation.Nonnull;
 import java.util.List;
 
-public class StampingRecipeWrapper extends BlankRecipeWrapper {
+public class StampingRecipeWrapper implements IRecipeWrapper {
 
     public ItemStampingRecipe recipe = null;
-
     public ItemStampingOreRecipe oreRecipe = null;
-
     boolean isOreRecipe = false;
 
     public StampingRecipeWrapper(ItemStampingRecipe recipe) {
@@ -32,7 +31,7 @@ public class StampingRecipeWrapper extends BlankRecipeWrapper {
     }
 
     @Override
-    public void getIngredients(IIngredients ingredients) {
+    public void getIngredients(@Nonnull IIngredients ingredients) {
         if (!isOreRecipe) {
             ItemStack stampStack = new ItemStack(RegistrarEmbersItems.STAMP_FLAT, 1);
             if (recipe.getStamp() == EnumStampType.TYPE_BAR) {
@@ -41,15 +40,15 @@ public class StampingRecipeWrapper extends BlankRecipeWrapper {
             if (recipe.getStamp() == EnumStampType.TYPE_PLATE) {
                 stampStack = new ItemStack(RegistrarEmbersItems.STAMP_PLATE, 1);
             }
-            ArrayList<ItemStack> stacks = new ArrayList<ItemStack>();
+            List<ItemStack> stacks = Lists.newArrayList();
             stacks.add(recipe.getStack());
             stacks.add(stampStack);
             ingredients.setInputs(ItemStack.class, stacks);
             ingredients.setInput(FluidStack.class, recipe.getFluid());
             ingredients.setOutput(ItemStack.class, recipe.result);
         } else {
-            ArrayList<ItemStack> validStacks = new ArrayList<ItemStack>(OreDictionary.getOres(oreRecipe.getOre()));
-            ArrayList<ItemStack> stampStacks = new ArrayList<ItemStack>();
+            List<ItemStack> validStacks = Lists.newArrayList(OreDictionary.getOres(oreRecipe.getOre()));
+            List<ItemStack> stampStacks = Lists.newArrayList();
             ItemStack stampStack = new ItemStack(RegistrarEmbersItems.STAMP_FLAT, 1);
             if (recipe.getStamp() == EnumStampType.TYPE_BAR) {
                 stampStack = new ItemStack(RegistrarEmbersItems.STAMP_BAR, 1);
@@ -58,7 +57,7 @@ public class StampingRecipeWrapper extends BlankRecipeWrapper {
                 stampStack = new ItemStack(RegistrarEmbersItems.STAMP_PLATE, 1);
             }
             stampStacks.add(stampStack);
-            ArrayList<List<ItemStack>> recipeItems = new ArrayList<List<ItemStack>>();
+            List<List<ItemStack>> recipeItems = Lists.newArrayList();
             recipeItems.add(validStacks);
             recipeItems.add(stampStacks);
             ingredients.setInputLists(ItemStack.class, recipeItems);
@@ -66,5 +65,4 @@ public class StampingRecipeWrapper extends BlankRecipeWrapper {
             ingredients.setOutput(ItemStack.class, oreRecipe.result);
         }
     }
-
 }
