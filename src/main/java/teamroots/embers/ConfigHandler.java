@@ -142,6 +142,6 @@ public class ConfigHandler {
     @SubscribeEvent
     public static void onConfigChanged(ConfigChangedEvent.OnConfigChangedEvent event) {
         if (event.getModID().equals(Embers.MODID))
-            net.minecraftforge.common.config.ConfigManager.sync(Embers.MODID, Config.Type.INSTANCE);
+            ConfigManager.sync(Embers.MODID, Config.Type.INSTANCE);
     }
 }
