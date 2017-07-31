@@ -16,7 +16,7 @@ public class TileEntityDawnstoneAnvilRenderer extends TileEntitySpecialRenderer<
     @Override
     public void render(TileEntityDawnstoneAnvil anvil, double x, double y, double z, float partialTicks, int destroyStage, float tileAlpha) {
         random.setSeed(anvil.getWorld().getSeed());
-            if (anvil.inventory.getStackInSlot(0) != ItemStack.EMPTY) {
+            if (!anvil.inventory.getStackInSlot(0).isEmpty()) {
                 GL11.glPushMatrix();
                 EntityItem item = new EntityItem(Minecraft.getMinecraft().world, x, y, z, new ItemStack(anvil.inventory.getStackInSlot(0).getItem(), 1, anvil.inventory.getStackInSlot(0).getMetadata()));
                 item.hoverStart = 0;
@@ -30,7 +30,7 @@ public class TileEntityDawnstoneAnvilRenderer extends TileEntitySpecialRenderer<
                 Minecraft.getMinecraft().getRenderManager().doRenderEntity(item, 0, 0, 0, 0, 0, true);
                 GL11.glPopMatrix();
             }
-            if (anvil.inventory.getStackInSlot(1) != ItemStack.EMPTY) {
+            if (!anvil.inventory.getStackInSlot(1).isEmpty()) {
                 GL11.glPushMatrix();
                 EntityItem item = new EntityItem(Minecraft.getMinecraft().world, x, y, z, new ItemStack(anvil.inventory.getStackInSlot(1).getItem(), 1, anvil.inventory.getStackInSlot(1).getMetadata()));
                 item.hoverStart = 0;

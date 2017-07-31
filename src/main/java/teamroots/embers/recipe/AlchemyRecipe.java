@@ -29,16 +29,16 @@ public class AlchemyRecipe {
         this.leadAspectMin = leadMin;
         this.leadAspectRange = leadMax - leadMin;
         this.centerInput = center;
-        if (east != ItemStack.EMPTY) {
+        if (!east.isEmpty()) {
             inputs.add(east);
         }
-        if (west != ItemStack.EMPTY) {
+        if (!west.isEmpty()) {
             inputs.add(west);
         }
-        if (north != ItemStack.EMPTY) {
+        if (!north.isEmpty()) {
             inputs.add(north);
         }
-        if (south != ItemStack.EMPTY) {
+        if (!south.isEmpty()) {
             inputs.add(south);
         }
         this.result = result;

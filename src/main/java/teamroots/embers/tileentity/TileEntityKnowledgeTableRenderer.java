@@ -20,7 +20,7 @@ public class TileEntityKnowledgeTableRenderer extends TileEntitySpecialRenderer<
 
     @Override
     public void render(TileEntityKnowledgeTable table, double x, double y, double z, float partialTicks, int destroyStage, float tileAlpha) {
-            if (table.inventory.getStackInSlot(0) != ItemStack.EMPTY) {
+            if (!table.inventory.getStackInSlot(0).isEmpty()) {
                 if (Minecraft.getMinecraft().world != null) {
                     GlStateManager.pushAttrib();
                     GL11.glPushMatrix();

@@ -154,7 +154,7 @@ public class TileEntityHeatCoil extends TileEntity implements ITileEntityBase, I
             }
             if (items.size() > 0) {
                 int i = random.nextInt(items.size());
-                if (FurnaceRecipes.instance().getSmeltingResult(items.get(i).getItem()) != ItemStack.EMPTY) {
+                if (!FurnaceRecipes.instance().getSmeltingResult(items.get(i).getItem()).isEmpty()) {
                     ItemStack recipeStack = new ItemStack(items.get(i).getItem().getItem(), 1, items.get(i).getItem().getMetadata());
                     if (items.get(i).getItem().hasTagCompound()) {
                         recipeStack.setTagCompound(items.get(i).getItem().getTagCompound());
@@ -175,7 +175,7 @@ public class TileEntityHeatCoil extends TileEntity implements ITileEntityBase, I
                     }
                     markDirty();
                     IBlockState state = getWorld().getBlockState(getPos());
-                    if (remainder != ItemStack.EMPTY) {
+                    if (!remainder.isEmpty()) {
                         getWorld().spawnEntity(new EntityItem(getWorld(), items.get(i).posX, items.get(i).posY, items.get(i).posZ, remainder));
                     }
                 }

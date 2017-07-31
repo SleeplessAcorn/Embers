@@ -61,7 +61,7 @@ public class TileEntityAlchemyTabletRenderer extends TileEntitySpecialRenderer<T
                 GlStateManager.blendFunc(SourceFactor.SRC_ALPHA, DestFactor.ONE_MINUS_SRC_ALPHA);
             }
 
-            if (tablet.center.getStackInSlot(0) != ItemStack.EMPTY) {
+            if (!tablet.center.getStackInSlot(0).isEmpty()) {
                 if (Minecraft.getMinecraft().world != null) {
                     GlStateManager.pushAttrib();
                     GL11.glPushMatrix();
@@ -81,7 +81,7 @@ public class TileEntityAlchemyTabletRenderer extends TileEntitySpecialRenderer<T
                     GlStateManager.popAttrib();
                 }
             }
-            if (tablet.north.getStackInSlot(0) != ItemStack.EMPTY) {
+            if (!tablet.north.getStackInSlot(0).isEmpty()) {
                 if (Minecraft.getMinecraft().world != null) {
                     GlStateManager.pushAttrib();
                     GL11.glPushMatrix();
@@ -101,7 +101,7 @@ public class TileEntityAlchemyTabletRenderer extends TileEntitySpecialRenderer<T
                     GlStateManager.popAttrib();
                 }
             }
-            if (tablet.south.getStackInSlot(0) != ItemStack.EMPTY) {
+            if (!tablet.south.getStackInSlot(0).isEmpty()) {
                 if (Minecraft.getMinecraft().world != null) {
                     GlStateManager.pushAttrib();
                     GL11.glPushMatrix();
@@ -121,7 +121,7 @@ public class TileEntityAlchemyTabletRenderer extends TileEntitySpecialRenderer<T
                     GlStateManager.popAttrib();
                 }
             }
-            if (tablet.west.getStackInSlot(0) != ItemStack.EMPTY) {
+            if (!tablet.west.getStackInSlot(0).isEmpty()) {
                 if (Minecraft.getMinecraft().world != null) {
                     GlStateManager.pushAttrib();
                     GL11.glPushMatrix();
@@ -141,7 +141,7 @@ public class TileEntityAlchemyTabletRenderer extends TileEntitySpecialRenderer<T
                     GlStateManager.popAttrib();
                 }
             }
-            if (tablet.east.getStackInSlot(0) != ItemStack.EMPTY) {
+            if (!tablet.east.getStackInSlot(0).isEmpty()) {
                 if (Minecraft.getMinecraft().world != null) {
                     GlStateManager.pushAttrib();
                     GL11.glPushMatrix();

@@ -35,9 +35,9 @@ public class ItemStampingRecipe {
 
     public boolean matches(ItemStack stack, FluidStack fluid, EnumStampType type) {
         boolean matchesItem = false;
-        if (stack == ItemStack.EMPTY && this.stack == ItemStack.EMPTY) {
+        if (stack.isEmpty() && this.stack.isEmpty()) {
             matchesItem = true;
-        } else if (this.stack != ItemStack.EMPTY && stack != ItemStack.EMPTY) {
+        } else if (!this.stack.isEmpty() && !stack.isEmpty()) {
             if (this.matchNBT) {
                 matchesItem = this.stack.getItem().equals(stack.getItem()) && this.stack.getMetadata() == stack.getMetadata() && ItemStack.areItemStackTagsEqual(this.stack, stack);
             } else if (this.matchMetadata) {

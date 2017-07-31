@@ -95,9 +95,9 @@ public class TileEntityStamper extends TileEntity implements ITileEntityBase, IT
     public boolean activate(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand,
                             EnumFacing side, float hitX, float hitY, float hitZ) {
         ItemStack heldItem = player.getHeldItem(hand);
-        if (heldItem != ItemStack.EMPTY) {
+        if (!heldItem.isEmpty()) {
             if (EnumStampType.getType(heldItem) != EnumStampType.TYPE_NULL) {
-                if (stamp.getStackInSlot(0) == ItemStack.EMPTY) {
+                if (stamp.getStackInSlot(0).isEmpty()) {
                     ItemStack newStack = new ItemStack(heldItem.getItem(), 1, heldItem.getMetadata());
                     if (heldItem.hasTagCompound()) {
                         newStack.setTagCompound(heldItem.getTagCompound());
@@ -108,7 +108,7 @@ public class TileEntityStamper extends TileEntity implements ITileEntityBase, IT
                 }
             }
         } else {
-            if (stamp.getStackInSlot(0) != ItemStack.EMPTY && !world.isRemote) {
+            if (!stamp.getStackInSlot(0).isEmpty() && !world.isRemote) {
                 world.spawnEntity(new EntityItem(world, player.posX, player.posY, player.posZ, stamp.getStackInSlot(0)));
                 stamp.setStackInSlot(0, ItemStack.EMPTY);
                 markDirty();
@@ -147,7 +147,7 @@ public class TileEntityStamper extends TileEntity implements ITileEntityBase, IT
                             }
                             powered = true;
                             ItemStack result = recipe.getResult(stamp.inputs.getStackInSlot(0), stamp.getFluid() != null ? new FluidStack(stamp.getFluid(), stamp.getAmount()) : null, EnumStampType.getType(this.stamp.getStackInSlot(0))).copy();
-                            if (recipe.getStack() != ItemStack.EMPTY) {
+                            if (!recipe.getStack().isEmpty()) {
                                 stamp.inputs.extractItem(0, recipe.getStack().getCount(), false);
                             }
                             if (recipe.getFluid() != null) {
@@ -157,7 +157,7 @@ public class TileEntityStamper extends TileEntity implements ITileEntityBase, IT
                             if (getWorld().getTileEntity(getPos().offset(face, 3)) instanceof TileEntityBin) {
                                 TileEntityBin bin = (TileEntityBin) getWorld().getTileEntity(getPos().offset(face, 3));
                                 ItemStack remainder = bin.inventory.insertItem(0, result, false);
-                                if (remainder != ItemStack.EMPTY && !getWorld().isRemote) {
+                                if (!remainder.isEmpty() && !getWorld().isRemote) {
                                     EntityItem item = new EntityItem(getWorld(), off.getX() + 0.5, off.getY() + 0.5, off.getZ() + 0.5, remainder);
                                     getWorld().spawnEntity(item);
                                 }
@@ -188,7 +188,7 @@ public class TileEntityStamper extends TileEntity implements ITileEntityBase, IT
                             if (getWorld().getTileEntity(getPos().offset(face, 3)) instanceof TileEntityBin) {
                                 TileEntityBin bin = (TileEntityBin) getWorld().getTileEntity(getPos().offset(face, 3));
                                 ItemStack remainder = bin.inventory.insertItem(0, result, false);
-                                if (remainder != ItemStack.EMPTY && !getWorld().isRemote) {
+                                if (!remainder.isEmpty() && !getWorld().isRemote) {
                                     EntityItem item = new EntityItem(getWorld(), off.getX() + 0.5, off.getY() + 0.5, off.getZ() + 0.5, remainder);
                                     getWorld().spawnEntity(item);
                                 }

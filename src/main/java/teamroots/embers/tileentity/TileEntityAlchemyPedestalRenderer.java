@@ -27,7 +27,7 @@ public class TileEntityAlchemyPedestalRenderer extends TileEntitySpecialRenderer
     @Override
     public void render(TileEntityAlchemyPedestal pedestal, double x, double y, double z, float partialTicks, int destroyStage, float tileAlpha) {
             GlStateManager.blendFunc(SourceFactor.SRC_ALPHA, DestFactor.ONE_MINUS_SRC_ALPHA);
-            if (pedestal.inventory.getStackInSlot(1) != ItemStack.EMPTY) {
+            if (!pedestal.inventory.getStackInSlot(1).isEmpty()) {
                 if (Minecraft.getMinecraft().world != null) {
                     GL11.glPushMatrix();
                     GL11.glTranslated(x + 0.5, y + 0.75, z + 0.5);
@@ -37,7 +37,7 @@ public class TileEntityAlchemyPedestalRenderer extends TileEntitySpecialRenderer
                 }
             }
 
-            if (pedestal.inventory.getStackInSlot(0) != ItemStack.EMPTY) {
+            if (!pedestal.inventory.getStackInSlot(0).isEmpty()) {
                 float coeff = pedestal.inventory.getStackInSlot(0).getCount() / 64.0f;
 
                 Minecraft.getMinecraft().renderEngine.bindTexture(texture);

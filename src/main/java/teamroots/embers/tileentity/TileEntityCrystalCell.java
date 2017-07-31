@@ -129,16 +129,16 @@ public class TileEntityCrystalCell extends TileEntity implements ITileEntityBase
     @Override
     public void update() {
         ticksExisted++;
-        if (inventory.getStackInSlot(0) != ItemStack.EMPTY && ticksExisted % 4 == 0) {
+        if (!inventory.getStackInSlot(0).isEmpty() && ticksExisted % 4 == 0) {
             ItemStack stack = inventory.extractItem(0, 1, true);
-            if (!getWorld().isRemote && stack != ItemStack.EMPTY) {
+            if (!!getWorld().isRemote && stack.isEmpty()) {
                 inventory.extractItem(0, 1, false);
                 if (EmberGenUtil.getEmberForItem(stack.getItem()) > 0) {
                     this.capability.setEmberCapacity(Math.min(1440000, this.capability.getEmberCapacity() + EmberGenUtil.getEmberForItem(stack.getItem()) * 10));
                     markDirty();
                 }
             }
-            if (getWorld().isRemote && stack != ItemStack.EMPTY) {
+            if (!getWorld().isRemote && stack.isEmpty()) {
                 double angle = random.nextDouble() * 2.0 * Math.PI;
                 double x = getPos().getX() + 0.5 + 0.5 * Math.sin(angle);
                 double z = getPos().getZ() + 0.5 + 0.5 * Math.cos(angle);

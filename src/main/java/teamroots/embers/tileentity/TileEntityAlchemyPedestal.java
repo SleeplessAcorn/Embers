@@ -115,7 +115,7 @@ public class TileEntityAlchemyPedestal extends TileEntity implements ITileEntity
     public boolean activate(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand,
                             EnumFacing side, float hitX, float hitY, float hitZ) {
         ItemStack heldItem = player.getHeldItem(hand);
-        if (heldItem != ItemStack.EMPTY) {
+        if (!heldItem.isEmpty()) {
             if (heldItem.getItem() == RegistrarEmbersItems.DUST_ASH) {
                 player.setHeldItem(hand, this.inventory.insertItem(0, heldItem, false));
                 markDirty();
@@ -125,13 +125,13 @@ public class TileEntityAlchemyPedestal extends TileEntity implements ITileEntity
             }
             return true;
         } else {
-            if (inventory.getStackInSlot(1) != ItemStack.EMPTY) {
+            if (!inventory.getStackInSlot(1).isEmpty()) {
                 if (!getWorld().isRemote) {
                     player.setHeldItem(hand, inventory.extractItem(1, inventory.getStackInSlot(1).getCount(), false));
                     markDirty();
                 }
                 return true;
-            } else if (inventory.getStackInSlot(0) != ItemStack.EMPTY) {
+            } else if (!inventory.getStackInSlot(0).isEmpty()) {
                 if (!getWorld().isRemote) {
                     player.setHeldItem(hand, inventory.extractItem(0, inventory.getStackInSlot(0).getCount(), false));
                     markDirty();

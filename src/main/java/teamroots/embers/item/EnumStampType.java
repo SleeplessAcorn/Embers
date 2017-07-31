@@ -8,7 +8,7 @@ public enum EnumStampType {
     TYPE_FLAT, TYPE_BAR, TYPE_PLATE, TYPE_NULL;
 
     public static EnumStampType getType(ItemStack stack) {
-        if (stack != ItemStack.EMPTY) {
+        if (!stack.isEmpty()) {
             if (stack.getItem() == RegistrarEmbersItems.STAMP_BAR) {
                 return TYPE_BAR;
             }

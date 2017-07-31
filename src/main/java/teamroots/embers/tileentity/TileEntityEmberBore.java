@@ -133,7 +133,7 @@ public class TileEntityEmberBore extends TileEntity implements ITileEntityBase, 
                 ticksFueled--;
             }
             if (ticksFueled == 0) {
-                if (inventory.getStackInSlot(stackFuel) != ItemStack.EMPTY) {
+                if (!inventory.getStackInSlot(stackFuel).isEmpty()) {
                     ticksFueled = TileEntityFurnace.getItemBurnTime(inventory.getStackInSlot(stackFuel).copy());
                     inventory.getStackInSlot(stackFuel).shrink(1);
                     if (inventory.getStackInSlot(stackFuel).getCount() <= 0) {
@@ -145,7 +145,7 @@ public class TileEntityEmberBore extends TileEntity implements ITileEntityBase, 
                 if (random.nextFloat() < EmberGenUtil.getEmberDensity(world.getSeed(), getPos().getX(), getPos().getZ())) {
                     int chance = random.nextInt(4);
                     if (chance == 0) {
-                        if (inventory.getStackInSlot(stackCrystals) != ItemStack.EMPTY) {
+                        if (!inventory.getStackInSlot(stackCrystals).isEmpty()) {
                             if (inventory.getStackInSlot(stackCrystals).getCount() < inventory.getStackInSlot(stackCrystals).getMaxStackSize()) {
                                 inventory.getStackInSlot(stackCrystals).setCount(Math.min(64, inventory.getStackInSlot(stackCrystals).getCount()));
                             }
@@ -154,7 +154,7 @@ public class TileEntityEmberBore extends TileEntity implements ITileEntityBase, 
                         }
                         markDirty();
                     } else {
-                        if (inventory.getStackInSlot(stackShards) != ItemStack.EMPTY) {
+                        if (!inventory.getStackInSlot(stackShards).isEmpty()) {
                             if (inventory.getStackInSlot(stackShards).getCount() < inventory.getStackInSlot(stackShards).getMaxStackSize()) {
                                 inventory.getStackInSlot(stackShards).setCount(Math.min(inventory.getStackInSlot(stackShards).getMaxStackSize(), inventory.getStackInSlot(stackShards).getCount()));
                             }

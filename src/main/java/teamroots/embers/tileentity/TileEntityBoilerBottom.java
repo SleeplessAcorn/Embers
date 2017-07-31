@@ -161,7 +161,7 @@ public class TileEntityBoilerBottom extends TileFluidHandler implements ITileEnt
                                 progress = 0;
                                 int i = random.nextInt(inventory.getSlots());
                                 if (inventory != null) {
-                                    if (inventory.getStackInSlot(i) != ItemStack.EMPTY) {
+                                    if (!inventory.getStackInSlot(i).isEmpty()) {
                                         if (EmberGenUtil.getEmberForItem(inventory.getStackInSlot(i).getItem()) > 0) {
                                             double ember = EmberGenUtil.getEmberForItem(inventory.getStackInSlot(i).getItem()) * getMultiplier();
                                             if (top.capability.getEmber() <= top.capability.getEmberCapacity() - ember) {

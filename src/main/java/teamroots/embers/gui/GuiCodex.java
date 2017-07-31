@@ -65,7 +65,7 @@ public class GuiCodex extends GuiScreen {
     }
 
     public void renderItemStackAt(ItemStack stack, int x, int y, int mouseX, int mouseY) {
-        if (stack != ItemStack.EMPTY) {
+        if (!stack.isEmpty()) {
             RenderHelper.disableStandardItemLighting();
             RenderHelper.enableGUIStandardItemLighting();
             this.itemRender.renderItemIntoGUI(stack, x, y);
@@ -79,7 +79,7 @@ public class GuiCodex extends GuiScreen {
     }
 
     public void renderItemStackMinusTooltipAt(ItemStack stack, int x, int y, int mouseX, int mouseY) {
-        if (stack != ItemStack.EMPTY) {
+        if (!stack.isEmpty()) {
             RenderHelper.disableStandardItemLighting();
             RenderHelper.enableGUIStandardItemLighting();
             this.itemRender.renderItemIntoGUI(stack, x, y);

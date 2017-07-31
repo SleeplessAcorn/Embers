@@ -212,7 +212,7 @@ public class TileEntityDawnstoneAnvil extends TileEntity implements ITileEntityB
             markDirty();
             return new ItemStack[]{result};
         }
-        if (stack1.getItem().getIsRepairable(stack1, Misc.getRepairItem(stack1)) && Misc.getResourceCount(stack1) != -1 && stack2 == ItemStack.EMPTY) {
+        if (stack1.getItem().getIsRepairable(stack1, Misc.getRepairItem(stack1)) && Misc.getResourceCount(stack1) != -1 && stack2.isEmpty()) {
             int resourceAmount = Misc.getResourceCount(stack1);
             inventory.setStackInSlot(0, ItemStack.EMPTY);
             markDirty();
@@ -244,7 +244,7 @@ public class TileEntityDawnstoneAnvil extends TileEntity implements ITileEntityB
                     if (getWorld().getTileEntity(getPos().down()) instanceof TileEntityBin) {
                         TileEntityBin bin = (TileEntityBin) getWorld().getTileEntity(getPos().down());
                         ItemStack remainder = bin.inventory.insertItem(0, result, false);
-                        if (remainder != ItemStack.EMPTY && !getWorld().isRemote) {
+                        if (!remainder.isEmpty() && !getWorld().isRemote) {
                             EntityItem item = new EntityItem(getWorld(), getPos().getX() + 0.5, getPos().getY() + 1.0625f, getPos().getZ() + 0.5, remainder);
                             getWorld().spawnEntity(item);
                         }

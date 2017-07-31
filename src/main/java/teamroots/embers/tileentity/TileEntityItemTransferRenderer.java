@@ -18,7 +18,7 @@ public class TileEntityItemTransferRenderer extends TileEntitySpecialRenderer<Ti
 
     @Override
     public void render(TileEntityItemTransfer transfer, double x, double y, double z, float partialTicks, int destroyStage, float tileAlpha) {
-            if (transfer.filterItem != ItemStack.EMPTY) {
+            if (!transfer.filterItem.isEmpty()) {
                 if (Minecraft.getMinecraft().world != null) {
                     GlStateManager.pushAttrib();
                     GlStateManager.blendFunc(SourceFactor.SRC_ALPHA, DestFactor.ONE_MINUS_SRC_ALPHA);

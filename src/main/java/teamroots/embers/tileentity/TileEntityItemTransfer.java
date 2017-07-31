@@ -125,7 +125,7 @@ public class TileEntityItemTransfer extends TileEntity implements ITileEntityBas
                             EnumFacing side, float hitX, float hitY, float hitZ) {
         ItemStack heldItem = player.getHeldItem(hand);
         if (!world.isRemote) {
-            if (heldItem != ItemStack.EMPTY) {
+            if (!heldItem.isEmpty()) {
                 this.filterItem = heldItem.copy();
                 markDirty();
                 world.setBlockState(pos, state.withProperty(BlockItemTransfer.filter, true), 8);

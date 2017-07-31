@@ -104,14 +104,14 @@ public class TileEntityCharger extends TileEntity implements ITileEntityBase, IT
     public boolean activate(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand,
                             EnumFacing side, float hitX, float hitY, float hitZ) {
         ItemStack heldItem = player.getHeldItem(hand);
-        if (heldItem != ItemStack.EMPTY) {
+        if (!heldItem.isEmpty()) {
             if (heldItem.getItem() instanceof IEmberItem) {
                 player.setHeldItem(hand, this.inventory.insertItem(0, heldItem, false));
                 markDirty();
                 return true;
             }
         } else {
-            if (inventory.getStackInSlot(0) != ItemStack.EMPTY) {
+            if (!inventory.getStackInSlot(0).isEmpty()) {
                 if (!getWorld().isRemote) {
                     player.setHeldItem(hand, inventory.extractItem(0, inventory.getStackInSlot(0).getCount(), false));
                     markDirty();
@@ -132,7 +132,7 @@ public class TileEntityCharger extends TileEntity implements ITileEntityBase, IT
     @Override
     public void update() {
         turnRate = 1;
-        if (inventory.getStackInSlot(0) != ItemStack.EMPTY && capability.getEmber() > 0) {
+        if (!inventory.getStackInSlot(0).isEmpty() && capability.getEmber() > 0) {
             if (inventory.getStackInSlot(0).getItem() instanceof IEmberItem) {
                 //turnRate = 6;
                 double emberAdded = ((IEmberItem) inventory.getStackInSlot(0).getItem()).addAmount(inventory.getStackInSlot(0), Math.min(10.0, capability.getEmber()), true);

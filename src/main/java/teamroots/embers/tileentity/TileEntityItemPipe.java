@@ -175,7 +175,7 @@ public class TileEntityItemPipe extends TileEntity implements ITileEntityBase, I
     public boolean activate(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand,
                             EnumFacing side, float hitX, float hitY, float hitZ) {
         ItemStack heldItem = player.getHeldItem(hand);
-        if (heldItem != ItemStack.EMPTY) {
+        if (!heldItem.isEmpty()) {
             if (heldItem.getItem() instanceof ItemTinkerHammer) {
                 if (side == EnumFacing.UP || side == EnumFacing.DOWN) {
                     if (Math.abs(hitX - 0.5) > Math.abs(hitZ - 0.5)) {
