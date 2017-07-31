@@ -239,8 +239,7 @@ public class TileEntityDawnstoneAnvil extends TileEntity implements ITileEntityB
             if (progress > 40) {
                 progress = 0;
                 ItemStack[] results = getResult(inventory.getStackInSlot(0), inventory.getStackInSlot(1));
-                for (int i = 0; i < results.length; i++) {
-                    ItemStack result = results[i];
+                for (ItemStack result : results) {
                     if (getWorld().getTileEntity(getPos().down()) instanceof TileEntityBin) {
                         TileEntityBin bin = (TileEntityBin) getWorld().getTileEntity(getPos().down());
                         ItemStack remainder = bin.inventory.insertItem(0, result, false);

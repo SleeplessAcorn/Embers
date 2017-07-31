@@ -148,9 +148,9 @@ public class TileEntityHeatCoil extends TileEntity implements ITileEntityBase, I
         }
         if (heat > 0 && ticksExisted % (300 - heat) == 0 && !getWorld().isRemote) {
             List<EntityItem> items = getWorld().getEntitiesWithinAABB(EntityItem.class, new AxisAlignedBB(getPos().getX() - 1, getPos().getY(), getPos().getZ() - 1, getPos().getX() + 2, getPos().getY() + 2, getPos().getZ() + 2));
-            for (int i = 0; i < items.size(); i++) {
-                items.get(i).setAgeToCreativeDespawnTime();
-                items.get(i).lifespan = 10800;
+            for (EntityItem item : items) {
+                item.setAgeToCreativeDespawnTime();
+                item.lifespan = 10800;
             }
             if (items.size() > 0) {
                 int i = random.nextInt(items.size());

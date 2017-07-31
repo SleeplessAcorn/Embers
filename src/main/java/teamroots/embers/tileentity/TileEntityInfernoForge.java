@@ -157,18 +157,18 @@ public class TileEntityInfernoForge extends TileEntity implements ITileEntityBas
                 if (progress == 0 && !world.isRemote) {
                     ItemStack item = ItemStack.EMPTY;
                     double emberValue = 0;
-                    for (int i = 0; i < items.size(); i++) {
-                        if (ItemModUtil.hasHeat(items.get(i).getItem())) {
-                            if (item.isEmpty() && ItemModUtil.getLevel(items.get(i).getItem()) <= 5 && ItemModUtil.getHeat(items.get(i).getItem()) >= ItemModUtil.getMaxHeat(items.get(i).getItem())) {
-                                item = items.get(i).getItem();
+                    for (EntityItem item2 : items) {
+                        if (ItemModUtil.hasHeat(item2.getItem())) {
+                            if (item.isEmpty() && ItemModUtil.getLevel(item2.getItem()) <= 5 && ItemModUtil.getHeat(item2.getItem()) >= ItemModUtil.getMaxHeat(item2.getItem())) {
+                                item = item2.getItem();
                             } else {
                                 progress = 0;
                                 markDirty();
                                 return;
                             }
                         } else {
-                            if (EmberGenUtil.getEmberForItem(items.get(i).getItem().getItem()) > 0) {
-                                emberValue += EmberGenUtil.getEmberForItem(items.get(i).getItem().getItem());
+                            if (EmberGenUtil.getEmberForItem(item2.getItem().getItem()) > 0) {
+                                emberValue += EmberGenUtil.getEmberForItem(item2.getItem().getItem());
                             } else {
                                 progress = 0;
                                 markDirty();
@@ -186,15 +186,15 @@ public class TileEntityInfernoForge extends TileEntity implements ITileEntityBas
                         if (!world.isRemote) {
                             PacketHandler.INSTANCE.sendToAll(new MessageEmberActivationFX(getPos().getX() + 0.5, getPos().getY() + 1.5, getPos().getZ() + 0.5));
                         }
-                        for (int i = 0; i < items.size(); i++) {
-                            if (!ItemModUtil.hasHeat(items.get(i).getItem())) {
-                                world.removeEntity(items.get(i));
-                                items.get(i).setDead();
+                        for (EntityItem item1 : items) {
+                            if (!ItemModUtil.hasHeat(item1.getItem())) {
+                                world.removeEntity(item1);
+                                item1.setDead();
                             } else if (Math.atan(emberValue / 1200.0f) > Misc.random.nextFloat()) {
-                                ItemStack stack = items.get(i).getItem();
+                                ItemStack stack = item1.getItem();
                                 ItemModUtil.setHeat(stack, 0);
                                 ItemModUtil.setLevel(stack, ItemModUtil.getLevel(stack) + 1);
-                                items.get(i).setItem(stack);
+                                item1.setItem(stack);
                                 progress = 0;
                             }
                         }
@@ -212,16 +212,16 @@ public class TileEntityInfernoForge extends TileEntity implements ITileEntityBas
             List<EntityItem> items = world.getEntitiesWithinAABB(EntityItem.class, new AxisAlignedBB(getPos().getX(), getPos().getY() + 0.25, getPos().getZ(), getPos().getX() + 1, getPos().getY() + 1, getPos().getZ() + 1));
             ItemStack item = ItemStack.EMPTY;
             double emberValue = 0;
-            for (int i = 0; i < items.size(); i++) {
-                if (ItemModUtil.hasHeat(items.get(i).getItem())) {
-                    if (item.isEmpty() && ItemModUtil.getLevel(items.get(i).getItem()) < 5 && ItemModUtil.getHeat(items.get(i).getItem()) >= ItemModUtil.getMaxHeat(items.get(i).getItem())) {
-                        item = items.get(i).getItem();
+            for (EntityItem item1 : items) {
+                if (ItemModUtil.hasHeat(item1.getItem())) {
+                    if (item.isEmpty() && ItemModUtil.getLevel(item1.getItem()) < 5 && ItemModUtil.getHeat(item1.getItem()) >= ItemModUtil.getMaxHeat(item1.getItem())) {
+                        item = item1.getItem();
                     } else {
                         return;
                     }
                 } else {
-                    if (EmberGenUtil.getEmberForItem(items.get(i).getItem().getItem()) > 0) {
-                        emberValue += EmberGenUtil.getEmberForItem(items.get(i).getItem().getItem());
+                    if (EmberGenUtil.getEmberForItem(item1.getItem().getItem()) > 0) {
+                        emberValue += EmberGenUtil.getEmberForItem(item1.getItem().getItem());
                     } else {
                         return;
                     }

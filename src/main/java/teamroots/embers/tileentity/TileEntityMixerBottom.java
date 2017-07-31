@@ -151,12 +151,12 @@ public class TileEntityMixerBottom extends TileEntity implements ITileEntityBase
                     int amount = tank.fill(recipe.output, false);
                     if (amount != 0) {
                         tank.fill(recipe.output, true);
-                        for (int i = 0; i < fluids.size(); i++) {
+                        for (FluidStack fluid : fluids) {
                             boolean doContinue = true;
                             for (int j = 0; j < recipe.inputs.size() && doContinue; j++) {
-                                if (recipe.inputs.get(j) != null && fluids.get(i) != null && recipe.inputs.get(j).getFluid() == fluids.get(i).getFluid()) {
+                                if (recipe.inputs.get(j) != null && fluid != null && recipe.inputs.get(j).getFluid() == fluid.getFluid()) {
                                     doContinue = false;
-                                    fluids.get(i).amount -= recipe.inputs.get(j).amount;
+                                    fluid.amount -= recipe.inputs.get(j).amount;
                                 }
                             }
                         }

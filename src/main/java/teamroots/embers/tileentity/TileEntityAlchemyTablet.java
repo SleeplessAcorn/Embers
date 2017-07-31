@@ -275,13 +275,13 @@ public class TileEntityAlchemyTablet extends TileEntity implements ITileEntityBa
             }
             List<TileEntityAlchemyPedestal> pedestals = getNearbyPedestals();
             if (getWorld().isRemote) {
-                for (int i = 0; i < pedestals.size(); i++) {
-                    ParticleUtil.spawnParticleStar(getWorld(), pedestals.get(i).getPos().getX() + 0.5f, pedestals.get(i).getPos().getY() + 1.0f, pedestals.get(i).getPos().getZ() + 0.5f, 0.0125f * (random.nextFloat() - 0.5f), 0.0125f * (random.nextFloat() - 0.5f), 0.0125f * (random.nextFloat() - 0.5f), 255, 64, 16, 3.5f + 0.5f * random.nextFloat(), 40);
+                for (TileEntityAlchemyPedestal pedestal : pedestals) {
+                    ParticleUtil.spawnParticleStar(getWorld(), pedestal.getPos().getX() + 0.5f, pedestal.getPos().getY() + 1.0f, pedestal.getPos().getZ() + 0.5f, 0.0125f * (random.nextFloat() - 0.5f), 0.0125f * (random.nextFloat() - 0.5f), 0.0125f * (random.nextFloat() - 0.5f), 255, 64, 16, 3.5f + 0.5f * random.nextFloat(), 40);
                     for (int j = 0; j < 8; j++) {
                         float coeff = random.nextFloat();
-                        float x = (getPos().getX() + 0.5f) * coeff + (1.0f - coeff) * (pedestals.get(i).getPos().getX() + 0.5f);
-                        float y = (getPos().getY() + 0.875f) * coeff + (1.0f - coeff) * (pedestals.get(i).getPos().getY() + 1.0f);
-                        float z = (getPos().getZ() + 0.5f) * coeff + (1.0f - coeff) * (pedestals.get(i).getPos().getZ() + 0.5f);
+                        float x = (getPos().getX() + 0.5f) * coeff + (1.0f - coeff) * (pedestal.getPos().getX() + 0.5f);
+                        float y = (getPos().getY() + 0.875f) * coeff + (1.0f - coeff) * (pedestal.getPos().getY() + 1.0f);
+                        float z = (getPos().getZ() + 0.5f) * coeff + (1.0f - coeff) * (pedestal.getPos().getZ() + 0.5f);
                         ParticleUtil.spawnParticleGlow(getWorld(), x, y, z, 0.0125f * (random.nextFloat() - 0.5f), 0.0125f * (random.nextFloat() - 0.5f), 0.0125f * (random.nextFloat() - 0.5f), 255, 64, 16, 2.0f, 24);
                     }
                 }

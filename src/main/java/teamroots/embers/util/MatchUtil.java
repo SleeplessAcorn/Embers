@@ -16,8 +16,8 @@ public class MatchUtil {
     public static String getOreKeys(ItemStack stack) {
         int[] keys = OreDictionary.getOreIDs(stack);
         String r = "";
-        for (int i = 0; i < keys.length; i++) {
-            r += OreDictionary.getOreName(keys[i]);
+        for (int key : keys) {
+            r += OreDictionary.getOreName(key);
         }
         return r;
     }
@@ -30,9 +30,9 @@ public class MatchUtil {
         } else {
             int[] ores1 = OreDictionary.getOreIDs(stack1);
             int[] ores2 = OreDictionary.getOreIDs(stack2);
-            for (int i = 0; i < ores1.length; i++) {
-                for (int j = 0; j < ores2.length; j++) {
-                    if (ores1[i] == ores2[j]) {
+            for (int anOres1 : ores1) {
+                for (int anOres2 : ores2) {
+                    if (anOres1 == anOres2) {
                         return true;
                     }
                 }

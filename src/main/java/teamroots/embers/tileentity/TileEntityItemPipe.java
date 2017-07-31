@@ -298,9 +298,9 @@ public class TileEntityItemPipe extends TileEntity implements ITileEntityBase, I
                 }
             }
             ArrayList<EnumFacing> priorities = new ArrayList<EnumFacing>();
-            for (int i = 0; i < connections.size(); i++) {
-                if (getWorld().getTileEntity(getPos().offset(connections.get(i))) instanceof IItemPipePriority) {
-                    priorities.add(connections.get(i));
+            for (EnumFacing connection : connections) {
+                if (getWorld().getTileEntity(getPos().offset(connection)) instanceof IItemPipePriority) {
+                    priorities.add(connection);
                 }
             }
             if (priorities.size() > 0) {
@@ -350,12 +350,12 @@ public class TileEntityItemPipe extends TileEntity implements ITileEntityBase, I
                         }
                     }
                 }
-                for (int i = 0; i < toUpdate.size(); i++) {
-                    TileEntity tile = getWorld().getTileEntity(toUpdate.get(i));
+                for (BlockPos aToUpdate : toUpdate) {
+                    TileEntity tile = getWorld().getTileEntity(aToUpdate);
                     tile.markDirty();
                     if (!getWorld().isRemote && !(tile instanceof ITileEntityBase)) {
                         tile.markDirty();
-                        EventManager.markTEForUpdate(toUpdate.get(i), tile);
+                        EventManager.markTEForUpdate(aToUpdate, tile);
                     }
                 }
                 if (toUpdate.size() > 0) {
@@ -409,12 +409,12 @@ public class TileEntityItemPipe extends TileEntity implements ITileEntityBase, I
                         }
                     }
                 }
-                for (int i = 0; i < toUpdate.size(); i++) {
-                    TileEntity tile = getWorld().getTileEntity(toUpdate.get(i));
+                for (BlockPos aToUpdate : toUpdate) {
+                    TileEntity tile = getWorld().getTileEntity(aToUpdate);
                     tile.markDirty();
                     if (!getWorld().isRemote && !(tile instanceof ITileEntityBase)) {
                         tile.markDirty();
-                        EventManager.markTEForUpdate(toUpdate.get(i), tile);
+                        EventManager.markTEForUpdate(aToUpdate, tile);
                     }
                 }
             }

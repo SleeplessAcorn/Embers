@@ -138,8 +138,8 @@ public class TileEntityBeamCannon extends TileEntity implements ITileEntityBase,
                         doContinue = false;
                     }
                     List<EntityLivingBase> rawEntities = getWorld().getEntitiesWithinAABB(EntityLivingBase.class, new AxisAlignedBB(posX - 0.85, posY - 0.85, posZ - 0.85, posX + 0.85, posY + 0.85, posZ + 0.85));
-                    for (int j = 0; j < rawEntities.size(); j++) {
-                        rawEntities.get(j).attackEntityFrom(RegistrarEmbers.DAMAGE_EMBER, 25.0f);
+                    for (EntityLivingBase rawEntity : rawEntities) {
+                        rawEntity.attackEntityFrom(RegistrarEmbers.DAMAGE_EMBER, 25.0f);
                     }
                 }
                 this.capability.setEmber(0);

@@ -85,9 +85,9 @@ public class MessageCannonBeamFX implements IMessage {
                 }
                 List<EntityLivingBase> rawEntities = world.getEntitiesWithinAABB(EntityLivingBase.class, new AxisAlignedBB(message.posX - 0.85, message.posY - 0.85, message.posZ - 0.85, message.posX + 0.85, message.posY + 0.85, message.posZ + 0.85));
                 ArrayList<EntityLivingBase> entities = new ArrayList<EntityLivingBase>();
-                for (int j = 0; j < rawEntities.size(); j++) {
-                    if (rawEntities.get(j).getUniqueID().compareTo(message.id) != 0) {
-                        entities.add(rawEntities.get(j));
+                for (EntityLivingBase rawEntity : rawEntities) {
+                    if (rawEntity.getUniqueID().compareTo(message.id) != 0) {
+                        entities.add(rawEntity);
                     }
                 }
                 if (entities.size() > 0) {

@@ -128,12 +128,12 @@ public class TileEntityBin extends TileEntity implements ITileEntityBase, ITicka
         ticksExisted++;
         if (ticksExisted % 10 == 0) {
             List<EntityItem> items = getWorld().getEntitiesWithinAABB(EntityItem.class, new AxisAlignedBB(getPos().getX(), getPos().getY(), getPos().getZ(), getPos().getX() + 1, getPos().getY() + 1.25, getPos().getZ() + 1));
-            for (int i = 0; i < items.size(); i++) {
-                ItemStack stack = inventory.insertItem(0, items.get(i).getItem(), false);
+            for (EntityItem item : items) {
+                ItemStack stack = inventory.insertItem(0, item.getItem(), false);
                 if (!stack.isEmpty()) {
-                    items.get(i).setItem(stack);
+                    item.setItem(stack);
                 } else {
-                    getWorld().removeEntity(items.get(i));
+                    getWorld().removeEntity(item);
                 }
             }
         }

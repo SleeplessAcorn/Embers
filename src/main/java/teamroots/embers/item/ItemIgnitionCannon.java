@@ -57,9 +57,9 @@ public class ItemIgnitionCannon extends ItemBase {
             }
             List<EntityLivingBase> rawEntities = world.getEntitiesWithinAABB(EntityLivingBase.class, new AxisAlignedBB(posX - 0.85, posY - 0.85, posZ - 0.85, posX + 0.85, posY + 0.85, posZ + 0.85));
             ArrayList<EntityLivingBase> entities = new ArrayList<EntityLivingBase>();
-            for (int j = 0; j < rawEntities.size(); j++) {
-                if (rawEntities.get(j).getUniqueID().compareTo(entity.getUniqueID()) != 0) {
-                    entities.add(rawEntities.get(j));
+            for (EntityLivingBase rawEntity : rawEntities) {
+                if (rawEntity.getUniqueID().compareTo(entity.getUniqueID()) != 0) {
+                    entities.add(rawEntity);
                 }
             }
             if (entities.size() > 0) {

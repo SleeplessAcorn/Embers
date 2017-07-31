@@ -421,12 +421,12 @@ public class TileEntityItemExtractor extends TileEntity implements ITileEntityBa
                 //}
             }
             //}
-            for (int i = 0; i < toUpdate.size(); i++) {
-                TileEntity tile = getWorld().getTileEntity(toUpdate.get(i));
+            for (BlockPos aToUpdate : toUpdate) {
+                TileEntity tile = getWorld().getTileEntity(aToUpdate);
                 tile.markDirty();
                 if (!getWorld().isRemote && !(tile instanceof ITileEntityBase)) {
                     tile.markDirty();
-                    EventManager.markTEForUpdate(toUpdate.get(i), tile);
+                    EventManager.markTEForUpdate(aToUpdate, tile);
                 }
             }
         }

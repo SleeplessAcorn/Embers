@@ -308,26 +308,26 @@ public class TileEntityFluidExtractor extends TileFluidHandler implements ITileE
                     connectedFaces.add(EnumFacing.EAST);
                 }
             }
-            for (int i = 0; i < connectedFaces.size(); i++) {
-                TileEntity t = getWorld().getTileEntity(getPos().offset(connectedFaces.get(i)));
+            for (EnumFacing connectedFace : connectedFaces) {
+                TileEntity t = getWorld().getTileEntity(getPos().offset(connectedFace));
                 if (t != null && !(t instanceof TileEntityFluidPipe)) {
-                    if (t.hasCapability(CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY, connectedFaces.get(i).getOpposite())) {
-                        IFluidHandler handler = getWorld().getTileEntity(getPos().offset(connectedFaces.get(i))).getCapability(CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY, connectedFaces.get(i).getOpposite());
+                    if (t.hasCapability(CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY, connectedFace.getOpposite())) {
+                        IFluidHandler handler = getWorld().getTileEntity(getPos().offset(connectedFace)).getCapability(CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY, connectedFace.getOpposite());
                         if (handler != null) {
-                            from.add(connectedFaces.get(i));
+                            from.add(connectedFace);
                             IFluidTankProperties[] properties = handler.getTankProperties();
                             for (int j = 0; j < properties.length && tank.getFluidAmount() < tank.getCapacity(); j++) {
                                 FluidStack stack = properties[j].getContents();
                                 if (stack != null) {
                                     if (t.getClass() == TileEntityFluidPipe.class) {
-                                        ((TileEntityFluidPipe) t).from.add(Misc.getOppositeFace(connectedFaces.get(i)));
+                                        ((TileEntityFluidPipe) t).from.add(Misc.getOppositeFace(connectedFace));
                                     }
                                     int toFill = tank.fill(stack, false);
                                     FluidStack taken = handler.drain(new FluidStack(stack.getFluid(), toFill), true);
                                     tank.fill(taken, true);
                                     IBlockState state = getWorld().getBlockState(getPos());
-                                    if (!toUpdate.contains(getPos().offset(connectedFaces.get(i)))) {
-                                        toUpdate.add(getPos().offset(connectedFaces.get(i)));
+                                    if (!toUpdate.contains(getPos().offset(connectedFace))) {
+                                        toUpdate.add(getPos().offset(connectedFace));
                                     }
                                     if (!toUpdate.contains(getPos())) {
                                         toUpdate.add(getPos());
@@ -375,11 +375,11 @@ public class TileEntityFluidExtractor extends TileFluidHandler implements ITileE
 
             int count = 0;
             if (connectedFaces.size() >= 1) {
-                for (int i = 0; i < connectedFaces.size(); i++) {
-                    TileEntity t = getWorld().getTileEntity(getPos().offset(connectedFaces.get(i)));
+                for (EnumFacing connectedFace : connectedFaces) {
+                    TileEntity t = getWorld().getTileEntity(getPos().offset(connectedFace));
                     if (t != null && tank.getFluid() != null) {
-                        if (t.hasCapability(CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY, Misc.getOppositeFace(connectedFaces.get(i)))) {
-                            IFluidHandler handler = t.getCapability(CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY, connectedFaces.get(i).getOpposite());
+                        if (t.hasCapability(CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY, Misc.getOppositeFace(connectedFace))) {
+                            IFluidHandler handler = t.getCapability(CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY, connectedFace.getOpposite());
                             if (handler != null) {
                                 int capacity = 0;
                                 int amount = 0;
@@ -400,22 +400,22 @@ public class TileEntityFluidExtractor extends TileFluidHandler implements ITileE
 
             if (count >= 1) {
                 int toEach = Math.max(1, distAmount / count);
-                for (int i = 0; i < connectedFaces.size(); i++) {
-                    TileEntity t = getWorld().getTileEntity(getPos().offset(connectedFaces.get(i)));
+                for (EnumFacing connectedFace : connectedFaces) {
+                    TileEntity t = getWorld().getTileEntity(getPos().offset(connectedFace));
                     if (t != null && toEach > 0 && tank.getFluid() != null) {
-                        if (t.hasCapability(CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY, connectedFaces.get(i).getOpposite())) {
-                            IFluidHandler handler = t.getCapability(CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY, connectedFaces.get(i).getOpposite());
+                        if (t.hasCapability(CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY, connectedFace.getOpposite())) {
+                            IFluidHandler handler = t.getCapability(CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY, connectedFace.getOpposite());
                             if (handler != null) {
                                 if (tank.getFluid() != null) {
                                     if (tank.getFluid().getFluid() != null) {
                                         if (t instanceof TileEntityFluidPipe) {
-                                            ((TileEntityFluidPipe) t).from.add(connectedFaces.get(i).getOpposite());
+                                            ((TileEntityFluidPipe) t).from.add(connectedFace.getOpposite());
                                         }
                                         FluidStack toAdd = new FluidStack(tank.getFluid().getFluid(), toEach);
                                         int filled = handler.fill(toAdd, true);
                                         tank.drainInternal(new FluidStack(tank.getFluid().getFluid(), filled), true);
-                                        if (!toUpdate.contains(getPos().offset(connectedFaces.get(i)))) {
-                                            toUpdate.add(getPos().offset(connectedFaces.get(i)));
+                                        if (!toUpdate.contains(getPos().offset(connectedFace))) {
+                                            toUpdate.add(getPos().offset(connectedFace));
                                         }
                                         if (!toUpdate.contains(getPos())) {
                                             toUpdate.add(getPos());
@@ -428,12 +428,12 @@ public class TileEntityFluidExtractor extends TileFluidHandler implements ITileE
                 }
             }
         }
-        for (int i = 0; i < toUpdate.size(); i++) {
-            TileEntity tile = getWorld().getTileEntity(toUpdate.get(i));
+        for (BlockPos aToUpdate : toUpdate) {
+            TileEntity tile = getWorld().getTileEntity(aToUpdate);
             tile.markDirty();
             if (!getWorld().isRemote && !(tile instanceof ITileEntityBase)) {
                 tile.markDirty();
-                EventManager.markTEForUpdate(toUpdate.get(i), tile);
+                EventManager.markTEForUpdate(aToUpdate, tile);
             }
         }
         markDirty();

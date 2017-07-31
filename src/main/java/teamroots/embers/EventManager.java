@@ -507,13 +507,13 @@ public class EventManager {
         }
         List<TileEntity> list = Minecraft.getMinecraft().world.loadedTileEntityList;
         GlStateManager.pushMatrix();
-        for (int i = 0; i < list.size(); i++) {
-            TileEntitySpecialRenderer render = TileEntityRendererDispatcher.instance.getRenderer(list.get(i));
+        for (TileEntity aList : list) {
+            TileEntitySpecialRenderer render = TileEntityRendererDispatcher.instance.getRenderer(aList);
             if (render instanceof ITileEntitySpecialRendererLater) {
                 double x = Minecraft.getMinecraft().player.lastTickPosX + Minecraft.getMinecraft().getRenderPartialTicks() * (Minecraft.getMinecraft().player.posX - Minecraft.getMinecraft().player.lastTickPosX);
                 double y = Minecraft.getMinecraft().player.lastTickPosY + Minecraft.getMinecraft().getRenderPartialTicks() * (Minecraft.getMinecraft().player.posY - Minecraft.getMinecraft().player.lastTickPosY);
                 double z = Minecraft.getMinecraft().player.lastTickPosZ + Minecraft.getMinecraft().getRenderPartialTicks() * (Minecraft.getMinecraft().player.posZ - Minecraft.getMinecraft().player.lastTickPosZ);
-                ((ITileEntitySpecialRendererLater) render).renderLater(list.get(i), list.get(i).getPos().getX() - x, list.get(i).getPos().getY() - y, list.get(i).getPos().getZ() - z, Minecraft.getMinecraft().getRenderPartialTicks());
+                ((ITileEntitySpecialRendererLater) render).renderLater(aList, aList.getPos().getX() - x, aList.getPos().getY() - y, aList.getPos().getZ() - z, Minecraft.getMinecraft().getRenderPartialTicks());
             }
         }
         GlStateManager.popMatrix();
@@ -535,8 +535,7 @@ public class EventManager {
                 toUpdate.put(e.getKey(), e.getValue());
             }
             overflow.clear();
-            for (int i = 0; i < updateArray.length; i++) {
-                TileEntity t = updateArray[i];
+            for (TileEntity t : updateArray) {
                 list.appendTag(t.getUpdateTag());
             }
             if (!list.hasNoTags()) {

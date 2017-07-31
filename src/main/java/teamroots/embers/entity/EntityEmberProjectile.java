@@ -116,10 +116,10 @@ public class EntityEmberProjectile extends Entity/* implements ILightProvider*/ 
             }
             List<EntityLivingBase> rawEntities = getEntityWorld().getEntitiesWithinAABB(EntityLivingBase.class, new AxisAlignedBB(posX - getDataManager().get(value) * 0.125, posY - getDataManager().get(value) * 0.125, posZ - getDataManager().get(value) * 0.125, posX + getDataManager().get(value) * 0.125, posY + getDataManager().get(value) * 0.125, posZ + getDataManager().get(value) * 0.125));
             ArrayList<EntityLivingBase> entities = new ArrayList<EntityLivingBase>();
-            for (int j = 0; j < rawEntities.size(); j++) {
+            for (EntityLivingBase rawEntity : rawEntities) {
                 if (id != null) {
-                    if (rawEntities.get(j).getUniqueID().compareTo(id) != 0) {
-                        entities.add(rawEntities.get(j));
+                    if (rawEntity.getUniqueID().compareTo(id) != 0) {
+                        entities.add(rawEntity);
                     }
                 }
             }

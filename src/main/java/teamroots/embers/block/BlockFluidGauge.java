@@ -90,9 +90,9 @@ public class BlockFluidGauge extends BlockBase implements IDial {
                 IFluidHandler handler = world.getTileEntity(pos.offset(Misc.getOppositeFace(state.getValue(facing)))).getCapability(CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY, Misc.getOppositeFace(state.getValue(facing)));
                 if (handler != null) {
                     IFluidTankProperties[] properties = handler.getTankProperties();
-                    for (int i = 0; i < properties.length; i++) {
-                        if (properties[i].getContents() != null) {
-                            text.add("" + properties[i].getContents().getFluid().getLocalizedName(properties[i].getContents()) + ": " + properties[i].getContents().amount + "/" + properties[i].getCapacity());
+                    for (IFluidTankProperties property : properties) {
+                        if (property.getContents() != null) {
+                            text.add("" + property.getContents().getFluid().getLocalizedName(property.getContents()) + ": " + property.getContents().amount + "/" + property.getCapacity());
                         }
                     }
                 }

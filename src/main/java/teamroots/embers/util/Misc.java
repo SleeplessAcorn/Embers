@@ -94,9 +94,9 @@ public class Misc {
     public static boolean matchOreDict(ItemStack stack1, ItemStack stack2) {
         int[] keys1 = OreDictionary.getOreIDs(stack1);
         int[] keys2 = OreDictionary.getOreIDs(stack2);
-        for (int i = 0; i < keys1.length; i++) {
-            for (int j = 0; j < keys2.length; j++) {
-                if (keys1[i] == keys2[j]) {
+        for (int aKeys1 : keys1) {
+            for (int aKeys2 : keys2) {
+                if (aKeys1 == aKeys2) {
                     return true;
                 }
             }

@@ -59,10 +59,10 @@ public class ParticleRenderer {
 
             GlStateManager.blendFunc(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA);
             buffer.begin(GL11.GL_QUADS, DefaultVertexFormats.PARTICLE_POSITION_TEX_COLOR_LMAP);
-            for (int i = 0; i < particles.size(); i++) {
-                if (particles.get(i) instanceof IEmberParticle) {
-                    if (!((IEmberParticle) particles.get(i)).isAdditive()) {
-                        particles.get(i).renderParticle(buffer, player, partialTicks, f, f4, f1, f2, f3);
+            for (Particle particle3 : particles) {
+                if (particle3 instanceof IEmberParticle) {
+                    if (!((IEmberParticle) particle3).isAdditive()) {
+                        particle3.renderParticle(buffer, player, partialTicks, f, f4, f1, f2, f3);
                     }
                 }
             }
@@ -70,10 +70,10 @@ public class ParticleRenderer {
 
             GlStateManager.blendFunc(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE);
             buffer.begin(GL11.GL_QUADS, DefaultVertexFormats.PARTICLE_POSITION_TEX_COLOR_LMAP);
-            for (int i = 0; i < particles.size(); i++) {
-                if (particles.get(i) != null) {
-                    if (((IEmberParticle) particles.get(i)).isAdditive()) {
-                        particles.get(i).renderParticle(buffer, player, partialTicks, f, f4, f1, f2, f3);
+            for (Particle particle2 : particles) {
+                if (particle2 != null) {
+                    if (((IEmberParticle) particle2).isAdditive()) {
+                        particle2.renderParticle(buffer, player, partialTicks, f, f4, f1, f2, f3);
                     }
                 }
             }
@@ -82,10 +82,10 @@ public class ParticleRenderer {
             GlStateManager.disableDepth();
             GlStateManager.blendFunc(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA);
             buffer.begin(GL11.GL_QUADS, DefaultVertexFormats.PARTICLE_POSITION_TEX_COLOR_LMAP);
-            for (int i = 0; i < particles.size(); i++) {
-                if (particles.get(i) instanceof IEmberParticle) {
-                    if (!((IEmberParticle) particles.get(i)).isAdditive() && ((IEmberParticle) particles.get(i)).renderThroughBlocks()) {
-                        particles.get(i).renderParticle(buffer, player, partialTicks, f, f4, f1, f2, f3);
+            for (Particle particle1 : particles) {
+                if (particle1 instanceof IEmberParticle) {
+                    if (!((IEmberParticle) particle1).isAdditive() && ((IEmberParticle) particle1).renderThroughBlocks()) {
+                        particle1.renderParticle(buffer, player, partialTicks, f, f4, f1, f2, f3);
                     }
                 }
             }
@@ -93,10 +93,10 @@ public class ParticleRenderer {
 
             GlStateManager.blendFunc(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE);
             buffer.begin(GL11.GL_QUADS, DefaultVertexFormats.PARTICLE_POSITION_TEX_COLOR_LMAP);
-            for (int i = 0; i < particles.size(); i++) {
-                if (particles.get(i) != null) {
-                    if (((IEmberParticle) particles.get(i)).isAdditive() && ((IEmberParticle) particles.get(i)).renderThroughBlocks()) {
-                        particles.get(i).renderParticle(buffer, player, partialTicks, f, f4, f1, f2, f3);
+            for (Particle particle : particles) {
+                if (particle != null) {
+                    if (((IEmberParticle) particle).isAdditive() && ((IEmberParticle) particle).renderThroughBlocks()) {
+                        particle.renderParticle(buffer, player, partialTicks, f, f4, f1, f2, f3);
                     }
                 }
             }
