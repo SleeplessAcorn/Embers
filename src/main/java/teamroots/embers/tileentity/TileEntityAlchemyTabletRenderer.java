@@ -11,8 +11,6 @@ import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.item.ItemBlock;
-import net.minecraft.item.ItemStack;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 import teamroots.embers.Embers;
@@ -20,7 +18,7 @@ import teamroots.embers.util.RenderUtil;
 
 import java.util.Random;
 
-public class TileEntityAlchemyTabletRenderer extends TileEntitySpecialRenderer<TileEntityAlchemyTablet> implements ITileEntitySpecialRendererLater {
+public class TileEntityAlchemyTabletRenderer extends TileEntitySpecialRenderer<TileEntityAlchemyTablet> {
     public ResourceLocation texture = new ResourceLocation(Embers.MODID + ":textures/entity/beam.png");
     RenderItem renderItem = Minecraft.getMinecraft().getRenderItem();
     Random random = new Random();
@@ -161,9 +159,5 @@ public class TileEntityAlchemyTabletRenderer extends TileEntitySpecialRenderer<T
                     GlStateManager.popAttrib();
                 }
         }
-    }
-
-    @Override
-    public void renderLater(TileEntity tile, double x, double y, double z, float partialTicks) {
     }
 }

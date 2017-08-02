@@ -7,8 +7,6 @@ import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.GlStateManager.DestFactor;
 import net.minecraft.client.renderer.GlStateManager.SourceFactor;
 import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.client.renderer.tileentity.TileEntityRendererDispatcher;
-import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -32,7 +30,6 @@ import net.minecraftforge.client.event.RenderGameOverlayEvent.ElementType;
 import net.minecraftforge.common.util.Constants;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
-import net.minecraftforge.event.entity.player.PlayerEvent.BreakSpeed;
 import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -56,7 +53,6 @@ import teamroots.embers.proxy.ClientProxy;
 import teamroots.embers.registry.RegistrarEmbers;
 import teamroots.embers.registry.RegistrarEmbersItems;
 import teamroots.embers.research.ResearchBase;
-import teamroots.embers.tileentity.ITileEntitySpecialRendererLater;
 import teamroots.embers.util.*;
 import teamroots.embers.world.EmberWorldData;
 
@@ -505,22 +501,6 @@ public class EventManager {
             ClientProxy.particleRenderer.renderParticles(clientPlayer, event.getPartialTicks());
             GlStateManager.popMatrix();
         }
-        GlStateManager.pushMatrix();
-        for (TileEntity tile : Minecraft.getMinecraft().world.loadedTileEntityList) {
-            TileEntitySpecialRenderer render = TileEntityRendererDispatcher.instance.getRenderer(tile);
-            if (render instanceof ITileEntitySpecialRendererLater) {
-                double x = Minecraft.getMinecraft().player.lastTickPosX + Minecraft.getMinecraft().getRenderPartialTicks() * (Minecraft.getMinecraft().player.posX - Minecraft.getMinecraft().player.lastTickPosX);
-                double y = Minecraft.getMinecraft().player.lastTickPosY + Minecraft.getMinecraft().getRenderPartialTicks() * (Minecraft.getMinecraft().player.posY - Minecraft.getMinecraft().player.lastTickPosY);
-                double z = Minecraft.getMinecraft().player.lastTickPosZ + Minecraft.getMinecraft().getRenderPartialTicks() * (Minecraft.getMinecraft().player.posZ - Minecraft.getMinecraft().player.lastTickPosZ);
-                ((ITileEntitySpecialRendererLater) render).renderLater(tile, tile.getPos().getX() - x, tile.getPos().getY() - y, tile.getPos().getZ() - z, Minecraft.getMinecraft().getRenderPartialTicks());
-            }
-        }
-        GlStateManager.popMatrix();
-    }
-
-    @SubscribeEvent
-    public void onBlockBreak(BreakSpeed event) {
-        event.getOriginalSpeed();
     }
 
     @SubscribeEvent
