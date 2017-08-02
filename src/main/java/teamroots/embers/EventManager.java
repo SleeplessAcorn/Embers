@@ -505,15 +505,14 @@ public class EventManager {
             ClientProxy.particleRenderer.renderParticles(clientPlayer, event.getPartialTicks());
             GlStateManager.popMatrix();
         }
-        List<TileEntity> list = Minecraft.getMinecraft().world.loadedTileEntityList;
         GlStateManager.pushMatrix();
-        for (TileEntity aList : list) {
-            TileEntitySpecialRenderer render = TileEntityRendererDispatcher.instance.getRenderer(aList);
+        for (TileEntity tile : Minecraft.getMinecraft().world.loadedTileEntityList) {
+            TileEntitySpecialRenderer render = TileEntityRendererDispatcher.instance.getRenderer(tile);
             if (render instanceof ITileEntitySpecialRendererLater) {
                 double x = Minecraft.getMinecraft().player.lastTickPosX + Minecraft.getMinecraft().getRenderPartialTicks() * (Minecraft.getMinecraft().player.posX - Minecraft.getMinecraft().player.lastTickPosX);
                 double y = Minecraft.getMinecraft().player.lastTickPosY + Minecraft.getMinecraft().getRenderPartialTicks() * (Minecraft.getMinecraft().player.posY - Minecraft.getMinecraft().player.lastTickPosY);
                 double z = Minecraft.getMinecraft().player.lastTickPosZ + Minecraft.getMinecraft().getRenderPartialTicks() * (Minecraft.getMinecraft().player.posZ - Minecraft.getMinecraft().player.lastTickPosZ);
-                ((ITileEntitySpecialRendererLater) render).renderLater(aList, aList.getPos().getX() - x, aList.getPos().getY() - y, aList.getPos().getZ() - z, Minecraft.getMinecraft().getRenderPartialTicks());
+                ((ITileEntitySpecialRendererLater) render).renderLater(tile, tile.getPos().getX() - x, tile.getPos().getY() - y, tile.getPos().getZ() - z, Minecraft.getMinecraft().getRenderPartialTicks());
             }
         }
         GlStateManager.popMatrix();
