@@ -88,14 +88,19 @@ public class ConfigHandler {
     }
 
     public static class ConfigCompat {
+        @Config.RequiresMcRestart
         @Config.Comment({ "If true, Embers will register items, blocks, and recipes providing support for other mods' nickel." })
         public boolean enableNickel = true;
+        @Config.RequiresMcRestart
         @Config.Comment({ "If true, Embers will register items, blocks, and recipes providing support for other mods' tin." })
         public boolean enableTin = true;
+        @Config.RequiresMcRestart
         @Config.Comment({ "If true, Embers will register items, blocks, and recipes providing support for other mods' aluminum." })
         public boolean enableAluminum = true;
+        @Config.RequiresMcRestart
         @Config.Comment({ "If true, Embers will register items, blocks, and recipes providing support for other mods' bronze." })
         public boolean enableBronze = true;
+        @Config.RequiresMcRestart
         @Config.Comment({ "If true, Embers will register items, blocks, and recipes providing support for other mods' electrum." })
         public boolean enableElectrum = true;
 
