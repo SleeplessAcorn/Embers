@@ -12,6 +12,8 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import teamroots.embers.proxy.CommonProxy;
 import teamroots.embers.recipe.RecipeRegistry;
 import teamroots.embers.registry.RegistrarEmbersItems;
@@ -22,6 +24,7 @@ public class Embers {
     public static final String MODNAME = "Embers";
     public static final String VERSION = "@VERSION@";
     public static final String DEPENDENCIES = "";
+    public static final Logger LOGGER = LogManager.getLogger(MODNAME);
 
     @SidedProxy(clientSide = "teamroots.embers.proxy.ClientProxy", serverSide = "teamroots.embers.proxy.ServerProxy")
     public static CommonProxy proxy;
