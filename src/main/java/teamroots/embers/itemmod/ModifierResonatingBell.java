@@ -7,8 +7,6 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
-import teamroots.embers.network.PacketHandler;
-import teamroots.embers.network.message.MessageRemovePlayerEmber;
 import teamroots.embers.particle.ParticleUtil;
 import teamroots.embers.registry.RegistrarEmbersItems;
 import teamroots.embers.util.EmberInventoryUtil;
@@ -63,7 +61,7 @@ public class ModifierResonatingBell extends ModifierBase {
                         }
                     }
                 }
-                PacketHandler.INSTANCE.sendToServer(new MessageRemovePlayerEmber(event.getEntityPlayer().getUniqueID(), cost));
+                EmberInventoryUtil.removeEmber(event.getEntityPlayer(), cost);
             }
         }
     }

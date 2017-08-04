@@ -1,4 +1,4 @@
-package teamroots.embers.network.message;
+package teamroots.embers.network.message.client;
 
 import io.netty.buffer.ByteBuf;
 import net.minecraft.client.Minecraft;
@@ -12,15 +12,15 @@ import teamroots.embers.particle.ParticleUtil;
 
 import java.util.Random;
 
-public class MessageEmberSphereFX implements IMessage {
+public class MessageEmberSparkleFX implements IMessage {
     public static Random random = new Random();
     double posX = 0, posY = 0, posZ = 0;
 
-    public MessageEmberSphereFX() {
+    public MessageEmberSparkleFX() {
         super();
     }
 
-    public MessageEmberSphereFX(double x, double y, double z) {
+    public MessageEmberSparkleFX(double x, double y, double z) {
         super();
         this.posX = x;
         this.posY = y;
@@ -41,16 +41,16 @@ public class MessageEmberSphereFX implements IMessage {
         buf.writeDouble(posZ);
     }
 
-    public static class MessageHolder implements IMessageHandler<MessageEmberSphereFX, IMessage> {
+    public static class MessageHolder implements IMessageHandler<MessageEmberSparkleFX, IMessage> {
         @SideOnly(Side.CLIENT)
         @Override
-        public IMessage onMessage(final MessageEmberSphereFX message, final MessageContext ctx) {
+        public IMessage onMessage(final MessageEmberSparkleFX message, final MessageContext ctx) {
             World world = Minecraft.getMinecraft().world;
-            if (world.isRemote) {
-                for (double i = 0; i < 24; i++) {
-                    ParticleUtil.spawnParticleGlow(world, (float) message.posX, (float) message.posY, (float) message.posZ, 0.0125f * (random.nextFloat() - 0.5f), 0.0125f * (random.nextFloat() - 0.5f), 0.0125f * (random.nextFloat() - 0.5f), 255, 64, 16, 3.0f + random.nextFloat(), 36 + random.nextInt(24));
+            Minecraft.getMinecraft().addScheduledTask(() -> {
+                for (double i = 0; i < 18; i++) {
+                    ParticleUtil.spawnParticleStar(world, (float) message.posX, (float) message.posY, (float) message.posZ, 0.0125f * (random.nextFloat() - 0.5f), 0.0125f * (random.nextFloat() - 0.5f), 0.0125f * (random.nextFloat() - 0.5f), 255, 64, 16, 3.5f + 0.5f * random.nextFloat(), 40);
                 }
-            }
+            });
             return null;
         }
     }

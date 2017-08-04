@@ -6,7 +6,7 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import teamroots.embers.network.PacketHandler;
-import teamroots.embers.network.message.MessageFlameShieldFX;
+import teamroots.embers.network.message.client.MessageFlameShieldFX;
 import teamroots.embers.registry.RegistrarEmbers;
 import teamroots.embers.registry.RegistrarEmbersItems;
 import teamroots.embers.util.EmberInventoryUtil;

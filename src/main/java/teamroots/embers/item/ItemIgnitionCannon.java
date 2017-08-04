@@ -15,7 +15,7 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import teamroots.embers.network.PacketHandler;
-import teamroots.embers.network.message.MessageCannonBeamFX;
+import teamroots.embers.network.message.client.MessageCannonBeamFX;
 import teamroots.embers.util.EmberInventoryUtil;
 
 import java.util.ArrayList;
@@ -43,7 +43,7 @@ public class ItemIgnitionCannon extends ItemBase {
         double dZ = targZ - posZ;
         boolean doContinue = true;
         if (!world.isRemote) {
-            PacketHandler.INSTANCE.sendToAll(new MessageCannonBeamFX(entity.getUniqueID(), posX, posY, posZ, dX, dY, dZ));
+            PacketHandler.INSTANCE.sendToAll(new MessageCannonBeamFX(entity.getEntityId(), posX, posY, posZ, dX, dY, dZ));
         }
         for (double i = 0; i < 384.0 && doContinue; i++) {
             for (int j = 0; j < 5; j++) {

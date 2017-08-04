@@ -1,33 +1,30 @@
-package teamroots.embers.network.message;
+package teamroots.embers.network.message.client;
 
 import io.netty.buffer.ByteBuf;
 import net.minecraft.client.Minecraft;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import teamroots.embers.particle.ParticleUtil;
 
 import java.util.Random;
-import java.util.UUID;
 
-public class MessageSetPlayerMotion implements IMessage {
+public class MessageAnvilSparksFX implements IMessage {
     public static Random random = new Random();
-    public UUID id = null;
     double posX = 0, posY = 0, posZ = 0;
 
-    public MessageSetPlayerMotion() {
+    public MessageAnvilSparksFX() {
         super();
     }
 
-    public MessageSetPlayerMotion(UUID id, double x, double y, double z) {
+    public MessageAnvilSparksFX(double x, double y, double z) {
         super();
         this.posX = x;
         this.posY = y;
         this.posZ = z;
-        this.id = id;
     }
 
     @Override
@@ -35,7 +32,6 @@ public class MessageSetPlayerMotion implements IMessage {
         posX = buf.readDouble();
         posY = buf.readDouble();
         posZ = buf.readDouble();
-        id = new UUID(buf.readLong(), buf.readLong());
     }
 
     @Override
@@ -43,21 +39,21 @@ public class MessageSetPlayerMotion implements IMessage {
         buf.writeDouble(posX);
         buf.writeDouble(posY);
         buf.writeDouble(posZ);
-        buf.writeLong(id.getMostSignificantBits());
-        buf.writeLong(id.getLeastSignificantBits());
     }
 
-    public static class MessageHolder implements IMessageHandler<MessageSetPlayerMotion, IMessage> {
+    public static class MessageHolder implements IMessageHandler<MessageAnvilSparksFX, IMessage> {
         @SideOnly(Side.CLIENT)
         @Override
-        public IMessage onMessage(final MessageSetPlayerMotion message, final MessageContext ctx) {
-            World world = Minecraft.getMinecraft().world;
-            EntityPlayer p = world.getPlayerEntityByUUID(message.id);
-            if (p != null) {
-                p.motionX = message.posX;
-                p.motionY = message.posY;
-                p.motionZ = message.posZ;
-            }
+        public IMessage onMessage(final MessageAnvilSparksFX message, final MessageContext ctx) {
+            Minecraft.getMinecraft().addScheduledTask(() -> {
+                World world = Minecraft.getMinecraft().world;
+
+                for (float a = 0; a < 1.0f; a += random.nextFloat() * 4.0f) {
+                    if (a < random.nextFloat() * 4.0f) {
+                        ParticleUtil.spawnParticleSpark(world, (float) message.posX, (float) message.posY, (float) message.posZ, 0.125f * (random.nextFloat() - 0.5f), 0.0625f * (random.nextFloat()), 0.125f * (random.nextFloat() - 0.5f), 255, 64, 16, random.nextFloat() * 0.75f + 0.45f, 80);
+                    }
+                }
+            });
             return null;
         }
     }

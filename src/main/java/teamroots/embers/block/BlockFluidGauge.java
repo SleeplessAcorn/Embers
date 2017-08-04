@@ -17,7 +17,7 @@ import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
 import net.minecraftforge.fluids.capability.IFluidHandler;
 import net.minecraftforge.fluids.capability.IFluidTankProperties;
 import teamroots.embers.network.PacketHandler;
-import teamroots.embers.network.message.MessageTEUpdateRequest;
+import teamroots.embers.network.message.server.MessageTEUpdateRequest;
 import teamroots.embers.util.Misc;
 
 import java.util.ArrayList;

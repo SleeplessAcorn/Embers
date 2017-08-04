@@ -1,7 +1,8 @@
-package teamroots.embers.network.message;
+package teamroots.embers.network.message.client;
 
 import io.netty.buffer.ByteBuf;
 import net.minecraft.client.Minecraft;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
@@ -12,43 +13,44 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import teamroots.embers.particle.ParticleUtil;
 
 import java.util.Random;
-import java.util.UUID;
 
 public class MessagePlayerJetFX implements IMessage {
     public static Random random = new Random();
-    public UUID id = null;
+    public int id = -1;
 
     public MessagePlayerJetFX() {
         super();
     }
 
-    public MessagePlayerJetFX(UUID id) {
-        super();
+    public MessagePlayerJetFX(int id) {
         this.id = id;
     }
 
     @Override
     public void fromBytes(ByteBuf buf) {
-        id = new UUID(buf.readLong(), buf.readLong());
+        id = buf.readInt();
     }
 
     @Override
     public void toBytes(ByteBuf buf) {
-        buf.writeLong(id.getMostSignificantBits());
-        buf.writeLong(id.getLeastSignificantBits());
+        buf.writeInt(id);
     }
 
     public static class MessageHolder implements IMessageHandler<MessagePlayerJetFX, IMessage> {
         @SideOnly(Side.CLIENT)
         @Override
         public IMessage onMessage(final MessagePlayerJetFX message, final MessageContext ctx) {
-            World world = Minecraft.getMinecraft().world;
-            EntityPlayer p = world.getPlayerEntityByUUID(message.id);
-            if (p != null) {
+            Minecraft.getMinecraft().addScheduledTask(() -> {
+                World world = Minecraft.getMinecraft().world;
+                Entity entity = world.getEntityByID(message.id);
+                if (!(entity instanceof EntityPlayer))
+                    return;
+
+                EntityPlayer player = (EntityPlayer) entity;
                 for (int i = 0; i < 40; i++) {
-                    ParticleUtil.spawnParticleSmoke(world, (float) p.posX - (float) p.motionX - (float) p.getLookVec().x * 0.5f, (float) p.posY + p.height / 4.0f, (float) p.posZ - (float) p.motionZ - (float) p.getLookVec().z * 0.5f, -(float) p.motionX + 0.25f * (random.nextFloat() - 0.5f), -(float) p.motionY + 0.25f * (random.nextFloat() - 0.5f), -(float) p.motionZ + 0.25f * (random.nextFloat() - 0.5f), 80, 80, 80, 0.25f + 0.25f * random.nextFloat(), 4.0f + random.nextFloat() * 20.0f, 80);
+                    ParticleUtil.spawnParticleSmoke(world, (float) player.posX - (float) player.motionX - (float) player.getLookVec().x * 0.5f, (float) player.posY + player.height / 4.0f, (float) player.posZ - (float) player.motionZ - (float) player.getLookVec().z * 0.5f, -(float) player.motionX + 0.25f * (random.nextFloat() - 0.5f), -(float) player.motionY + 0.25f * (random.nextFloat() - 0.5f), -(float) player.motionZ + 0.25f * (random.nextFloat() - 0.5f), 80, 80, 80, 0.25f + 0.25f * random.nextFloat(), 4.0f + random.nextFloat() * 20.0f, 80);
                 }
-            }
+            });
             return null;
         }
     }

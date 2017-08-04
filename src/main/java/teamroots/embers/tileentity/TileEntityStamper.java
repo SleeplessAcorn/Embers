@@ -21,7 +21,7 @@ import teamroots.embers.EventManager;
 import teamroots.embers.block.BlockStamper;
 import teamroots.embers.item.EnumStampType;
 import teamroots.embers.network.PacketHandler;
-import teamroots.embers.network.message.MessageStamperFX;
+import teamroots.embers.network.message.client.MessageStamperFX;
 import teamroots.embers.power.DefaultEmberCapability;
 import teamroots.embers.power.EmberCapabilityProvider;
 import teamroots.embers.power.IEmberCapability;

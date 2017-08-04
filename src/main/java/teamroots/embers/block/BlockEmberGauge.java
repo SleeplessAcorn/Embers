@@ -15,7 +15,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import teamroots.embers.network.PacketHandler;
-import teamroots.embers.network.message.MessageTEUpdateRequest;
+import teamroots.embers.network.message.server.MessageTEUpdateRequest;
 import teamroots.embers.power.EmberCapabilityProvider;
 import teamroots.embers.power.IEmberCapability;
 import teamroots.embers.util.Misc;

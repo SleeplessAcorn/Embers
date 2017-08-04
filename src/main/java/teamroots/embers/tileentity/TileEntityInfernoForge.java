@@ -18,7 +18,7 @@ import net.minecraftforge.common.capabilities.Capability;
 import teamroots.embers.EventManager;
 import teamroots.embers.block.BlockInfernoForge;
 import teamroots.embers.network.PacketHandler;
-import teamroots.embers.network.message.MessageEmberActivationFX;
+import teamroots.embers.network.message.client.MessageEmberActivationFX;
 import teamroots.embers.particle.ParticleUtil;
 import teamroots.embers.power.DefaultEmberCapability;
 import teamroots.embers.power.EmberCapabilityProvider;

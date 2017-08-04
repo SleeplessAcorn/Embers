@@ -17,7 +17,7 @@ import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 import teamroots.embers.EventManager;
 import teamroots.embers.network.PacketHandler;
-import teamroots.embers.network.message.MessageEmberActivationFX;
+import teamroots.embers.network.message.client.MessageEmberActivationFX;
 import teamroots.embers.power.DefaultEmberCapability;
 import teamroots.embers.power.EmberCapabilityProvider;
 import teamroots.embers.power.IEmberCapability;

@@ -3,7 +3,7 @@ package teamroots.embers.particle;
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.World;
 import teamroots.embers.Embers;
-import teamroots.embers.network.message.MessageParticle;
+import teamroots.embers.network.message.client.MessageParticle;
 import teamroots.embers.proxy.ClientProxy;
 
 import java.util.Random;

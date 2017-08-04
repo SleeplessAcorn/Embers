@@ -6,7 +6,7 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import teamroots.embers.network.PacketHandler;
-import teamroots.embers.network.message.MessagePlayerJetFX;
+import teamroots.embers.network.message.client.MessagePlayerJetFX;
 import teamroots.embers.registry.RegistrarEmbersItems;
 import teamroots.embers.util.EmberInventoryUtil;
 import teamroots.embers.util.ItemModUtil;
@@ -47,7 +47,7 @@ public class ModifierCinderJet extends ModifierBase {
                         event.getEntityLiving().motionY += 0.4;
                         event.getEntityLiving().motionZ += 2.0 * event.getEntityLiving().getLookVec().z * dashStrength;
                         if (!event.getEntity().getEntityWorld().isRemote) {
-                            PacketHandler.INSTANCE.sendToAll(new MessagePlayerJetFX(event.getEntity().getUniqueID()));
+                            PacketHandler.INSTANCE.sendToAll(new MessagePlayerJetFX(event.getEntity().getEntityId()));
                         }
                     }
                 }

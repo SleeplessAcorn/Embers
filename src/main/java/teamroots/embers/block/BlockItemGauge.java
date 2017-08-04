@@ -8,7 +8,6 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.AxisAlignedBB;
@@ -18,7 +17,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 import teamroots.embers.network.PacketHandler;
-import teamroots.embers.network.message.MessageTEUpdateRequest;
+import teamroots.embers.network.message.server.MessageTEUpdateRequest;
 import teamroots.embers.util.Misc;
 
 import java.util.ArrayList;

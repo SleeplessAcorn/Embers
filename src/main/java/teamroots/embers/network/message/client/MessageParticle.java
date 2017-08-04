@@ -1,6 +1,7 @@
-package teamroots.embers.network.message;
+package teamroots.embers.network.message.client;
 
 import io.netty.buffer.ByteBuf;
+import net.minecraft.client.Minecraft;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.network.ByteBufUtils;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
@@ -61,7 +62,7 @@ public class MessageParticle implements IMessage {
         @SideOnly(Side.CLIENT)
         @Override
         public IMessage onMessage(final MessageParticle message, final MessageContext ctx) {
-            ParticleUtil.spawnParticlesFromPacket(message, FMLCommonHandler.instance().getMinecraftServerInstance().getEntityWorld());
+            Minecraft.getMinecraft().addScheduledTask(() -> ParticleUtil.spawnParticlesFromPacket(message, FMLCommonHandler.instance().getMinecraftServerInstance().getEntityWorld()));
             return null;
         }
     }

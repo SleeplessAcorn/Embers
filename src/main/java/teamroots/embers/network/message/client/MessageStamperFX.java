@@ -1,4 +1,4 @@
-package teamroots.embers.network.message;
+package teamroots.embers.network.message.client;
 
 import io.netty.buffer.ByteBuf;
 import net.minecraft.client.Minecraft;
@@ -12,15 +12,15 @@ import teamroots.embers.particle.ParticleUtil;
 
 import java.util.Random;
 
-public class MessageAnvilSparksFX implements IMessage {
+public class MessageStamperFX implements IMessage {
     public static Random random = new Random();
     double posX = 0, posY = 0, posZ = 0;
 
-    public MessageAnvilSparksFX() {
+    public MessageStamperFX() {
         super();
     }
 
-    public MessageAnvilSparksFX(double x, double y, double z) {
+    public MessageStamperFX(double x, double y, double z) {
         super();
         this.posX = x;
         this.posY = y;
@@ -41,16 +41,21 @@ public class MessageAnvilSparksFX implements IMessage {
         buf.writeDouble(posZ);
     }
 
-    public static class MessageHolder implements IMessageHandler<MessageAnvilSparksFX, IMessage> {
+    public static class MessageHolder implements IMessageHandler<MessageStamperFX, IMessage> {
         @SideOnly(Side.CLIENT)
         @Override
-        public IMessage onMessage(final MessageAnvilSparksFX message, final MessageContext ctx) {
-            World world = Minecraft.getMinecraft().world;
-            for (float a = 0; a < 1.0f; a += random.nextFloat() * 4.0f) {
-                if (a < random.nextFloat() * 4.0f) {
+        public IMessage onMessage(final MessageStamperFX message, final MessageContext ctx) {
+            Minecraft.getMinecraft().addScheduledTask(() -> {
+                World world = Minecraft.getMinecraft().world;
+                for (float a = 0; a < 360; a += random.nextFloat() * 40.0f) {
+                    float dx = 0.125f * (float) Math.sin(Math.toRadians(a));
+                    float dz = 0.125f * (float) Math.cos(Math.toRadians(a));
+                    ParticleUtil.spawnParticleSmoke(world, (float) message.posX + dx, (float) message.posY, (float) message.posZ + dz, dx * 0.125f, -0.015625f * (random.nextFloat()), dz * 0.125f, 128, 128, 128, 0.4f, random.nextFloat() * 4.0f + 4.0f, 40);
+                }
+                for (float a = 0; a < 1.0f; a += random.nextFloat() * 0.5f) {
                     ParticleUtil.spawnParticleSpark(world, (float) message.posX, (float) message.posY, (float) message.posZ, 0.125f * (random.nextFloat() - 0.5f), 0.0625f * (random.nextFloat()), 0.125f * (random.nextFloat() - 0.5f), 255, 64, 16, random.nextFloat() * 0.75f + 0.45f, 80);
                 }
-            }
+            });
             return null;
         }
     }

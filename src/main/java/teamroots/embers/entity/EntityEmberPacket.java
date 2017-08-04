@@ -8,7 +8,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import teamroots.embers.network.PacketHandler;
-import teamroots.embers.network.message.MessageEmberSparkleFX;
+import teamroots.embers.network.message.client.MessageEmberSparkleFX;
 import teamroots.embers.particle.ParticleUtil;
 import teamroots.embers.power.EmberCapabilityProvider;
 import teamroots.embers.power.IEmberPacketReceiver;

@@ -13,7 +13,7 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import teamroots.embers.network.PacketHandler;
-import teamroots.embers.network.message.MessageEmberSizedBurstFX;
+import teamroots.embers.network.message.client.MessageEmberSizedBurstFX;
 import teamroots.embers.particle.ParticleUtil;
 import teamroots.embers.registry.RegistrarEmbers;
 

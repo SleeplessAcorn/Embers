@@ -1,4 +1,4 @@
-package teamroots.embers.network.message;
+package teamroots.embers.network.message.server;
 
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayer;
@@ -10,6 +10,7 @@ import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 
 import java.util.UUID;
 
+// TODO - Nuke this from orbit
 public class MessageTEUpdateRequest implements IMessage {
     public long pos = 0;
     UUID id = null;

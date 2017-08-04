@@ -18,7 +18,7 @@ import net.minecraftforge.common.capabilities.Capability;
 import teamroots.embers.EventManager;
 import teamroots.embers.block.BlockBeamCannon;
 import teamroots.embers.network.PacketHandler;
-import teamroots.embers.network.message.MessageBeamCannonFX;
+import teamroots.embers.network.message.client.MessageBeamCannonFX;
 import teamroots.embers.power.DefaultEmberCapability;
 import teamroots.embers.power.EmberCapabilityProvider;
 import teamroots.embers.power.IEmberCapability;

@@ -1,4 +1,4 @@
-package teamroots.embers.network.message;
+package teamroots.embers.network.message.client;
 
 import io.netty.buffer.ByteBuf;
 import net.minecraft.client.Minecraft;
@@ -45,10 +45,12 @@ public class MessageTyrfingBurstFX implements IMessage {
         @SideOnly(Side.CLIENT)
         @Override
         public IMessage onMessage(final MessageTyrfingBurstFX message, final MessageContext ctx) {
-            World world = Minecraft.getMinecraft().world;
-            for (int k = 0; k < 80; k++) {
-                ParticleUtil.spawnParticleTyrfing(world, (float) message.posX, (float) message.posY, (float) message.posZ, 0.125f * (random.nextFloat() - 0.5f), 0.125f * (random.nextFloat() - 0.5f), 0.125f * (random.nextFloat() - 0.5f), 4.0f, 24);
-            }
+            Minecraft.getMinecraft().addScheduledTask(() -> {
+                World world = Minecraft.getMinecraft().world;
+                for (int k = 0; k < 80; k++) {
+                    ParticleUtil.spawnParticleTyrfing(world, (float) message.posX, (float) message.posY, (float) message.posZ, 0.125f * (random.nextFloat() - 0.5f), 0.125f * (random.nextFloat() - 0.5f), 0.125f * (random.nextFloat() - 0.5f), 4.0f, 24);
+                }
+            });
             return null;
         }
     }
